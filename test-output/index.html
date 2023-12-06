@@ -24,7 +24,7 @@
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -38,7 +38,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" panel-name="suite-HIPI" class="navigator-link">
-              <span class="suite-name border-passed">HIPI</span>
+              <span class="suite-name border-failed">HIPI</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -91,21 +91,21 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">1 method,   1 passed</span>
+                    <span class="method-stats">1 method, 1 failed,   </span>
                   </li>
                   <li>
-                    <span class="method-list-title passed">Passed methods</span>
-                    <span class="show-or-hide-methods passed">
-                      <a href="#" panel-name="suite-HIPI" class="hide-methods passed suite-HIPI"> (hide)</a> <!-- hide-methods passed suite-HIPI -->
-                      <a href="#" panel-name="suite-HIPI" class="show-methods passed suite-HIPI"> (show)</a> <!-- show-methods passed suite-HIPI -->
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-HIPI" class="hide-methods failed suite-HIPI"> (hide)</a> <!-- hide-methods failed suite-HIPI -->
+                      <a href="#" panel-name="suite-HIPI" class="show-methods failed suite-HIPI"> (show)</a> <!-- show-methods failed suite-HIPI -->
                     </span>
-                    <div class="method-list-content passed suite-HIPI">
+                    <div class="method-list-content failed suite-HIPI">
                       <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-HIPI" title="com.zee5.Android_HipiScripts.AndroidHiPiNeoP1" class="method navigator-link" hash-for-method="eCommerce_HipiProductP1(Guest)">eCommerce_HipiProductP1(Guest)</a> <!-- method navigator-link -->
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-HIPI" title="com.zee5.Android_HipiScripts.AndroidHiPiNeoP0" class="method navigator-link" hash-for-method="CreatorModuleNew(NonSubscribedUser)">CreatorModuleNew(NonSubscribedUser)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
-                    </div> <!-- method-list-content passed suite-HIPI -->
+                    </div> <!-- method-list-content failed suite-HIPI -->
                   </li>
                 </ul>
               </div> <!-- suite-section-content -->
@@ -117,22 +117,33 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-HIPI" class="panel HIPI">
-          <div class="suite-HIPI-class-passed">
+          <div class="suite-HIPI-class-failed">
             <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
-              <span class="class-name">com.zee5.Android_HipiScripts.AndroidHiPiNeoP1</span>
+              <img src="failed.png"/>
+              <span class="class-name">com.zee5.Android_HipiScripts.AndroidHiPiNeoP0</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="eCommerce_HipiProductP1(Guest)">
-                  </a> <!-- eCommerce_HipiProductP1(Guest) -->
-                  <span class="method-name">eCommerce_HipiProductP1</span>
-                  <span class="parameters">(Guest)</span>
+                  <a name="CreatorModuleNew(NonSubscribedUser)">
+                  </a> <!-- CreatorModuleNew(NonSubscribedUser) -->
+                  <span class="method-name">CreatorModuleNew</span>
+                  <span class="parameters">(NonSubscribedUser)</span>
+                  <div class="stack-trace">java.lang.StringIndexOutOfBoundsException: begin 25, end 27, length 0
+	at java.base/java.lang.String.checkBoundsBeginEnd(String.java:4604)
+	at java.base/java.lang.String.substring(String.java:2707)
+	at com.business.zee.Zee5ApplicasterHipiNeoBusinessLogic.verifyVideoDurationSetCompleteRecording_T2506(Zee5ApplicasterHipiNeoBusinessLogic.java:54424)
+	at com.zee5.Android_HipiScripts.AndroidHiPiNeoP0.CreatorModuleNew(AndroidHiPiNeoP0.java:843)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+... Removed 16 stack frames
+</div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-HIPI-class-passed -->
+          </div> <!-- suite-HIPI-class-failed -->
         </div> <!-- panel HIPI -->
         <div panel-name="test-xml-HIPI" class="panel">
           <div class="main-panel-header rounded-window-top">
@@ -223,7 +234,7 @@
   &lt;parameter name=&quot;runMode&quot; value=&quot;Suites&quot;/&gt;
   &lt;parameter name=&quot;InvalidEmailId&quot; value=&quot;abcdlmnxzf&quot;/&gt;
   &lt;parameter name=&quot;InvalidePassword&quot; value=&quot;123678&quot;/&gt;
-  &lt;parameter name=&quot;userType&quot; value=&quot;Guest&quot;/&gt;
+  &lt;parameter name=&quot;userType&quot; value=&quot;NonSubscribedUser&quot;/&gt;
   &lt;parameter name=&quot;LastName&quot; value=&quot;Kartheek&quot;/&gt;
   &lt;parameter name=&quot;SubscribedPassword&quot; value=&quot;&quot;/&gt;
   &lt;parameter name=&quot;SelectYear2020&quot; value=&quot;2020&quot;/&gt;
@@ -252,11 +263,11 @@
   &lt;/listeners&gt;
   &lt;test name=&quot;AndroidHiPiNeo&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;com.zee5.Android_HipiScripts.AndroidHiPiNeoP1&quot;&gt;
+      &lt;class name=&quot;com.zee5.Android_HipiScripts.AndroidHiPiNeoP0&quot;&gt;
         &lt;methods&gt;
-          &lt;include name=&quot;eCommerce_HipiProductP1&quot;/&gt;
+          &lt;include name=&quot;CreatorModuleNew&quot;/&gt;
         &lt;/methods&gt;
-      &lt;/class&gt; &lt;!-- com.zee5.Android_HipiScripts.AndroidHiPiNeoP1 --&gt;
+      &lt;/class&gt; &lt;!-- com.zee5.Android_HipiScripts.AndroidHiPiNeoP0 --&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- AndroidHiPiNeo --&gt;
 &lt;/suite&gt; &lt;!-- HIPI --&gt;
@@ -298,14 +309,14 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'eCommerce_HipiProductP1')
-data.setCell(0, 2, 'com.zee5.Android_HipiScripts.AndroidHiPiNeoP1')
-data.setCell(0, 3, 877730);
+data.setCell(0, 1, 'CreatorModuleNew')
+data.setCell(0, 2, 'com.zee5.Android_HipiScripts.AndroidHiPiNeoP0')
+data.setCell(0, 3, 134241);
 window.suiteTableData['HIPI']= { tableData: data, tableDiv: 'times-div-HIPI'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 14 minutes</span>
+              <span class="suite-total-time">Total running time: 2 minutes</span>
               <div id="times-div-HIPI">
               </div> <!-- times-div-HIPI -->
             </div> <!-- times-div -->
@@ -320,51 +331,55 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-HIPI" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">20 ignored methods</span>
+            <span class="header-content">22 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="ignored-class-div">
-              <span class="ignored-class-name">com.zee5.Android_HipiScripts.AndroidHiPiNeoP1</span>
+              <span class="ignored-class-name">com.zee5.Android_HipiScripts.AndroidHiPiNeoP0</span>
               <div class="ignored-methods-div">
-                <span class="ignored-method-name">settingAndPrivacyP1TCs</span>
-                <br/>
-                <span class="ignored-method-name">newDiscoverP1TCs</span>
+                <span class="ignored-method-name">FeedModuleNewP0</span>
                 <br/>
                 <span class="ignored-method-name">ProfileModuleNew</span>
                 <br/>
-                <span class="ignored-method-name">NewTcs</span>
+                <span class="ignored-method-name">createrModuleP0TCs</span>
                 <br/>
-                <span class="ignored-method-name">loginSignUpP1New</span>
+                <span class="ignored-method-name">creatorModulePart2</span>
                 <br/>
-                <span class="ignored-method-name">feedP1TCs</span>
+                <span class="ignored-method-name">loginSignUpP0New</span>
+                <br/>
+                <span class="ignored-method-name">eCommerce_HipiProductP0</span>
+                <br/>
+                <span class="ignored-method-name">followingModuleNewP0</span>
+                <br/>
+                <span class="ignored-method-name">SettingsPrivacyModulePart2</span>
+                <br/>
+                <span class="ignored-method-name">DetailsModule</span>
+                <br/>
+                <span class="ignored-method-name">RewardsModuleP0</span>
+                <br/>
+                <span class="ignored-method-name">SoundDetailsModuleP0</span>
                 <br/>
                 <span class="ignored-method-name">DiscoverModuleNew</span>
                 <br/>
-                <span class="ignored-method-name">PostScreenNewP1TCs</span>
+                <span class="ignored-method-name">FeedModuleNew</span>
                 <br/>
-                <span class="ignored-method-name">SoundDetailsModuleP1</span>
+                <span class="ignored-method-name">FeedModuleP0TCs</span>
                 <br/>
-                <span class="ignored-method-name">rewardsModuleP1</span>
+                <span class="ignored-method-name">FeedPart3ModulesTcs</span>
                 <br/>
                 <span class="ignored-method-name">AllNewModules</span>
                 <br/>
-                <span class="ignored-method-name">feedNewP1TCs</span>
+                <span class="ignored-method-name">DiscoverModuleP0TCs</span>
                 <br/>
-                <span class="ignored-method-name">rewardsV2ModuleP1</span>
+                <span class="ignored-method-name">ProfileModuleP0TCs</span>
                 <br/>
-                <span class="ignored-method-name">profileP1TCs</span>
+                <span class="ignored-method-name">postModuleP0Tcs</span>
                 <br/>
-                <span class="ignored-method-name">HashTagRelatedTcs</span>
+                <span class="ignored-method-name">AllNewModules1</span>
                 <br/>
-                <span class="ignored-method-name">DiscoverP1TCs</span>
+                <span class="ignored-method-name">createrModuleNewP0TCs</span>
                 <br/>
-                <span class="ignored-method-name">CreatorModuleNew</span>
-                <br/>
-                <span class="ignored-method-name">createrP1TCs</span>
-                <br/>
-                <span class="ignored-method-name">NewTcs1</span>
-                <br/>
-                <span class="ignored-method-name">creatorNewP1TCs</span>
+                <span class="ignored-method-name">rewardsV2ModuleP0</span>
                 <br/>
               </div> <!-- ignored-methods-div -->
             </div> <!-- ignored-class-div -->
@@ -376,18 +391,20 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">com.zee5.Android_HipiScripts.AndroidHiPiNeoP1</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">com.zee5.Android_HipiScripts.AndroidHiPiNeoP0</div> <!-- chronological-class-name -->
               <div class="configuration-test before">
                 <span class="method-name">AppLaunch</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-test before -->
               <div class="test-method">
-                <span class="method-name">eCommerce_HipiProductP1(Guest)</span>
-                <span class="method-start">11460 ms</span>
+                <img src="failed.png">
+                </img>
+                <span class="method-name">CreatorModuleNew(NonSubscribedUser)</span>
+                <span class="method-start">10545 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-test after">
                 <span class="method-name">tearDownApp</span>
-                <span class="method-start">889196 ms</span>
+                <span class="method-start">146214 ms</span>
               </div> <!-- configuration-test after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

@@ -806,7 +806,7 @@ public class HipiCreateVideoPage {
 	//music screen header
 		public static By objMusicScreenHeader = By.xpath("//*[@resource-id='com.zee5.hipi:id/select_music_name']");
 		//Selected Music
-		public static By objSelectedMusic = By.xpath("//*[@resource-id='com.zee5.hipi:id/musicName']");
+		public static By objSelectedMusic = By.xpath("//*[@resource-id='com.zee5.hipi:id/select_music_op']");
 
 	//Music Screen pause Icon
 		public static By objMusicScreenPauseBtn = By.xpath("//*[@id='select_music_pause_btn']");

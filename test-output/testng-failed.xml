@@ -81,7 +81,7 @@
   <parameter name="runMode" value="Suites"/>
   <parameter name="InvalidEmailId" value="abcdlmnxzf"/>
   <parameter name="InvalidePassword" value="123678"/>
-  <parameter name="userType" value="Guest"/>
+  <parameter name="userType" value="NonSubscribedUser"/>
   <parameter name="LastName" value="Kartheek"/>
   <parameter name="SubscribedPassword" value=""/>
   <parameter name="SelectYear2020" value="2020"/>
@@ -110,11 +110,22 @@
   </listeners>
   <test name="AndroidHiPiNeo">
     <classes>
-      <class name="com.zee5.Android_HipiScripts.AndroidHiPiNeoP1">
+      <class name="com.zee5.Android_HipiScripts.AndroidHiPiNeoP0">
         <methods>
-          <include name="eCommerce_HipiProductP1"/>
+          <include name="CreatorModuleNew"/>
         </methods>
-      </class> <!-- com.zee5.Android_HipiScripts.AndroidHiPiNeoP1 -->
+      </class> <!-- com.zee5.Android_HipiScripts.AndroidHiPiNeoP0 -->
     </classes>
   </test> <!-- AndroidHiPiNeo -->
+  <test parallel="tests" name="AndroidHiPiNeo(failed)">
+    <classes>
+      <class name="com.zee5.Android_HipiScripts.AndroidHiPiNeoP0">
+        <methods>
+          <include name="CreatorModuleNew" invocation-numbers="0"/>
+          <include name="AppLaunch"/>
+          <include name="tearDownApp"/>
+        </methods>
+      </class> <!-- com.zee5.Android_HipiScripts.AndroidHiPiNeoP0 -->
+    </classes>
+  </test> <!-- AndroidHiPiNeo(failed) -->
 </suite> <!-- Failed suite [HIPI] -->
