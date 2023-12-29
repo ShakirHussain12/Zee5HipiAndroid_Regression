@@ -870,8 +870,11 @@ public class HipiCreateVideoPage {
 	// audio screen music time
 		public static By objMusicTime = By.xpath("//*[@id='select_music_time']");	
 		//Discard changes popup discard button
-		public static By objDiscardPopupDiscaedEdits = By.xpath("//*[@id='ok_btn']|//*[contains(@text,'Discard video')]");
+		public static By objDiscardPopupDiscaedEdits = By.xpath("//*[@id='ok_btn']|//*[contains(@text,'Discard')]");
 		
+		public static By objDiscardEditsBtn = By.xpath("//*[contains(@text,'DISCARD EDITS')]");
+		
+		public static By objDiscardVideoBtn = By.xpath("//*[contains(@text,'Discard video')]");
 		public static By objmusicvolumebar = By.xpath("//*[@id='mTextView']");
 		//Post Video SCreen Header
 		public static By objPostSCreenHeader = By.xpath("//*[@id='title']");
@@ -1248,7 +1251,57 @@ public class HipiCreateVideoPage {
 
 						public static By objNoCtaOnNeedFeedbackPopUp = By.xpath("//android.widget.TextView[contains(@resource-id,'com.zee5.hipi:id/negativeTv')]");
 
+						//Tag products option
+						public static By objTagProductsOption = By.xpath("//*[@resource-id='com.zee5.hipi:id/tvTagProductsName']");
+						
+						//Add products
+						public static By objAddProducts = By.xpath("//*[@resource-id='com.zee5.hipi:id/tvTagProducts']");
+						
+						//Add products page
+						public static By objAddProductsHeader = By.xpath("//*[@resource-id='com.zee5.hipi:id/tvAddUpdate']");
+						
+						//Enter link of product
+						public static By objEnterLinkProduct = By.xpath("//*[@resource-id='com.zee5.hipi:id/tvEnterLink']");
+						
+						//Product details auto fetch
+						public static By objAutoFetch = By.xpath("//*[@resource-id='com.zee5.hipi:id/tvProductLinkDesc']");
+						
+						//Product link input
+						public static By objProdLinkInput = By.xpath("//*[@resource-id='com.zee5.hipi:id/etLinkAddress']");
+						
+						//Product link example
+						public static By objProdLinkExampl = By.xpath("//*[@resource-id='com.zee5.hipi:id/tvProductLinkDetails']");
+						
+						//Supported websites
+						public static By objSupportedWebsitesLink = By.xpath("//*[@resource-id='com.zee5.hipi:id/tvSupportedWebsites']");
+						
+						//Submit CTA
+						public static By objSubmitCTA = By.xpath("//*[@resource-id='com.zee5.hipi:id/btnSubmit']");
+						
+						//Added product image
+						public static By objProdImg = By.xpath("//*[@resource-id='com.zee5.hipi:id/viewBgProductImage']");
+						
+						//Added to product site
+						public static By objProdSite = By.xpath("//*[@resource-id='com.zee5.hipi:id/tvSelectedProductWebSite']");
+						
+						//added prod description
+						public static By objProdDesc = By.xpath("//*[@resource-id='com.zee5.hipi:id/tvSelectedProductName']");
+						
+						//Add CTA
+						public static By objAddCTA = By.xpath("//*[@resource-id='com.zee5.hipi:id/btnAddProduct']");
+						
+						//Product website unsupported
+						public static By objProdUnsupportedTxt = By.xpath("//*[contains(@text,'not supported')]");
 
-
-
+						//Done cta
+						public static By objDoneCTA = By.xpath("//*[@resource-id='com.zee5.hipi:id/tvDone']");
+						
+						//Tagged product review msg
+						public static By objReviewMsg = By.xpath("//*[@resource-id='com.zee5.hipi:id/tvProductTagMsg']");
+						
+						//Delete product
+						public static By objDeleteProd = By.xpath("//*[@resource-id='com.zee5.hipi:id/ivDelete']");
+						
+						//Tagged products sub header
+						public static By objTaggedProdHeader = By.xpath("//*[@resource-id='com.zee5.hipi:id/tvTaggedProducts']");
 }

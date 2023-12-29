@@ -614,4 +614,30 @@ public static By objClaimNowBtn = By.xpath("//*[@resource-id='com.zee5.hipi:id/t
 public static By objRulesRegulationsHeader = By.xpath("//*[@resource-id='com.zee5.hipi:id/title' and @text='Rules and Regulations']");
 public static By objSignupHeader = By.xpath("//*[@resource-id='com.zee5.hipi:id/title' and @text='Sign up and earn rewards']");
 
+public static By objCheckHistory = By.xpath("//*[@resource-id='com.zee5.hipi:id/checkBalance']");
+public static By objRedeemCoinsBtn = By.xpath("//*[@resource-id='com.zee5.hipi:id/redeemCoinsButton']");
+
+public static By objSelectPaymentMethodHeader = By.xpath("//*[@resource-id='com.zee5.hipi:id/rewards_text' and @text='Select payment method']");
+public static By objUPIMethod = By.xpath("//*[@resource-id='com.zee5.hipi:id/tvTitle' and @text='UPI']");
+public static By objAddUPIIdIcon = By.xpath("//*[@resource-id='com.zee5.hipi:id/tvAdd' and @text='Add new UPI ID']");
+public static By objAddBank = By.xpath("//*[@resource-id='com.zee5.hipi:id/tvAdd' and @text='Add new bank details']");
+
+public static By objAddBankAccount = By.xpath("//*[@resource-id='com.zee5.hipi:id/etAccountNo']");
+public static By objReEnterBankAccount = By.xpath("//*[@resource-id='com.zee5.hipi:id/etReAccountNo']");
+public static By objIfscCode = By.xpath("//*[@resource-id='com.zee5.hipi:id/etIFSC']");
+public static By objSaveAndProceed = By.xpath("//*[@resource-id='com.zee5.hipi:id/btnSaveProceed' and @clickable='true']");
+
+public static By objAddNewUPIId = By.xpath("//*[@resource-id='com.zee5.hipi:id/etUpiId']");
+public static By objAddedBankAcc = By.xpath("(((//*[@resource-id='com.zee5.hipi:id/tvAdd' and @text='Add new bank details']/parent::*/preceding-sibling::*)[last()]/child::*)[last()]/child::*)[2]/child::*");
+
+public static By objBankAccError = By.xpath("//*[@resource-id='com.zee5.hipi:id/tvAccountNoError']");
+public static By objReBankAccError = By.xpath("//*[@resource-id='com.zee5.hipi:id/tvReAccountNoError']");
+public static By objIfscError = By.xpath("//*[@resource-id='com.zee5.hipi:id/tvIFSCError']");
+
+public static By objBankName = By.xpath("//*[@resource-id='com.zee5.hipi:id/bankTextView']");
+public static By objBranchName = By.xpath("//*[@resource-id='com.zee5.hipi:id/branchTextView']");
+
+public static By objSaveBtnBeforeValid = By.xpath("//*[@resource-id='com.zee5.hipi:id/btnSaveProceed' and @clickable='false']");
+
+public static By objUpiError = By.xpath("//*[@resource-id='com.zee5.hipi:id/tvUpiIdError']");
 }

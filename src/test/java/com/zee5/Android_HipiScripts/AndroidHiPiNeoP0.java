@@ -997,12 +997,24 @@ public class AndroidHiPiNeoP0 {
 		Zee5ApplicasterHipiNeoBusinessLogic.relaunch(true);	
 		Zee5ApplicasterHipiNeoBusinessLogic.LoginAndNivigateToHipi(userType);
 		
-		Zee5ApplicasterHipiNeoBusinessLogic.rewardsIcon_T1963(userType);
+		/*Zee5ApplicasterHipiNeoBusinessLogic.rewardsIcon_T1963(userType);
 		Zee5ApplicasterHipiNeoBusinessLogic.rewardsScreen_T1964(userType);
 		
-		Zee5ApplicasterHipiNeoBusinessLogic.claimNowHowToPlay_T1972(userType);
+		Zee5ApplicasterHipiNeoBusinessLogic.claimNowHowToPlay_T1972(userType);*/
+		//Zee5ApplicasterHipiNeoBusinessLogic.rewardsPayout_TC01(userType);
+		//Zee5ApplicasterHipiNeoBusinessLogic.rewardsPayout_TC02(userType);
 		
-		
+		//Zee5ApplicasterHipiNeoBusinessLogic.rewardsPayout_TC03(userType);
+//		Zee5ApplicasterHipiNeoBusinessLogic.rewardsPayout_TC04(userType);
+//		Zee5ApplicasterHipiNeoBusinessLogic.rewardsPayout_TC05(userType);
+//		Zee5ApplicasterHipiNeoBusinessLogic.rewardsPayout_TC06(userType);
+//		Zee5ApplicasterHipiNeoBusinessLogic.rewardsPayout_TC07(userType);
+//		Zee5ApplicasterHipiNeoBusinessLogic.rewardsPayout_TC08(userType);
+		//Zee5ApplicasterHipiNeoBusinessLogic.rewardsPayout_TC09(userType);
+		//Zee5ApplicasterHipiNeoBusinessLogic.rewardsPayout_TC10(userType);
+		//Zee5ApplicasterHipiNeoBusinessLogic.rewardsPayout_TC11(userType);
+		//Zee5ApplicasterHipiNeoBusinessLogic.performReportActionByTapping__T067(userType);
+		Zee5ApplicasterHipiNeoBusinessLogic.switchBetweenTabsWithInINTHISVIDEOPage__T284__T298(userType);
 		
 		
 	}
@@ -1144,6 +1156,21 @@ public class AndroidHiPiNeoP0 {
 		Zee5ApplicasterHipiNeoBusinessLogic.ecommerce_HipiProductDetailPage_TC71(userType);
 		
 		
+		
+	}
+	
+	@Test(priority=26)
+	@Parameters({"userType"})
+	public void productTaggingP0(String userType) throws Exception{
+		Zee5ApplicasterHipiNeoBusinessLogic.relaunch(true);	
+		Zee5ApplicasterHipiNeoBusinessLogic.LoginAndNivigateToHipi("Facebook");
+		
+		//Zee5ApplicasterHipiNeoBusinessLogic.productTagging_TC01(userType);
+		//Zee5ApplicasterHipiNeoBusinessLogic.productTagging_TC02(userType);
+		//Zee5ApplicasterHipiNeoBusinessLogic.productTagging_TC07(userType);
+		//Zee5ApplicasterHipiNeoBusinessLogic.productTagging_TC08(userType);
+		//Zee5ApplicasterHipiNeoBusinessLogic.productTagging_TC09(userType);
+		Zee5ApplicasterHipiNeoBusinessLogic.productTagging_TC10(userType);
 		
 	}
 	@AfterTest						

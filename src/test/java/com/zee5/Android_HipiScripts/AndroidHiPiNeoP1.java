@@ -87,7 +87,7 @@ public class AndroidHiPiNeoP1 {
 		Zee5ApplicasterHipiNeoBusinessLogic.checkIfUserIsAbleToViewProfilePictureIfUserUploadedThePicture_T165(userType);
 		Zee5ApplicasterHipiNeoBusinessLogic.shopValidation__T184__T220(userType);
 		Zee5ApplicasterHipiNeoBusinessLogic.scrollsTheVideoForFewMins__T191__T227(userType);
-		
+		Zee5ApplicasterHipiNeoBusinessLogic.performReportActionByTapping__T067(userType);
 
 		//		Zee5ApplicasterHipiNeoBusinessLogic.viewerCreatorAbleToLikeExistingNewComment__T166(userType);//imp
 		//		Zee5ApplicasterHipiNeoBusinessLogic.verifyLikeCountofComment__T168(userType);//imp
@@ -95,7 +95,7 @@ public class AndroidHiPiNeoP1 {
 		//		Zee5ApplicasterHipiNeoBusinessLogic.performReportActionByTapping__T470(userType);----------Impediment
 		//		Zee5ApplicasterHipiNeoBusinessLogic.verifylikeCountOfComment__T517(userType);//imp
 		//		Zee5ApplicasterHipiNeoBusinessLogic.viewerCreatorIsAbleToLike__T515(userType);//imp		
-		//				Zee5ApplicasterHipiNeoBusinessLogic.performReportActionByTapping__T067(userType);//inactive
+					//	Zee5ApplicasterHipiNeoBusinessLogic.performReportActionByTapping__T067(userType);//inactive
 		
 //		Zee5ApplicasterHipiNeoBusinessLogic.redIndicatorShouldBeDisplayed__T202__T238(userType); Shop
 //		Zee5ApplicasterHipiNeoBusinessLogic.FeedScreen_T216_T252ShopPage(userType); Shop
@@ -958,6 +958,19 @@ public class AndroidHiPiNeoP1 {
 		Zee5ApplicasterHipiNeoBusinessLogic.ecommerce_HipiProductDetailPage_TC69(userType);
 		Zee5ApplicasterHipiNeoBusinessLogic.ecommerce_HipiProductDetailPage_TC70(userType);
 
+	}
+	
+	@Test(priority=24)
+	@Parameters({"userType"})
+	public void productTaggingP1(String userType) throws Exception{
+		Zee5ApplicasterHipiNeoBusinessLogic.relaunch(true);	
+		Zee5ApplicasterHipiNeoBusinessLogic.LoginAndNivigateToHipi("Facebook");
+		
+		
+		Zee5ApplicasterHipiNeoBusinessLogic.productTagging_TC03(userType);
+		Zee5ApplicasterHipiNeoBusinessLogic.productTagging_TC04(userType); // defect HIPI-9322
+		Zee5ApplicasterHipiNeoBusinessLogic.productTagging_TC05(userType);
+		Zee5ApplicasterHipiNeoBusinessLogic.productTagging_TC06(userType);
 	}
 	@AfterTest						
 	public void tearDownApp() {		

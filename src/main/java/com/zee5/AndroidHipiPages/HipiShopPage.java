@@ -20,7 +20,7 @@ public class HipiShopPage {
 	 //product website 
 	public static By objProductWebsitePage  = By.xpath("//*[@resource-id='com.zee5.hipi:id/titleUrl'] | //*[@resource-id='com.android.chrome:id/url_bar']");
 	//Arrow mark  below the product 
-	public static By objArrowMarkBelowTheProduct  = By.xpath("//*[@resource-id='com.zee5.hipi:id/imgAdd']");
+	public static By objArrowMarkBelowTheProduct  = By.xpath("//*[@resource-id='com.zee5.hipi:id/imgAdd'] | //*[@resource-id='com.zee5.hipi:id/tvBuyNow']");
 	//Expan Button
 	public static By objExpanButton = By.xpath("//*[@resource-id='com.zee5.hipi:id/show_details']");
 	// outfit tab

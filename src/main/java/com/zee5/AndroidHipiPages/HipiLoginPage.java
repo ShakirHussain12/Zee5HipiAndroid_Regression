@@ -321,7 +321,10 @@ public class HipiLoginPage {
 			//ZEE5 Logo
 			public static By objZEE5Logo=By.xpath("//*[@resource-id='com.google.android.gms:id/app_icon']");
 
-
+			//Continue as button on facebook page
+			
+			public static By objContinueAs = By.xpath("//*[contains(@text,'Continue as')]");
+			
 			//Chose An Account
 			public static By objChoseAnAccount=By.xpath("//*[@resource-id='com.google.android.gms:id/main_title']");
 			//To Continue To Hipi 

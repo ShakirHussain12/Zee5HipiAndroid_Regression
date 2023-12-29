@@ -14,6 +14,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.time.Instant;
@@ -632,6 +633,39 @@ public class Zee5ApplicasterHipiNeoBusinessLogic  extends Utilities{
 			}
 
 			break;
+		case "Facebook":
+			verifyElementPresentAndClick(AMDHomePage.objProfileIcon, "Profile Icon");
+			waitUntilElementDisplayed(HipiProfilePage.objUsePhoneOrEmail, 20);
+		  //Click on Facebook CTA
+			verifyElementPresentAndClick(HipiLoginPage.objContinuewithFacebookCTA, "Facebook CTA");
+//			
+			
+			/*if (verifyElementPresent(HipiLoginPage.objFacebookHeader, "Facebook Header")) {
+				logger.info("User is navigate to Facebook site in app browser of Hipi app");	
+				extent.extentLoggerPass("", "User is navigate to Facebook site in app browser of Hipi app");	
+			}else {
+				logger.info("User is not navigate to Facebook site in app browser of Hipi app");	
+				extent.extentLoggerFail("", "User is not navigate to Facebook site in app browser of Hipi app");
+			}
+			String FBusername = getParameterFromXML("Validfacebookemail");
+			String FBpassword = getParameterFromXML("Validfacebookpassword");
+			click(HipiLoginPage.objFacebookEmailTextFieldBrowser, "Email Text Field");
+			click(HipiLoginPage.objFacebookEmailTextFieldBrowser, "Email Text Field");
+			  type(HipiLoginPage.objFacebookEmailTextFieldBrowser,FBusername , "Email Field");
+				waitTime(3000);
+				hideKeyboard();
+				waitTime(3000);
+
+				click(HipiLoginPage.objFacebookPasswordTextFieldBrowser, "PassWord Field");
+				waitTime(3000);
+
+			    type(HipiLoginPage.objFacebookPasswordTextFieldBrowser, FBpassword, "PassWord Field");
+				hideKeyboard();
+				waitTime(4000);
+				click(HipiLoginPage.objFacebookLoginButtonBrowser, "Log In");*/
+			waitUntilElementDisplayed(HipiLoginPage.objContinueAs, 4);
+				click(HipiLoginPage.objContinueAs, "Contune Button");
+				waitUntilElementDisplayed(HipiHomePage.objHomeIcon, 4000);
 		}
 	}	
 
@@ -1914,7 +1948,7 @@ public class Zee5ApplicasterHipiNeoBusinessLogic  extends Utilities{
 			
 			verifyElementPresentAndClick(HipiShopPage.objcloseIconMiniPlayer, "Close Icon");
 
-			verifyElementPresent(HipiShopPage.objOutfitTab, "Outfit Tab");
+			if(verifyElementExist(HipiShopPage.objOutfitTab, "Outfit Tab")) {
 			if(verifyElementPresent(HipiShopPage.objProductImageThumbnail, "Product Image Thumbnail")) {
 				logger.info("Products images is displayed ");	
 				extent.extentLoggerPass("Shop >In app Browser", "Products images is displayed ");
@@ -1945,8 +1979,9 @@ public class Zee5ApplicasterHipiNeoBusinessLogic  extends Utilities{
 				}else {
 					logger.info("User is not able to see product panel on Shop page");	
 					extent.extentLoggerFail("Shop", "User is not able to see product panel on Shop page");
-				}
+				}}
 				PartialSwipe("DOWN", 1);
+				if(verifyElementExist(HipiShopPage.objAccessoriesTab, "Accessories Tab")) {
 			verifyElementPresentAndClick(HipiShopPage.objAccessoriesTab, "Accessories Tab");
 			if(verifyElementPresent(HipiShopPage.objProductImageThumbnail, "Product Image Thumbnail")) {
 				logger.info("Products images is displayed ");	
@@ -1978,9 +2013,10 @@ public class Zee5ApplicasterHipiNeoBusinessLogic  extends Utilities{
 				}else {
 					logger.info("User is not able to see product panel on Shop page");	
 					extent.extentLoggerFail("Shop", "User is not able to see product panel on Shop page");
-				}
+				}}
 				PartialSwipe("DOWN", 1);
-			verifyElementPresentAndClick(HipiShopPage.objBeautyTab, "Beauty Tab");
+				if(verifyElementExist(HipiShopPage.objBeautyTab, "Beauty Tab")) {
+					verifyElementPresentAndClick(HipiShopPage.objBeautyTab, "Beauty Tab");
 			PartialSwipe("UP", 1);
 			if(verifyElementPresent(HipiShopPage.objProductImageThumbnail, "Product Image Thumbnail")) {
 				logger.info("Products images is displayed ");	
@@ -2012,8 +2048,9 @@ public class Zee5ApplicasterHipiNeoBusinessLogic  extends Utilities{
 				}else {
 					logger.info("User is not able to see product panel on Shop page");	
 					extent.extentLoggerFail("Shop", "User is not able to see product panel on Shop page");
-				}
+				}}
 				PartialSwipe("DOWN", 1);
+				if(verifyElementExist(HipiShopPage.objHairTab, "Hair Tab")) {
 			verifyElementPresentAndClick(HipiShopPage.objHairTab, "Hair Tab");
 			Swipe("UP", 1);
 			if(verifyElementPresent(HipiShopPage.objProductImageThumbnail, "Product Image Thumbnail")) {
@@ -2046,7 +2083,7 @@ public class Zee5ApplicasterHipiNeoBusinessLogic  extends Utilities{
 				}else {
 					logger.info("User is not able to see product panel on Shop page");	
 					extent.extentLoggerFail("Shop", "User is not able to see product panel on Shop page");
-				}
+				}}
 			
 		}
 		
@@ -3878,7 +3915,7 @@ public class Zee5ApplicasterHipiNeoBusinessLogic  extends Utilities{
 //			if(checkeler)
 //			click(HipiHomePage.objShopButton, "Shop Button");
 
-			if (verifyElementExist(HipiShopPage.objOutfitTab, "Outfit Tab") && verifyElementExist(HipiShopPage.objAccessoriesTab, "Accessories Tab") && verifyElementExist(HipiShopPage.objBeautyTab, "Beauty Tab") &&  verifyElementExist(HipiShopPage.objHairTab, "Hair Tab")){
+			if (verifyElementExist(HipiShopPage.objOutfitTab, "Outfit Tab") || verifyElementExist(HipiShopPage.objAccessoriesTab, "Accessories Tab") || verifyElementExist(HipiShopPage.objBeautyTab, "Beauty Tab") ||  verifyElementExist(HipiShopPage.objHairTab, "Hair Tab")){
 	
 				logger.info("Outfit Tab,Accessories Tab,Beauty Tab and Hair Tab is displayed");	
 				extent.extentLoggerPass("Shop >In app Browser", "Outfit Tab,Accessories Tab,Beauty Tab and Hair Tab is displayed");
@@ -4419,6 +4456,7 @@ public class Zee5ApplicasterHipiNeoBusinessLogic  extends Utilities{
 			  String productDetails = getText(HipiShopPage.objProductDetailsPage);
 			  PartialSwipe("DOWN", 1);
 			 
+			  if(verifyElementExist(HipiShopPage.objAccessoriesTab, "Accessories Tab")) {
 			  click(HipiShopPage.objAccessoriesTab, "Accessories Tab");
 			  PartialSwipe("UP", 1);
 			  String productDetails1 = getText(HipiShopPage.objProductDetailsPage);
@@ -4429,8 +4467,9 @@ public class Zee5ApplicasterHipiNeoBusinessLogic  extends Utilities{
 				}else {
 					logger.info("User is not able to switch the accessories tab");	
 					extent.extentLoggerFail("Shop >In app Browser", "User is not able to switch the accessories tab");
-				}
+				}}
 			  PartialSwipe("DOWN", 1);
+			  if(verifyElementExist(HipiShopPage.objBeautyTab, "Beauty Tab")) {
 			  	click(HipiShopPage.objBeautyTab, "Beauty Tab");
 //			  	SwipeUntilFindElement(HipiShopPage.objArrowMarkBelowTheProduct, "UP");
 				PartialSwipe("UP", 1);
@@ -4442,8 +4481,9 @@ public class Zee5ApplicasterHipiNeoBusinessLogic  extends Utilities{
 					}else {
 						logger.info("User is not able to switch  the Beauty tab");	
 						extent.extentLoggerFail("Shop >In app Browser", "User is not able to switch the Beauty tab");
-					}
+					}}
 				  PartialSwipe("DOWN", 1);
+				  if(verifyElementExist(HipiShopPage.objHairTab, "Hair Tab")) {
 					click(HipiShopPage.objHairTab, "Hair Tab");
 //				  	SwipeUntilFindElement(HipiShopPage.objArrowMarkBelowTheProduct, "UP");
 					PartialSwipe("UP", 1);
@@ -4454,7 +4494,7 @@ public class Zee5ApplicasterHipiNeoBusinessLogic  extends Utilities{
 						}else {
 							logger.info("User is not able to switch  the Hair tab");	
 							extent.extentLoggerFail("Shop >In app Browser", "User is not able to switch the Hair tab");
-						} 
+						} }
 					 navigateToHomePage();
 		}
 	
@@ -10057,7 +10097,10 @@ public void RedirectToProfileScreenOnTappingBackButton_T1105(String userType) th
 		{
 			if(verifyElementDisplayed(HipiCreateVideoPage.objDiscardPopupDiscaedEdits))
 			{
-				click(HipiCreateVideoPage.objDiscardPopupDiscaedEdits,"Discard");
+				click(HipiCreateVideoPage.objDiscardEditsBtn,"Discard edits");
+				if(verifyElementDisplayed(HipiCreateVideoPage.objDiscardVideoBtn)) {
+					click(HipiCreateVideoPage.objDiscardVideoBtn,"Discard video");
+				}
 			waitTime(2000);
 			}else if(verifyElementExist(HipiHomePage.objForYou,"For you"))
 			{
@@ -66570,4 +66613,821 @@ public void removeProductFromCart() throws Exception{
 	click(HipiECommerce.objRemoveCTA,"Remove CTA");}
 	
 }
+public void rewardsPayout_TC01(String userType) throws Exception{
+	Boolean flag = false;
+	if(userType.equalsIgnoreCase("NonSubscribedUser"))
+	{
+		extent.HeaderChildNode("Verify the navigation upon tapping on the \"Redeem coins\" option displayed on the \"Coins\" screen.");
+		System.out.println("T01");
+		extent.extentLogger("Verify the navigation upon tapping on the \"Redeem coins\" option displayed on the \"Coins\" screen.", "T01");
+	
+		navigatToRewardsPayoutMethods();
+		
+		
+	if(waitUntilElementDisplayed(HipiProfilePage.objSelectPaymentMethodHeader,5))
+			{
+		logger.info("User should navigate to ‘Select payment method’ screen when I clicked on Redeem Coins button on ‘Coins’ screen");	
+		extent.extentLoggerPass("Rewards - Payout", "User should navigate to ‘Select payment method’ screen when I clicked on Redeem Coins button on ‘Coins’ screen");
+	}else {
+		logger.info("User should navigate to ‘Select payment method’ screen when I clicked on Redeem Coins button on ‘Coins’ screen");	
+		extent.extentLoggerFail("Rewards - Payout", "User should navigate to ‘Select payment method’ screen when I clicked on Redeem Coins button on ‘Coins’ screen");
+	
+	}}
+	navigateToHomePage();
+	}
+
+public void rewardsPayout_TC02(String userType) throws Exception{
+	Boolean flag = false;
+	if(userType.equalsIgnoreCase("NonSubscribedUser"))
+	{
+		extent.HeaderChildNode("Verify the UI of the \"Select payment method\" screen.");
+		System.out.println("T02");
+		extent.extentLogger("Verify the UI of the \"Select payment method\" screen.", "T02");
+	
+		navigatToRewardsPayoutMethods();
+		
+		
+	if(waitUntilElementDisplayed(HipiProfilePage.objSelectPaymentMethodHeader,5)
+			&& waitUntilElementDisplayed(HipiProfilePage.objUPIMethod,5)
+			&& waitUntilElementDisplayed(HipiProfilePage.objAddUPIIdIcon,5)
+			&& waitUntilElementDisplayed(HipiProfilePage.objAddBank,5))
+			{
+		logger.info("User should be able to see the following details.\r\n"
+				+ "\r\n"
+				+ "1. \"Select payment method\" heading at the top of the screen.\r\n"
+				+ "2. Left arrow mark.\r\n"
+				+ "3. \"Bank account\" header\r\n"
+				+ "a) If already bank details are added then, added bank account name with right arrow mark.\r\n"
+				+ "b) \"Add bank account\" link.\r\n"
+				+ "4. \"UPI\" header\r\n"
+				+ "a) Added UPI details if it is already added with right arrow mark.\r\n"
+				+ "b) \"Add new UPI\" link.\r\n"
+				+ "5. \"PayTM\" header\r\n"
+				+ "a) Added paytm number if already added with right arrow mark.\r\n"
+				+ "b) \"Add new PayTM\" link.");	
+		extent.extentLoggerPass("Rewards - Payout", "User should be able to see the following details.\r\n"
+				+ "\r\n"
+				+ "1. \"Select payment method\" heading at the top of the screen.\r\n"
+				+ "2. Left arrow mark.\r\n"
+				+ "3. \"Bank account\" header\r\n"
+				+ "a) If already bank details are added then, added bank account name with right arrow mark.\r\n"
+				+ "b) \"Add bank account\" link.\r\n"
+				+ "4. \"UPI\" header\r\n"
+				+ "a) Added UPI details if it is already added with right arrow mark.\r\n"
+				+ "b) \"Add new UPI\" link.\r\n"
+				+ "5. \"PayTM\" header\r\n"
+				+ "a) Added paytm number if already added with right arrow mark.\r\n"
+				+ "b) \"Add new PayTM\" link.");
+	}else {
+		logger.info("User should be able to see the following details.\r\n"
+				+ "\r\n"
+				+ "1. \"Select payment method\" heading at the top of the screen.\r\n"
+				+ "2. Left arrow mark.\r\n"
+				+ "3. \"Bank account\" header\r\n"
+				+ "a) If already bank details are added then, added bank account name with right arrow mark.\r\n"
+				+ "b) \"Add bank account\" link.\r\n"
+				+ "4. \"UPI\" header\r\n"
+				+ "a) Added UPI details if it is already added with right arrow mark.\r\n"
+				+ "b) \"Add new UPI\" link.\r\n"
+				+ "5. \"PayTM\" header\r\n"
+				+ "a) Added paytm number if already added with right arrow mark.\r\n"
+				+ "b) \"Add new PayTM\" link.");	
+		extent.extentLoggerFail("Rewards - Payout", "User should be able to see the following details.\r\n"
+				+ "\r\n"
+				+ "1. \"Select payment method\" heading at the top of the screen.\r\n"
+				+ "2. Left arrow mark.\r\n"
+				+ "3. \"Bank account\" header\r\n"
+				+ "a) If already bank details are added then, added bank account name with right arrow mark.\r\n"
+				+ "b) \"Add bank account\" link.\r\n"
+				+ "4. \"UPI\" header\r\n"
+				+ "a) Added UPI details if it is already added with right arrow mark.\r\n"
+				+ "b) \"Add new UPI\" link.\r\n"
+				+ "5. \"PayTM\" header\r\n"
+				+ "a) Added paytm number if already added with right arrow mark.\r\n"
+				+ "b) \"Add new PayTM\" link.");
+	
+	}}
+	navigateToHomePage();
+	}
+
+public void rewardsPayout_TC03(String userType) throws Exception{
+	Boolean flag = false;
+	if(userType.equalsIgnoreCase("NonSubscribedUser"))
+	{
+		extent.HeaderChildNode("Verify the added bank details gets displayed automatically, when user navigates to \"Select payment method\" screen.");
+		System.out.println("T03");
+		extent.extentLogger("Verify the added bank details gets displayed automatically, when user navigates to \"Select payment method\" screen.", "T03");
+	
+		navigatToRewardsPayoutMethods();
+		
+		click(HipiProfilePage.objAddBank,"Add new bank");
+		waitUntilElementDisplayed(HipiProfilePage.objAddBankAccount,5);
+		
+		String accNo = RandomIntegerGenerator(12);
+		String maskedAccNo = "XXXXXXXXX" + accNo.substring(9);
+		System.out.println(maskedAccNo);
+		type(HipiProfilePage.objAddBankAccount,accNo,"Add bank account text field");
+		type(HipiProfilePage.objReEnterBankAccount,accNo,"Re enter bank account text field");
+		click(HipiProfilePage.objSaveAndProceed,"Save & Proceed");
+		Back(1);
+		
+		waitUntilElementDisplayed(HipiProfilePage.objRedeemCoinsBtn,5);
+		click(HipiProfilePage.objRedeemCoinsBtn,"Redeem coins button");
+		
+	if(maskedAccNo.equals(getText(HipiProfilePage.objAddedBankAcc)))
+			{
+		logger.info("User should be able to see previously added bank details inside the \"Select payment method\" screen.");	
+		extent.extentLoggerPass("Rewards - Payout", "User should be able to see previously added bank details inside the \"Select payment method\" screen.");
+	}else {
+		logger.info("User should be able to see previously added bank details inside the \"Select payment method\" screen.");	
+		extent.extentLoggerFail("Rewards - Payout", "User should be able to see previously added bank details inside the \"Select payment method\" screen.");
+	
+	}}
+	navigateToHomePage();
+	}
+
+public void rewardsPayout_TC04(String userType) throws Exception{
+	Boolean flag = false;
+	if(userType.equalsIgnoreCase("NonSubscribedUser"))
+	{
+		extent.HeaderChildNode("Verify the error message when user enters less than 11 digits inside the account number field.");
+		System.out.println("T04");
+		extent.extentLogger("Verify the error message when user enters less than 11 digits inside the account number field.", "T04");
+	
+		navigatToRewardsPayoutMethods();
+		
+		click(HipiProfilePage.objAddBank,"Add new bank");
+		waitUntilElementDisplayed(HipiProfilePage.objAddBankAccount,5);
+		
+		String accNo = RandomIntegerGenerator(9);
+		
+		type(HipiProfilePage.objAddBankAccount,accNo,"Add bank account text field");
+	if(waitUntilElementDisplayed(HipiProfilePage.objBankAccError,5))
+			{
+		logger.info("If length is less than 11 digits, error message is to be \r\n"
+				+ "shown as ‘Bank account number is not valid'");	
+		extent.extentLoggerPass("Rewards - Payout", "If length is less than 11 digits, error message is to be \r\n"
+				+ "shown as ‘Bank account number is not valid'");
+	}else {
+		logger.info("If length is less than 11 digits, error message is to be \r\n"
+				+ "shown as ‘Bank account number is not valid'");	
+		extent.extentLoggerFail("Rewards - Payout", "If length is less than 11 digits, error message is to be \r\n"
+				+ "shown as ‘Bank account number is not valid'");
+	
+	}}
+	navigateToHomePage();
+	}
+
+public void rewardsPayout_TC05(String userType) throws Exception{
+	Boolean flag = false;
+	if(userType.equalsIgnoreCase("NonSubscribedUser"))
+	{
+		extent.HeaderChildNode("Verify the error message when user enters less than 11 digits inside the account number field.");
+		System.out.println("T05");
+		extent.extentLogger("Verify the error message when user enters less than 11 digits inside the account number field.", "T05");
+	
+		navigatToRewardsPayoutMethods();
+		
+		click(HipiProfilePage.objAddBank,"Add new bank");
+		waitUntilElementDisplayed(HipiProfilePage.objAddBankAccount,5);
+		
+		String accNo = RandomIntegerGenerator(21);
+		
+		type(HipiProfilePage.objAddBankAccount,accNo,"Add bank account text field");
+	if(getText(HipiProfilePage.objAddBankAccount).length()==16)
+			{
+		logger.info("User should not be allowed to enter more than 16 digits inside the account number field.");	
+		extent.extentLoggerPass("Rewards - Payout", "User should not be allowed to enter more than 16 digits inside the account number field.");
+	}else {
+		logger.info("User should not be allowed to enter more than 16 digits inside the account number field.");	
+		extent.extentLoggerFail("Rewards - Payout", "User should not be allowed to enter more than 16 digits inside the account number field.");
+	
+	}}
+	navigateToHomePage();
+	}
+
+public void rewardsPayout_TC06(String userType) throws Exception{
+	Boolean flag = false;
+	if(userType.equalsIgnoreCase("NonSubscribedUser"))
+	{
+		extent.HeaderChildNode("Verify the error message displayed, when there is a mismatch in the account number.");
+		System.out.println("T06");
+		extent.extentLogger("Verify the error message displayed, when there is a mismatch in the account number.", "T06");
+	
+		navigatToRewardsPayoutMethods();
+		
+		click(HipiProfilePage.objAddBank,"Add new bank");
+		waitUntilElementDisplayed(HipiProfilePage.objAddBankAccount,5);
+		
+		String accNo = RandomIntegerGenerator(21);
+		
+		type(HipiProfilePage.objAddBankAccount,RandomIntegerGenerator(12),"Add bank account text field");
+		type(HipiProfilePage. objReEnterBankAccount ,RandomIntegerGenerator(12),"Add bank account text field");
+	if(waitUntilElementDisplayed(HipiProfilePage.objReBankAccError,5))
+			{
+		logger.info("User mismatch the account number error message is to be shown as ‘Bank account numbers don’t match'");	
+		extent.extentLoggerPass("Rewards - Payout", "User mismatch the account number error message is to be shown as ‘Bank account numbers don’t match'");
+	}else {
+		logger.info("User mismatch the account number error message is to be shown as ‘Bank account numbers don’t match'");	
+		extent.extentLoggerFail("Rewards - Payout", "User mismatch the account number error message is to be shown as ‘Bank account numbers don’t match'");
+	
+	}}
+	navigateToHomePage();
+	}
+	
+public void rewardsPayout_TC07(String userType) throws Exception{
+	Boolean flag = false;
+	if(userType.equalsIgnoreCase("NonSubscribedUser"))
+	{
+		extent.HeaderChildNode("Verify the error message displayed, when user enters wrong IFSC code.");
+		System.out.println("T07");
+		extent.extentLogger("Verify the error message displayed, when user enters wrong IFSC code.", "T07");
+	
+		navigatToRewardsPayoutMethods();
+		
+		click(HipiProfilePage.objAddBank,"Add new bank");
+		waitUntilElementDisplayed(HipiProfilePage.objAddBankAccount,5);
+		
+		
+		type(HipiProfilePage. objIfscCode ,RandomIntegerGenerator(12),"IFSC text field");
+	if(waitUntilElementDisplayed(HipiProfilePage.objIfscError,5))
+			{
+		logger.info("When user enter the wrong IFSC code, error message is to be shown as ‘IFSC is not valid'");	
+		extent.extentLoggerPass("Rewards - Payout", "When user enter the wrong IFSC code, error message is to be shown as ‘IFSC is not valid'");
+	}else {
+		logger.info("When user enter the wrong IFSC code, error message is to be shown as ‘IFSC is not valid'");	
+		extent.extentLoggerFail("Rewards - Payout", "When user enter the wrong IFSC code, error message is to be shown as ‘IFSC is not valid'");
+	
+	}}
+	navigateToHomePage();
+	}
+
+public void rewardsPayout_TC08(String userType) throws Exception{
+	Boolean flag = false;
+	if(userType.equalsIgnoreCase("NonSubscribedUser"))
+	{
+		extent.HeaderChildNode("Verify the validations when user enters the all the the proper information inside the \"Add bank account\" screen.");
+		System.out.println("T08");
+		extent.extentLogger("Verify the validations when user enters the all the the proper information inside the \"Add bank account\" screen.", "T08");
+	
+		navigatToRewardsPayoutMethods();
+		
+		click(HipiProfilePage.objAddBank,"Add new bank");
+		waitUntilElementDisplayed(HipiProfilePage.objAddBankAccount,5);
+		
+		String accNo = RandomIntegerGenerator(12);
+		type(HipiProfilePage. objAddBankAccount ,accNo,"Add bank text field");
+		type(HipiProfilePage. objReEnterBankAccount ,accNo,"Re-enter bank text field");
+		type(HipiProfilePage. objIfscCode ,"SBIN0003095","IFSC text field");
+		
+	if(waitUntilElementDisplayed(HipiProfilePage.objBankName,5)
+			&& waitUntilElementDisplayed(HipiProfilePage.objBranchName,5))
+			{
+		logger.info("When user enters the proper details inside the \"Add bank account' screen.\r\n"
+				+ "Bank & Branch received in the API response are to be shown if the IFSC is correct.\r\n"
+				+ "\r\n"
+				+ "Bank and branch name should be displayed below the IFSC code field.");	
+		extent.extentLoggerPass("Rewards - Payout", "When user enters the proper details inside the \"Add bank account' screen.\r\n"
+				+ "Bank & Branch received in the API response are to be shown if the IFSC is correct.\r\n"
+				+ "\r\n"
+				+ "Bank and branch name should be displayed below the IFSC code field.");
+	}else {
+		logger.info("When user enters the proper details inside the \"Add bank account' screen.\r\n"
+				+ "Bank & Branch received in the API response are to be shown if the IFSC is correct.\r\n"
+				+ "\r\n"
+				+ "Bank and branch name should be displayed below the IFSC code field.");	
+		extent.extentLoggerFail("Rewards - Payout", "When user enters the proper details inside the \"Add bank account' screen.\r\n"
+				+ "Bank & Branch received in the API response are to be shown if the IFSC is correct.\r\n"
+				+ "\r\n"
+				+ "Bank and branch name should be displayed below the IFSC code field.");
+	
+	}}
+	navigateToHomePage();
+	}
+
+public void rewardsPayout_TC09(String userType) throws Exception{
+	
+	if(userType.equalsIgnoreCase("NonSubscribedUser"))
+	{
+		extent.HeaderChildNode("Verify \"Save and Proceed\" CTA when user enters all the proper information inside the \"Add bank account\" screen.");
+		System.out.println("T09");
+		extent.extentLogger("Verify \"Save and Proceed\" CTA when user enters all the proper information inside the \"Add bank account\" screen.", "T09");
+	
+		navigatToRewardsPayoutMethods();
+		
+		click(HipiProfilePage.objAddBank,"Add new bank");
+		waitUntilElementDisplayed(HipiProfilePage.objAddBankAccount,5);
+		
+		String accNo = RandomIntegerGenerator(12);
+		type(HipiProfilePage. objAddBankAccount ,accNo,"Add bank text field");
+		type(HipiProfilePage. objReEnterBankAccount ,accNo,"Re-enter bank text field");
+		type(HipiProfilePage. objIfscCode ,"SBIN0003095","IFSC text field");
+		
+	if(waitUntilElementDisplayed(HipiProfilePage.objSaveAndProceed,5))
+			{
+		logger.info("'Save & Proceed' Button is to be activated once all validations are successful.");	
+		extent.extentLoggerPass("Rewards - Payout", "'Save & Proceed' Button is to be activated once all validations are successful.");
+	}else {
+		logger.info("'Save & Proceed' Button is to be activated once all validations are successful.");	
+		extent.extentLoggerFail("Rewards - Payout", "'Save & Proceed' Button is to be activated once all validations are successful.");
+	
+	}}
+	navigateToHomePage();
+	}
+
+public void rewardsPayout_TC10(String userType) throws Exception{
+	
+	if(userType.equalsIgnoreCase("NonSubscribedUser"))
+	{
+		extent.HeaderChildNode("Verify the error message, when user enters wrong UPI ID");
+		System.out.println("T10");
+		extent.extentLogger("Verify the error message, when user enters wrong UPI ID", "T10");
+	
+		navigatToRewardsPayoutMethods();
+		
+		click(HipiProfilePage.objAddUPIIdIcon,"Add UPI");
+		waitUntilElementDisplayed(HipiProfilePage.objAddNewUPIId ,5);
+		
+		type(HipiProfilePage.objAddNewUPIId,GeneratingRandomString(10) + "@yahoo","Add new UPI id text field");
+		
+		
+		
+	if(waitUntilElementDisplayed(HipiProfilePage.objUpiError,5))
+			{
+		logger.info("The error message is to be shown as ‘UPI Id is not valid' is to be shown \r\n"
+				+ "when user enters wrong UPI ID");	
+		extent.extentLoggerPass("Rewards - Payout", "The error message is to be shown as ‘UPI Id is not valid' is to be shown \r\n"
+				+ "when user enters wrong UPI ID");
+	}else {
+		logger.info("The error message is to be shown as ‘UPI Id is not valid' is to be shown \r\n"
+				+ "when user enters wrong UPI ID");	
+		extent.extentLoggerFail("Rewards - Payout", "The error message is to be shown as ‘UPI Id is not valid' is to be shown \r\n"
+				+ "when user enters wrong UPI ID");
+	
+	}}
+	navigateToHomePage();
+	}
+	
+public void rewardsPayout_TC11(String userType) throws Exception{
+	
+	if(userType.equalsIgnoreCase("NonSubscribedUser"))
+	{
+		extent.HeaderChildNode("Verify the navigation upon tapping on the \"Save and Proceed\" \r\n"
+				+ "CTA after entering the valid UPI ID.");
+		System.out.println("T11");
+		extent.extentLogger("Verify the navigation upon tapping on the \"Save and Proceed\" \r\n"
+				+ "CTA after entering the valid UPI ID.", "T11");
+	
+		navigatToRewardsPayoutMethods();
+		
+		click(HipiProfilePage.objAddUPIIdIcon,"Add UPI");
+		waitUntilElementDisplayed(HipiProfilePage.objAddNewUPIId ,5);
+		
+		type(HipiProfilePage.objAddNewUPIId,generateRandomString(7)+ "@oksbi","Add new UPI id text field");
+		click(HipiProfilePage.objSaveAndProceed,"Save & Proceed");
+		
+		
+		
+	if(waitUntilElementDisplayed(HipiProfilePage.objRewardsHeader,5))
+			{
+		logger.info("The payment method details are to be saved for my redemption request and user should navigate to \"Redeem coins\" screen.");	
+		extent.extentLoggerPass("Rewards - Payout", "The payment method details are to be saved for my redemption request and user should navigate to \"Redeem coins\" screen.");
+	}else {
+		logger.info("The payment method details are to be saved for my redemption request and user should navigate to \"Redeem coins\" screen.");	
+		extent.extentLoggerFail("Rewards - Payout", "The payment method details are to be saved for my redemption request and user should navigate to \"Redeem coins\" screen.");
+	
+	}}
+	navigateToHomePage();
+	}
+	
+public void navigatToRewardsPayoutMethods() throws Exception{
+	
+	verifyElementPresentAndClick(AMDHomePage.objProfileIcon, "Profile Icon");
+	waitUntilElementDisplayed(HipiProfilePage.objRewardsButton,10);
+	click(HipiProfilePage.objRewardsButton,"Rewards Icon");
+	waitUntilElementDisplayed(HipiProfilePage.objCheckHistory,5);
+	click(HipiProfilePage.objCheckHistory,"Check history button");
+	waitUntilElementDisplayed(HipiProfilePage.objRedeemCoinsBtn,5);
+	click(HipiProfilePage.objRedeemCoinsBtn,"Redeem coins button");
+}
+
+public void navigateToProdTagging() throws Exception{
+	
+	verifyElementPresentAndClick(HipiHomePage.objVideoCreateIcon, "Video creater Icon");
+	allowPermissions();
+	waitUntilElementDisplayed(HipiCreateVideoPage.objRecordIcon,5);
+	click(HipiCreateVideoPage.objRecordIcon,"Record icon");
+	waitUntilElementDisplayed(HipiCreateVideoPage.objNextButton,15);
+	click(HipiCreateVideoPage.objNextButton,"Next CTA");
+	waitUntilElementDisplayed(HipiCreateVideoPage.objuploadpost,10);
+	if(verifyElementPresent(HipiCreateVideoPage.objuploadpost,"Post CTA")) {
+	logger.info("Post screen has been displayed");
+	extent.extentLoggerPass("Post Video Screen", "Post screen has been displaye");
+	}else {
+	 logger.info("Post screen has been displaye");
+	 extent.extentLoggerFail("Post Video Screen", "Post screen has been displaye");   		
+	}
+}
+
+public void productTagging_TC01(String userType) throws Exception{
+	
+	
+	
+	if(userType.equalsIgnoreCase("NonSubscribedUser"))
+	{
+		extent.HeaderChildNode("LoggedIn user - Verify the availability of \"Tag products\" option on the video post screen.");
+		System.out.println("T01");
+		extent.extentLogger("LoggedIn user - Verify the availability of \"Tag products\" option on the video post screen.", "T01");
+	
+		navigateToProdTagging();
+		
+		
+	if(waitUntilElementDisplayed(HipiCreateVideoPage.objTagProductsOption,5))
+			{
+		logger.info("\"Tag products\" option should be displayed on the \"Post Video\" screen.");	
+		extent.extentLoggerPass("Product Tagging", "\"Tag products\" option should be displayed on the \"Post Video\" screen.");
+	}else {
+		logger.info("\"Tag products\" option should be displayed on the \"Post Video\" screen.");	
+		extent.extentLoggerFail("Product Tagging", "\"Tag products\" option should be displayed on the \"Post Video\" screen.");
+	
+	}}
+	discardPopup();
+	
+}
+
+public void productTagging_TC02(String userType) throws Exception{
+	
+	
+	
+	if(userType.equalsIgnoreCase("NonSubscribedUser"))
+	{
+		extent.HeaderChildNode("LoggedIn user - Verify the navigation upon tapping on the \"Select\"  button on the video post screen.");
+		System.out.println("T02");
+		extent.extentLogger("LoggedIn user - Verify the navigation upon tapping on the \"Select\"  button on the video post screen.", "T02");
+	
+		navigateToProdTagging();
+		
+		click(HipiCreateVideoPage.objAddProducts,"Add products");
+		
+	if(waitUntilElementDisplayed(HipiCreateVideoPage.objAddProductsHeader,5))
+			{
+		logger.info("User should navigate to \"Add products\" screen.");	
+		extent.extentLoggerPass("Product Tagging", "User should navigate to \"Add products\" screen.");
+	}else {
+		logger.info("User should navigate to \"Add products\" screen.");	
+		extent.extentLoggerFail("Product Tagging", "User should navigate to \"Add products\" screen.");
+	
+	}}
+	discardPopup();
+	
+}
+
+public void productTagging_TC03(String userType) throws Exception{
+	
+	
+	
+	if(userType.equalsIgnoreCase("NonSubscribedUser"))
+	{
+		extent.HeaderChildNode("LoggedIn user - Verify the UI/UX of the \"Add products\" \r\n"
+				+ "screen.");
+		System.out.println("T03");
+		extent.extentLogger("LoggedIn user - Verify the UI/UX of the \"Add products\" \r\n"
+				+ "screen.", "T03");
+		
+	    
+		navigateToProdTagging();
+		
+		click(HipiCreateVideoPage.objAddProducts,"Add products");
+		
+	if(waitUntilElementDisplayed(HipiCreateVideoPage.objAddProductsHeader,5)
+			&& waitUntilElementDisplayed(HipiCreateVideoPage.objEnterLinkProduct,5)
+			&& waitUntilElementDisplayed(HipiCreateVideoPage.objAutoFetch,5)
+			&& waitUntilElementDisplayed(HipiCreateVideoPage.objProdLinkInput,5)
+			&& waitUntilElementDisplayed(HipiCreateVideoPage.objProdLinkExampl,5)
+			&& waitUntilElementDisplayed(HipiCreateVideoPage.objSupportedWebsitesLink,5)
+			&& waitUntilElementDisplayed(HipiCreateVideoPage.objSubmitCTA,5))
+			{
+		logger.info("User should see the following details:\r\n"
+				+ "\r\n"
+				+ "1. \"Add products\" screen header \r\n"
+				+ "2. Back arrow button.\r\n"
+				+ "3. Heading: \r\n"
+				+ "\"Enter the link of the product\"\r\n"
+				+ "4. Subheading: \r\n"
+				+ "\"Product details will be fetched automatically\"\r\n"
+				+ "5. Input field to provide the product url along with 'Enter product url' placeholder text\r\n"
+				+ "6. example: https://www.myntra.com/casualshoescalvin+klein+jeans/calvin-klein-jeans-men-leather-sneakers/21043972/buy (its hard coded)\r\n"
+				+ "7. Supported websites along with question mark\r\n"
+				+ "8. Submit CTA (which will enable only after providing the url link)\r\n"
+				+ "9. Tagged products section after tagging the products");	
+		extent.extentLoggerPass("Product Tagging", "User should see the following details:\r\n"
+				+ "\r\n"
+				+ "1. \"Add products\" screen header \r\n"
+				+ "2. Back arrow button.\r\n"
+				+ "3. Heading: \r\n"
+				+ "\"Enter the link of the product\"\r\n"
+				+ "4. Subheading: \r\n"
+				+ "\"Product details will be fetched automatically\"\r\n"
+				+ "5. Input field to provide the product url along with 'Enter product url' placeholder text\r\n"
+				+ "6. example: https://www.myntra.com/casualshoescalvin+klein+jeans/calvin-klein-jeans-men-leather-sneakers/21043972/buy (its hard coded)\r\n"
+				+ "7. Supported websites along with question mark\r\n"
+				+ "8. Submit CTA (which will enable only after providing the url link)\r\n"
+				+ "9. Tagged products section after tagging the products");
+	}else {
+		logger.info("User should see the following details:\r\n"
+				+ "\r\n"
+				+ "1. \"Add products\" screen header \r\n"
+				+ "2. Back arrow button.\r\n"
+				+ "3. Heading: \r\n"
+				+ "\"Enter the link of the product\"\r\n"
+				+ "4. Subheading: \r\n"
+				+ "\"Product details will be fetched automatically\"\r\n"
+				+ "5. Input field to provide the product url along with 'Enter product url' placeholder text\r\n"
+				+ "6. example: https://www.myntra.com/casualshoescalvin+klein+jeans/calvin-klein-jeans-men-leather-sneakers/21043972/buy (its hard coded)\r\n"
+				+ "7. Supported websites along with question mark\r\n"
+				+ "8. Submit CTA (which will enable only after providing the url link)\r\n"
+				+ "9. Tagged products section after tagging the products");	
+		extent.extentLoggerFail("Product Tagging", "User should see the following details:\r\n"
+				+ "\r\n"
+				+ "1. \"Add products\" screen header \r\n"
+				+ "2. Back arrow button.\r\n"
+				+ "3. Heading: \r\n"
+				+ "\"Enter the link of the product\"\r\n"
+				+ "4. Subheading: \r\n"
+				+ "\"Product details will be fetched automatically\"\r\n"
+				+ "5. Input field to provide the product url along with 'Enter product url' placeholder text\r\n"
+				+ "6. example: https://www.myntra.com/casualshoescalvin+klein+jeans/calvin-klein-jeans-men-leather-sneakers/21043972/buy (its hard coded)\r\n"
+				+ "7. Supported websites along with question mark\r\n"
+				+ "8. Submit CTA (which will enable only after providing the url link)\r\n"
+				+ "9. Tagged products section after tagging the products");
+	
+	}}
+	discardPopup();
+	
+}
+
+public void productTagging_TC04(String userType) throws Exception{
+	
+	
+	
+	if(userType.equalsIgnoreCase("NonSubscribedUser"))
+	{
+		extent.HeaderChildNode("LoggedIn user - Verify the navigation upon tapping on the question mark next to Supported websites text");
+		System.out.println("T04");
+		extent.extentLogger("LoggedIn user - Verify the navigation upon tapping on the question mark next to Supported websites text", "T04");
+	
+		navigateToProdTagging();
+		
+		click(HipiCreateVideoPage.objAddProducts,"Add products");
+		
+	if(waitUntilElementDisplayed(HipiCreateVideoPage.objAddProductsHeader,5))
+			{
+		logger.info("User should land on Supported websites screen ");	
+		extent.extentLoggerPass("Product Tagging", "User should land on Supported websites screen ");
+	}else {
+		logger.info("User should land on Supported websites screen ");	
+		extent.extentLoggerFail("Product Tagging", "User should land on Supported websites screen ");
+	
+	}}
+	discardPopup();
+	
+}
+
+public void productTagging_TC05(String userType) throws Exception{
+	
+	
+	
+	if(userType.equalsIgnoreCase("NonSubscribedUser"))
+	{
+		extent.HeaderChildNode("LoggedIn user - Verify the navigation upon tapping app back button/device back displayed on top of the Tag products screen");
+		System.out.println("T05");
+		extent.extentLogger("LoggedIn user - Verify the navigation upon tapping app back button/device back displayed on top of the Tag products screen", "T05");
+	
+		navigateToProdTagging();
+		
+		click(HipiCreateVideoPage.objAddProducts,"Add products");
+		Back(1);
+	if(verifyElementPresent(HipiCreateVideoPage.objuploadpost,"Post CTA"))
+			{
+		logger.info("User should land on Video post screen");	
+		extent.extentLoggerPass("Product Tagging", "User should land on Video post screen");
+	}else {
+		logger.info("User should land on Video post screen");	
+		extent.extentLoggerFail("Product Tagging", "User should land on Video post screen");
+	
+	}}
+	discardPopup();
+	
+}
+
+public void productTagging_TC06(String userType) throws Exception{
+	
+	
+	
+	if(userType.equalsIgnoreCase("NonSubscribedUser"))
+	{
+		extent.HeaderChildNode("LoggedIn user - Verify that user should be able to post the video without tagging any product as the tag product field is not mandatory for creating");
+		System.out.println("T06");
+		extent.extentLogger("LoggedIn user - Verify that user should be able to post the video without tagging any product as the tag product field is not mandatory for creating", "T06");
+	
+		navigateToProdTagging();
+		
+		click(HipiCreateVideoPage.objEnglishLanguage, "English Language");
+
+	verifyElementPresentAndClick(HipiCreateVideoPage.objSelectVideoCategory,"Select video category");
+	waitUntilElementDisplayed(HipiCreateVideoPage.objVideoCategoryValue,10);
+	verifyElementPresentAndClick(HipiCreateVideoPage.objVideoCategoryValue,"Any category");
+	Back(1);
+
+	verifyElementPresentAndClick(HipiCreateVideoPage.objpostbtn,"Post Button");
+	waitTime(5000);
+	if(waitUntilElementDisplayed(HipiCreateVideoPage.objNeedfeedbackPopUp,20) 
+			|| waitUntilElementDisplayed(HipiCreateVideoPage.objShareSheet, 10))
+			{
+		logger.info("User should successfully post the video without tagging any products");	
+		extent.extentLoggerPass("Product Tagging", "User should successfully post the video without tagging any products");
+	}else {
+		logger.info("User should successfully post the video without tagging any products");	
+		extent.extentLoggerFail("Product Tagging", "User should successfully post the video without tagging any products");
+	
+	}}
+	discardPopup();
+	
+}
+
+public void productTagging_TC07(String userType) throws Exception{
+	
+	
+	
+	if(userType.equalsIgnoreCase("NonSubscribedUser"))
+	{
+		extent.HeaderChildNode("LoggedIn user - Verify that provided URL is getting validated or not");
+		System.out.println("T07");
+		extent.extentLogger("LoggedIn user - Verify that provided URL is getting validated or not", "T07");
+	
+		navigateToProdTagging();
+		
+		click(HipiCreateVideoPage.objAddProducts,"Add products");
+		waitUntilElementDisplayed(HipiCreateVideoPage.objProdLinkInput,5);
+		String prodLink = "https://www.amazon.in/Apple-iPhone-Pro-Max-256/dp/B0CHX68YG9/ref=sr_1_1_sspa?crid=3HS26C5VS3KLT&keywords=iphone%2B15%2Bpro%2Bmax&qid=1703674832&sprefix=ip%2Caps%2C213&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1";
+		click(HipiCreateVideoPage.objProdLinkInput,"Prod link input");
+		waitTime(2000);
+
+		type(HipiCreateVideoPage.objProdLinkInput,prodLink,"Prod link input");
+		click(HipiCreateVideoPage.objSubmitCTA,"Submit CTA");
+		
+	if(waitUntilElementDisplayed(HipiCreateVideoPage.objProdImg,20) 
+			&& waitUntilElementDisplayed(HipiCreateVideoPage.objProdSite , 10)
+			&& waitUntilElementDisplayed(HipiCreateVideoPage.objProdDesc , 10)
+			&& waitUntilElementDisplayed(HipiCreateVideoPage.objAddCTA, 10))
+			{
+		logger.info("User should see the product image, description & add cta if the product url is valid\r\n"
+				+ "\r\n"
+				+ "If not user should get the error message \"This website is currently not supported by us. Please request below and we will inform you once we have added support for it.\" below the input field & Submit CTA should change to Request");	
+		extent.extentLoggerPass("Product Tagging", "User should see the product image, description & add cta if the product url is valid\r\n"
+				+ "\r\n"
+				+ "If not user should get the error message \"This website is currently not supported by us. Please request below and we will inform you once we have added support for it.\" below the input field & Submit CTA should change to Request");
+	}else {
+		logger.info("User should see the product image, description & add cta if the product url is valid\r\n"
+				+ "\r\n"
+				+ "If not user should get the error message \"This website is currently not supported by us. Please request below and we will inform you once we have added support for it.\" below the input field & Submit CTA should change to Request");	
+		extent.extentLoggerFail("Product Tagging", "User should see the product image, description & add cta if the product url is valid\r\n"
+				+ "\r\n"
+				+ "If not user should get the error message \"This website is currently not supported by us. Please request below and we will inform you once we have added support for it.\" below the input field & Submit CTA should change to Request");
+	
+	}}
+	discardPopup();
+	
+}
+
+public void productTagging_TC08(String userType) throws Exception{
+	
+	
+	
+	if(userType.equalsIgnoreCase("NonSubscribedUser"))
+	{
+		extent.HeaderChildNode("LoggedIn user - Verify that user is allowed to request for adding the product which were not part of the supported website list");
+		System.out.println("T08");
+		extent.extentLogger("LoggedIn user - Verify that user is allowed to request for adding the product which were not part of the supported website list", "T08");
+	
+		navigateToProdTagging();
+		
+		click(HipiCreateVideoPage.objAddProducts,"Add products");
+		waitUntilElementDisplayed(HipiCreateVideoPage.objProdLinkInput,5);
+		String prodLink = "https://www.ajio.com/search/?text=shoes";
+		click(HipiCreateVideoPage.objProdLinkInput,"Prod link input");
+		waitTime(2000);
+
+		type(HipiCreateVideoPage.objProdLinkInput,prodLink,"Prod link input");
+		click(HipiCreateVideoPage.objSubmitCTA,"Submit CTA");
+		
+	if(waitUntilElementDisplayed(HipiCreateVideoPage.objProdUnsupportedTxt,20) 
+			)
+			{
+		logger.info("User should get the message screen as 'We have received your application to add support for <Website> We will inform you once we have added support for it.' along with add product cta");	
+		extent.extentLoggerPass("Product Tagging", "User should get the message screen as 'We have received your application to add support for <Website> We will inform you once we have added support for it.' along with add product cta");
+	}else {
+		logger.info("User should get the message screen as 'We have received your application to add support for <Website> We will inform you once we have added support for it.' along with add product cta");	
+		extent.extentLoggerFail("Product Tagging", "User should get the message screen as 'We have received your application to add support for <Website> We will inform you once we have added support for it.' along with add product cta");
+	
+	}}
+	discardPopup();
+	
+}
+
+public void productTagging_TC09(String userType) throws Exception{
+	
+	
+	
+	if(userType.equalsIgnoreCase("NonSubscribedUser"))
+	{
+		extent.HeaderChildNode("LoggedIn user - Verify if a user can add multiple products to single video & post");
+		System.out.println("T09");
+		extent.extentLogger("LoggedIn user - Verify if a user can add multiple products to single video & post", "T09");
+	
+		navigateToProdTagging();
+		
+		click(HipiCreateVideoPage.objAddProducts,"Add products");
+		waitUntilElementDisplayed(HipiCreateVideoPage.objProdLinkInput,5);
+		String prodLink = "https://www.amazon.in/Apple-iPhone-Pro-Max-256/dp/B0CHX68YG9/ref=sr_1_1_sspa?crid=3HS26C5VS3KLT&keywords=iphone%2B15%2Bpro%2Bmax&qid=1703674832&sprefix=ip%2Caps%2C213&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1";
+		
+		String prodLink2 = "https://www.nykaa.com/kama-ayurveda-suvarna-haldi-chandan-brightening-face-pack/p/1262949?productId=1262949&pps=1&skuId=1262941";
+			click(HipiCreateVideoPage.objProdLinkInput,"Prod link input");
+			waitTime(2000);
+			type(HipiCreateVideoPage.objProdLinkInput,prodLink,"Prod link input");
+			click(HipiCreateVideoPage.objSubmitCTA,"Submit CTA");
+			waitUntilElementDisplayed(HipiCreateVideoPage.objAddCTA, 10);
+			click(HipiCreateVideoPage.objAddCTA,"Add CTA");
+		
+			click(HipiCreateVideoPage.objProdLinkInput,"Prod link input");
+			waitTime(2000);
+			type(HipiCreateVideoPage.objProdLinkInput,prodLink2,"Prod link input");
+			click(HipiCreateVideoPage.objSubmitCTA,"Submit CTA");
+			waitUntilElementDisplayed(HipiCreateVideoPage.objAddCTA, 10);
+			click(HipiCreateVideoPage.objAddCTA,"Add CTA");
+		click(HipiCreateVideoPage.objDoneCTA,"Done cta");
+		waitUntilElementDisplayed(HipiCreateVideoPage.objReviewMsg,10);
+		click(HipiCreateVideoPage.objEnglishLanguage, "English Language");
+
+		verifyElementPresentAndClick(HipiCreateVideoPage.objSelectVideoCategory,"Select video category");
+		waitUntilElementDisplayed(HipiCreateVideoPage.objVideoCategoryValue,10);
+		verifyElementPresentAndClick(HipiCreateVideoPage.objVideoCategoryValue,"Any category");
+		Back(1);
+
+		verifyElementPresentAndClick(HipiCreateVideoPage.objpostbtn,"Post Button");
+		waitTime(5000);
+		
+	if(waitUntilElementDisplayed(HipiCreateVideoPage.objNeedfeedbackPopUp,20) 
+			|| waitUntilElementDisplayed(HipiCreateVideoPage.objShareSheet, 10))
+			{
+		logger.info("User is allowed to enter multiple products to the single video & post without any issue");	
+		extent.extentLoggerPass("Product Tagging", "User is allowed to enter multiple products to the single video & post without any issue");
+	}else {
+		logger.info("User is allowed to enter multiple products to the single video & post without any issue");	
+		extent.extentLoggerFail("Product Tagging", "User is allowed to enter multiple products to the single video & post without any issue");
+	
+	}}
+	discardPopup();
+	
+}
+
+public void productTagging_TC10(String userType) throws Exception{
+	
+	
+	
+	if(userType.equalsIgnoreCase("NonSubscribedUser"))
+	{
+		extent.HeaderChildNode("LoggedIn user - Verify if a user can remove the tagged products before posting at any time");
+		System.out.println("T10");
+		extent.extentLogger("LoggedIn user - Verify if a user can remove the tagged products before posting at any time", "T10");
+	
+		navigateToProdTagging();
+		
+		click(HipiCreateVideoPage.objAddProducts,"Add products");
+		waitUntilElementDisplayed(HipiCreateVideoPage.objProdLinkInput,5);
+		String prodLink = "https://www.amazon.in/Apple-iPhone-Pro-Max-256/dp/B0CHX68YG9/ref=sr_1_1_sspa?crid=3HS26C5VS3KLT&keywords=iphone%2B15%2Bpro%2Bmax&qid=1703674832&sprefix=ip%2Caps%2C213&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1";
+		
+			click(HipiCreateVideoPage.objProdLinkInput,"Prod link input");
+			waitTime(2000);
+			type(HipiCreateVideoPage.objProdLinkInput,prodLink,"Prod link input");
+			click(HipiCreateVideoPage.objSubmitCTA,"Submit CTA");
+			waitUntilElementDisplayed(HipiCreateVideoPage.objAddCTA, 10);
+			click(HipiCreateVideoPage.objAddCTA,"Add CTA");
+		
+		waitUntilElementDisplayed(HipiCreateVideoPage.objTaggedProdHeader,10);
+		click(HipiCreateVideoPage.objDeleteProd,"Delete product button");
+		waitTime(3000);
+	if(verifyElementNotExist(HipiCreateVideoPage.objTaggedProdHeader))
+			{
+		logger.info("User is allowed to remove the tagged product at any time before posting using Delete icon next to the product");	
+		extent.extentLoggerPass("Product Tagging", "User is allowed to remove the tagged product at any time before posting using Delete icon next to the product");
+	}else {
+		logger.info("User is allowed to remove the tagged product at any time before posting using Delete icon next to the product");	
+		extent.extentLoggerFail("Product Tagging", "User is allowed to remove the tagged product at any time before posting using Delete icon next to the product");
+	
+	}}
+	discardPopup();
+	
+}
+
 }
