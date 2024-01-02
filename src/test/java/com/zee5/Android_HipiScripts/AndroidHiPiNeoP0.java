@@ -1165,12 +1165,13 @@ public class AndroidHiPiNeoP0 {
 		Zee5ApplicasterHipiNeoBusinessLogic.relaunch(true);	
 		Zee5ApplicasterHipiNeoBusinessLogic.LoginAndNivigateToHipi("Facebook");
 		
-		//Zee5ApplicasterHipiNeoBusinessLogic.productTagging_TC01(userType);
-		//Zee5ApplicasterHipiNeoBusinessLogic.productTagging_TC02(userType);
-		//Zee5ApplicasterHipiNeoBusinessLogic.productTagging_TC07(userType);
-		//Zee5ApplicasterHipiNeoBusinessLogic.productTagging_TC08(userType);
-		//Zee5ApplicasterHipiNeoBusinessLogic.productTagging_TC09(userType);
+		Zee5ApplicasterHipiNeoBusinessLogic.productTagging_TC01(userType);
+		Zee5ApplicasterHipiNeoBusinessLogic.productTagging_TC02(userType);
+		Zee5ApplicasterHipiNeoBusinessLogic.productTagging_TC07(userType);
+		Zee5ApplicasterHipiNeoBusinessLogic.productTagging_TC08(userType);
+		Zee5ApplicasterHipiNeoBusinessLogic.productTagging_TC09(userType);
 		Zee5ApplicasterHipiNeoBusinessLogic.productTagging_TC10(userType);
+		
 		
 	}
 	@AfterTest						

@@ -54533,7 +54533,7 @@ public void VideoRecordingSoundGreaterThan90Seconds_T2509(String userType) throw
 	
 	verifyElementPresentAndClick(HipiCreateVideoPage.objSoundSearchInVideoRecord,"Search sound field");
 	waitTime(2000);
-	type(HipiCreateVideoPage.objSoundSearchInVideoRecord,"Zoom zoom","Search sound field");
+	type(HipiCreateVideoPage.objSoundSearchInVideoRecord,"zoom","Search sound field");
 	explicitWaitVisibility(HipiCreateVideoPage.objFirstSearchResults,10);
 	verifyElementPresentAndClick(HipiCreateVideoPage.objFirstSearchResults,"First search result");
 	explicitWaitVisibility(HipiCreateVideoPage.objZoomSound,10);
