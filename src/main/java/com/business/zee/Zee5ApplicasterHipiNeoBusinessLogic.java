@@ -67430,4 +67430,1045 @@ public void productTagging_TC10(String userType) throws Exception{
 	
 }
 
+public void shopSearch_TC01_TC09(String userType) throws Exception{
+	
+	
+	
+	if(userType.equalsIgnoreCase("NonSubscribedUser"))
+	{
+		extent.HeaderChildNode("LoggedIn user - Verify \"Shop\" tab is displayed next to the \"Top\" tab upon searching any keyword.");
+		System.out.println("TC09");
+		extent.extentLogger("LoggedIn user - Verify \"Shop\" tab is displayed next to the \"Top\" tab upon searching any keyword.", "TC09");
+	}
+	else {
+		extent.HeaderChildNode("Guest user - Verify \"Shop\" tab is displayed next to the \"Top\" tab upon searching \r\n"
+				+ "any keyword.");
+		System.out.println("TC01");
+		extent.extentLogger("Guest user - Verify \"Shop\" tab is displayed next to the \"Top\" tab upon searching \r\n"
+				+ "any keyword.", "TC01");
+	}
+	
+	navigateToSearchResultsPage("Saree");
+		waitUntilElementDisplayed(HipiDiscoverPage.objShopTab,10);
+	if(verifyElementExist(HipiDiscoverPage.objShopTab,"Shop tab"))
+			{
+		logger.info("\"Shop\" tab should be displayed next to the \"Top\" tab upon \r\n"
+				+ "searching any keyword in the search results screen.");	
+		extent.extentLoggerPass("Shop Search", "\"Shop\" tab should be displayed next to the \"Top\" tab upon \r\n"
+				+ "searching any keyword in the search results screen.");
+	}else {
+		logger.info("\"Shop\" tab should be displayed next to the \"Top\" tab upon \r\n"
+				+ "searching any keyword in the search results screen.");	
+		extent.extentLoggerFail("Shop Search", "\"Shop\" tab should be displayed next to the \"Top\" tab upon \r\n"
+				+ "searching any keyword in the search results screen.");
+	
+	}
+	navigateToHomePage();
+	
+}
+
+
+public void shopSearch_TC02_TC10(String userType) throws Exception{
+	
+	
+	
+	if(userType.equalsIgnoreCase("NonSubscribedUser"))
+	{
+		extent.HeaderChildNode("LoggedIn User - Verify \"Shop\" category is displayed in the \"Top\" tab upon \r\n"
+				+ "searching any keyword. ");
+		System.out.println("TC10");
+		extent.extentLogger("LoggedIn User - Verify \"Shop\" category is displayed in the \"Top\" tab upon \r\n"
+				+ "searching any keyword. ", "TC10");
+	}
+	else {
+		extent.HeaderChildNode("Guest user - Verify \"Shop\" category is displayed in the \"Top\" tab upon \r\n"
+				+ "searching any keyword.");
+		System.out.println("TC02");
+		extent.extentLogger("Guest user - Verify \"Shop\" category is displayed in the \"Top\" tab upon \r\n"
+				+ "searching any keyword.", "TC02");
+	}
+	
+	navigateToSearchResultsPage("perf");
+		waitUntilElementDisplayed(HipiDiscoverPage.objShopTab,10);
+	if(verifyElementExist(HipiDiscoverPage.objShopOption,"Shop tab"))
+			{
+		logger.info("\"Shop\" category should be displayed upon\r\n"
+				+ "searching any keyword in the search results screen");	
+		extent.extentLoggerPass("Shop Search", "\"Shop\" category should be displayed upon\r\n"
+				+ "searching any keyword in the search results screen");
+	}else {
+		logger.info("\"Shop\" category should be displayed upon\r\n"
+				+ "searching any keyword in the search results screen");	
+		extent.extentLoggerFail("Shop Search", "\"Shop\" category should be displayed upon\r\n"
+				+ "searching any keyword in the search results screen");
+	
+	}
+	navigateToHomePage();
+	
+}
+
+public void shopSearch_TC03_TC11(String userType) throws Exception{
+	
+	
+	
+	if(userType.equalsIgnoreCase("NonSubscribedUser"))
+	{
+		extent.HeaderChildNode("LoggedIn User - Verify the \"Shop\" category rail.");
+		System.out.println("TC11");
+		extent.extentLogger("LoggedIn User - Verify the \"Shop\" category rail.", "TC11");
+	}
+	else {
+		extent.HeaderChildNode("Guest user - Verify the \"Shop\" category rail.");
+		System.out.println("TC03");
+		extent.extentLogger("Guest user - Verify the \"Shop\" category rail.", "TC03");
+	}
+	
+	navigateToSearchResultsPage("perf");
+		waitUntilElementDisplayed(HipiDiscoverPage.objShopTab,10);
+	if(verifyElementExist(HipiDiscoverPage.objShopCateogryRail,"Shop category rail"))
+			{
+		logger.info("Shop category rail should be displayed, if the searched \r\n"
+				+ "keyword has products.");	
+		extent.extentLoggerPass("Shop Search", "Shop category rail should be displayed, if the searched \r\n"
+				+ "keyword has products.");
+	}else {
+		logger.info("Shop category rail should be displayed, if the searched \r\n"
+				+ "keyword has products.");	
+		extent.extentLoggerFail("Shop Search", "Shop category rail should be displayed, if the searched \r\n"
+				+ "keyword has products.");
+	
+	}
+	navigateToHomePage();
+
+}
+
+public void shopSearch_TC04_TC12(String userType) throws Exception{
+	Boolean flag = false;
+	
+	
+	if(userType.equalsIgnoreCase("NonSubscribedUser"))
+	{
+		extent.HeaderChildNode("LoggedIn user - Verify \"See more\" CTA for the shop rail.");
+		System.out.println("TC12");
+		extent.extentLogger("LoggedIn user - Verify \"See more\" CTA for the shop rail.", "TC12");
+	}
+	else {
+		extent.HeaderChildNode("Guest user - Verify \"See more\" CTA for the shop rail.");
+		System.out.println("TC04");
+		extent.extentLogger("Guest user - Verify \"See more\" CTA for the shop rail.", "TC04");
+	}
+	
+	navigateToSearchResultsPage("Saree");
+		waitUntilElementDisplayed(HipiDiscoverPage.objFirstShopProduct,10);
+		if(getCount(HipiDiscoverPage.objFirstShopProduct)>3) {
+			System.out.println("See more button should be present");
+			if(verifyElementExist(HipiDiscoverPage.objShopSeeMoreBtn,"Shop see more button")) {
+				flag = true;
+			}
+		}
+		
+		else {
+			System.out.println("See more button should not be present");
+			if(verifyElementNotExist(HipiDiscoverPage.objShopSeeMoreBtn)) {
+				flag = true;
+			}
+		}
+	if(flag)
+			{
+		logger.info("\"See more\" CTA should be displayed if minimum of 3 products \r\n"
+				+ "displayed for the shop category upon searching.");	
+		extent.extentLoggerPass("Shop Search", "\"See more\" CTA should be displayed if minimum of 3 products \r\n"
+				+ "displayed for the shop category upon searching.");
+	}else {
+		logger.info("\"See more\" CTA should be displayed if minimum of 3 products \r\n"
+				+ "displayed for the shop category upon searching.");	
+		extent.extentLoggerFail("Shop Search", "\"See more\" CTA should be displayed if minimum of 3 products \r\n"
+				+ "displayed for the shop category upon searching.");
+	
+	}
+	
+	navigateToHomePage();
+	
+}
+
+public void shopSearch_TC05_TC13(String userType) throws Exception{
+	
+	
+	if(userType.equalsIgnoreCase("NonSubscribedUser"))
+	{
+		extent.HeaderChildNode("LoggedIn user - Verify the navigation upon tapping on the \"See more\" CTA, \r\n"
+				+ "displayed for the \"Shop\" category.");
+		System.out.println("TC13");
+		extent.extentLogger("LoggedIn user - Verify the navigation upon tapping on the \"See more\" CTA, \r\n"
+				+ "displayed for the \"Shop\" category.", "TC13");
+	}
+	else {
+		extent.HeaderChildNode("Guest user - Verify the navigation upon tapping on the \"See more\" CTA, \r\n"
+				+ "displayed for the \"Shop\" category.");
+		System.out.println("TC05");
+		extent.extentLogger("Guest user - Verify the navigation upon tapping on the \"See more\" CTA, \r\n"
+				+ "displayed for the \"Shop\" category.", "TC05");
+	}
+	
+		navigateToSearchResultsPage("Saree");
+		waitUntilElementDisplayed(HipiDiscoverPage.objFirstShopProduct,10);
+		click(HipiDiscoverPage.objShopSeeMoreBtn,"Shop see more button");
+		
+		
+	if(verifyElementExist(HipiDiscoverPage.objShopSelected,"Shop tab selected"))
+			{
+		logger.info("User should navigate to \"Shop\" tab upon tapping \"See more\"  CTA.");	
+		extent.extentLoggerPass("Shop Search", "User should navigate to \"Shop\" tab upon tapping \"See more\"  CTA.");
+	}else {
+		logger.info("User should navigate to \"Shop\" tab upon tapping \"See more\"  CTA.");	
+		extent.extentLoggerFail("Shop Search", "User should navigate to \"Shop\" tab upon tapping \"See more\"  CTA.");
+	
+	}
+	
+	navigateToHomePage();
+	
+}
+
+public void shopSearch_TC06_TC14(String userType) throws Exception{
+	Boolean flag = false;
+	
+	
+	if(userType.equalsIgnoreCase("NonSubscribedUser"))
+	{
+		extent.HeaderChildNode("LoggedInt user - Verify user can able to scroll the \"Shop\" category rail, \r\n"
+				+ "when there are more than 3 products displayed upon searching.");
+		System.out.println("TC14");
+		extent.extentLogger("LoggedInt user - Verify user can able to scroll the \"Shop\" category rail, \r\n"
+				+ "when there are more than 3 products displayed upon searching.", "TC14");
+	}
+	else {
+		extent.HeaderChildNode("Guest user - Verify user can able to scroll the \"Shop\" category rail, \r\n"
+				+ "when there are more than 3 products displayed upon searching.");
+		System.out.println("TC06");
+		extent.extentLogger("Guest user - Verify user can able to scroll the \"Shop\" category rail, \r\n"
+				+ "when there are more than 3 products displayed upon searching.", "TC06");
+	}
+	
+	navigateToSearchResultsPage("Saree");
+		waitUntilElementDisplayed(HipiDiscoverPage.objFirstShopProduct,10);
+		if(getCount(HipiDiscoverPage.objFirstShopProduct)>3) {
+			System.out.println("Rail should be scrollable");
+			String itemNameBeforeScroll = getText(HipiDiscoverPage.objShoppableItemName);
+			swipeRail(HipiDiscoverPage.objFirstShopProduct,"LEFT",2);
+			String itemNameBeforeAfter = getText(HipiDiscoverPage.objShoppableItemName);
+			if(itemNameBeforeScroll!=itemNameBeforeAfter) {
+				flag = true;
+			}
+		}
+		
+		else {
+			System.out.println("Rail should not be scrollable");
+		}
+	if(flag)
+			{
+		logger.info("User should be able to scroll the shop category rail.");	
+		extent.extentLoggerPass("Shop Search", "User should be able to scroll the shop category rail.");
+	}else {
+		logger.info("User should be able to scroll the shop category rail.");	
+		extent.extentLoggerFail("Shop Search", "User should be able to scroll the shop category rail.");
+	
+	}
+	
+	navigateToHomePage();
+	
+}
+
+public void shopSearch_TC07_TC15(String userType) throws Exception{
+	
+	
+	if(userType.equalsIgnoreCase("NonSubscribedUser"))
+	{
+		extent.HeaderChildNode("LoggedIn user - Verify the navigation upon tapping on the product from the \r\n"
+				+ "\"Shop\" tab or from the \"Shop\" category rail.");
+		System.out.println("TC15");
+		extent.extentLogger("LoggedIn user - Verify the navigation upon tapping on the product from the \r\n"
+				+ "\"Shop\" tab or from the \"Shop\" category rail.", "TC15");
+	}
+	else {
+		extent.HeaderChildNode("Guest user - Verify the navigation upon tapping on the product from the \r\n"
+				+ "\"Shop\" tab or from the \"Shop\" category rail.");
+		System.out.println("TC07");
+		extent.extentLogger("Guest user - Verify the navigation upon tapping on the product from the \r\n"
+				+ "\"Shop\" tab or from the \"Shop\" category rail.", "TC07");
+	}
+	
+		navigateToSearchResultsPage("Saree");
+		waitUntilElementDisplayed(HipiDiscoverPage.objFirstShopProduct,10);
+		click(HipiDiscoverPage.objFirstShopProduct,"Shop image thumbnail");
+		
+	if(verifyElementExist(HipiDiscoverPage.objShopDetailsPage,"PDP Screen"))
+			{
+		logger.info("User should navigate to PDP screen upon tapping on the product \r\n"
+				+ "thumbnail from the \"Shop\" category or from the \"Shop\" tab.");	
+		extent.extentLoggerPass("Shop Search", "User should navigate to PDP screen upon tapping on the product \r\n"
+				+ "thumbnail from the \"Shop\" category or from the \"Shop\" tab.");
+	}else {
+		logger.info("User should navigate to PDP screen upon tapping on the product \r\n"
+				+ "thumbnail from the \"Shop\" category or from the \"Shop\" tab.");	
+		extent.extentLoggerFail("Shop Search", "User should navigate to PDP screen upon tapping on the product \r\n"
+				+ "thumbnail from the \"Shop\" category or from the \"Shop\" tab.");
+	
+	}
+	
+	navigateToHomePage();
+	
+}
+
+public void shopSearch_TC08_TC16(String userType) throws Exception{
+	
+	
+	if(userType.equalsIgnoreCase("NonSubscribedUser"))
+	{
+		extent.HeaderChildNode("LoggedIn user - Verify the shop product results displayed based on the keyword searched from the product brand name/product description/product details.");
+		System.out.println("TC16");
+		extent.extentLogger("LoggedIn user - Verify the shop product results displayed based on the keyword searched from the product brand name/product description/product details.", "TC16");
+	}
+	else {
+		extent.HeaderChildNode("Guest user - Verify the shop product results displayed based on the keyword \r\n"
+				+ "searched from the product brand name/product description/product details.");
+		System.out.println("TC08");
+		extent.extentLogger("Guest user - Verify the shop product results displayed based on the keyword \r\n"
+				+ "searched from the product brand name/product description/product details.", "TC08");
+	}
+	
+		navigateToSearchResultsPage("ethnic");
+		waitUntilElementDisplayed(HipiDiscoverPage.objFirstShopProduct,10);
+		click(HipiDiscoverPage.objFirstShopProduct,"Shop image thumbnail");
+		waitUntilElementDisplayed(HipiDiscoverPage.objShopDetailsPage,10);
+		String prodName = getText(HipiDiscoverPage.objProductName);
+		Swipe("UP",2);
+		String prodDesc = getText(HipiDiscoverPage.objProductDescription);
+	if(prodName.toLowerCase().contains("ethnic") || prodDesc.toLowerCase().contains("ethnic"))
+			{
+		logger.info("Shop product results should be displayed based on the keyword \r\n"
+				+ "searched from the product brand name/product description/product details.");	
+		extent.extentLoggerPass("Shop Search", "Shop product results should be displayed based on the keyword \r\n"
+				+ "searched from the product brand name/product description/product details.");
+	}else {
+		logger.info("Shop product results should be displayed based on the keyword \r\n"
+				+ "searched from the product brand name/product description/product details.");	
+		extent.extentLoggerFail("Shop Search", "Shop product results should be displayed based on the keyword \r\n"
+				+ "searched from the product brand name/product description/product details.");
+	
+	}
+	
+	navigateToHomePage();
+	
+}
+
+public void playlistsSearch_TC017(String userType) throws Exception{
+	
+	
+	
+	if(userType.equalsIgnoreCase("NonSubscribedUser"))
+	{
+		extent.HeaderChildNode("Guest/LoggedIn user - Verify \"Playlist\" tab is displayed next to the \"Users\" tab in the search results screen upon searching any keyword.");
+		System.out.println("TC17");
+		extent.extentLogger("Guest/LoggedIn user - Verify \"Playlist\" tab is displayed next to the \"Users\" tab in the search results screen upon searching any keyword.", "TC17");
+	}
+	else {
+		extent.HeaderChildNode("Guest/LoggedIn user - Verify \"Playlist\" tab is displayed next to the \"Users\" tab in the search results screen upon searching any keyword.");
+		System.out.println("TC17");
+		extent.extentLogger("Guest/LoggedIn user - Verify \"Playlist\" tab is displayed next to the \"Users\" tab in the search results screen upon searching any keyword.", "TC17");
+	}
+	
+	navigateToSearchResultsPage("Kohli");
+		waitUntilElementDisplayed(HipiDiscoverPage.objPlaylistsTab,10);
+	if(verifyElementExist(HipiDiscoverPage.objPlaylistsTab,"Playlists tab"))
+			{
+		logger.info("\"Playlist\" tab should be displayed next to the \"Users\" tab in the search results screen upon searching any keyword.");	
+		extent.extentLoggerPass("Playlists Search", "\"Playlist\" tab should be displayed next to the \"Users\" tab in the search results screen upon searching any keyword.");
+	}else {
+		logger.info("\"Playlist\" tab should be displayed next to the \"Users\" tab in the search results screen upon searching any keyword.");	
+		extent.extentLoggerFail("Playlists Search", "\"Playlist\" tab should be displayed next to the \"Users\" tab in the search results screen upon searching any keyword.");
+	
+	}
+	navigateToHomePage();
+	
+}
+
+public void playlistsSearch_TC018(String userType) throws Exception{
+	
+	
+	
+	if(userType.equalsIgnoreCase("NonSubscribedUser"))
+	{
+		extent.HeaderChildNode("Guest/Logged In user - Verify \"Playlist\" category is displayed in the \"Top\" tab upon searching any keyword.");
+		System.out.println("TC18");
+		extent.extentLogger("Guest/Logged In user - Verify \"Playlist\" category is displayed in the \"Top\" tab upon searching any keyword.", "TC18");
+	}
+	else {
+		extent.HeaderChildNode("Guest/Logged In user - Verify \"Playlist\" category is displayed in the \"Top\" tab upon searching any keyword.");
+		System.out.println("TC18");
+		extent.extentLogger("Guest/Logged In user - Verify \"Playlist\" category is displayed in the \"Top\" tab upon searching any keyword.", "TC18");
+	}
+	
+	navigateToSearchResultsPage("Kohli");
+		waitUntilElementDisplayed(HipiDiscoverPage.objPlaylistsTab,10);
+	if(verifyElementExist(HipiDiscoverPage.objPlaylistsOption,"Playlists Option"))
+			{
+		logger.info("\"Playlist\" category is displayed below the \"Shop\" category in the \"Top\" tab upon searching any keyword.");	
+		extent.extentLoggerPass("Playlists Search", "\"Playlist\" category is displayed below the \"Shop\" category in the \"Top\" tab upon searching any keyword.");
+	}else {
+		logger.info("\"Playlist\" category is displayed below the \"Shop\" category in the \"Top\" tab upon searching any keyword.");	
+		extent.extentLoggerFail("Playlists Search", "\"Playlist\" category is displayed below the \"Shop\" category in the \"Top\" tab upon searching any keyword.");
+	
+	}
+	navigateToHomePage();
+	
+}
+
+public void playlistsSearch_TC019(String userType) throws Exception{
+	Boolean flag = false;
+	
+	
+	if(userType.equalsIgnoreCase("NonSubscribedUser"))
+	{
+		extent.HeaderChildNode("Guest/Logged In user - Verify \"See more\" CTA is displayed, when there are \r\n"
+				+ "atleast 3 results displayed for the playlist result.");
+		System.out.println("TC19");
+		extent.extentLogger("Guest/Logged In user - Verify \"See more\" CTA is displayed, when there are \r\n"
+				+ "atleast 3 results displayed for the playlist result.", "TC19");
+	}
+	else {
+		extent.HeaderChildNode("Guest/Logged In user - Verify \"See more\" CTA is displayed, when there are \r\n"
+				+ "atleast 3 results displayed for the playlist result.");
+		System.out.println("TC19");
+		extent.extentLogger("Guest/Logged In user - Verify \"See more\" CTA is displayed, when there are \r\n"
+				+ "atleast 3 results displayed for the playlist result.", "TC19");
+	}
+	
+	navigateToSearchResultsPage("Kohli");
+		waitUntilElementDisplayed(HipiDiscoverPage.objFirstPlaylistTopTab,10);
+		if(getCount(HipiDiscoverPage.objFirstPlaylistTopTab)>=3) {
+			System.out.println("See more button should be present");
+			if(verifyElementExist(HipiDiscoverPage.objPlaylistsSeeMoreBtn ,"Playlists see more button")) {
+				flag = true;
+			}
+		}
+		
+		else {
+			System.out.println("See more button should not be present");
+			if(verifyElementNotExist(HipiDiscoverPage.objPlaylistsSeeMoreBtn)) {
+				flag = true;
+			}
+		}
+	if(flag)
+			{
+		logger.info("\"See more\" CTA should be displayed if minimum of 3 playlists results\r\n"
+				+ "displayed for the Playlist category upon searching.");	
+		extent.extentLoggerPass("Playlists Search", "\"See more\" CTA should be displayed if minimum of 3 playlists results\r\n"
+				+ "displayed for the Playlist category upon searching.");
+	}else {
+		logger.info("\"See more\" CTA should be displayed if minimum of 3 playlists results\r\n"
+				+ "displayed for the Playlist category upon searching.");	
+		extent.extentLoggerFail("Playlists Search", "\"See more\" CTA should be displayed if minimum of 3 playlists results\r\n"
+				+ "displayed for the Playlist category upon searching.");
+	
+	}
+	
+	navigateToHomePage();
+	
+}
+
+public void playlistsSearch_TC020(String userType) throws Exception{
+	
+	
+	if(userType.equalsIgnoreCase("NonSubscribedUser"))
+	{
+		extent.HeaderChildNode("Guest/Logged In user - Verify the navihation upon tapping on the \"See more\" CTA.");
+		System.out.println("TC20");
+		extent.extentLogger("Guest/Logged In user - Verify the navihation upon tapping on the \"See more\" CTA.", "TC20");
+	}
+	else {
+		extent.HeaderChildNode("Guest/Logged In user - Verify the navihation upon tapping on the \"See more\" CTA.");
+		System.out.println("TC20");
+		extent.extentLogger("Guest/Logged In user - Verify the navihation upon tapping on the \"See more\" CTA.", "TC20");
+	}
+	
+		navigateToSearchResultsPage("Kohli");
+		waitUntilElementDisplayed(HipiDiscoverPage.objFirstPlaylistTopTab,10);
+		click(HipiDiscoverPage.objPlaylistsSeeMoreBtn,"Playlists see more button");
+		
+		
+	if(verifyElementExist(HipiDiscoverPage.objPlaylistsSelected,"Playlists tab selected"))
+			{
+		logger.info("User should navigate to \"Playlists\" tab upon tapping \"See more\"  CTA.");	
+		extent.extentLoggerPass("Shop Search", "User should navigate to \"Playlists\" tab upon tapping \"See more\"  CTA.");
+	}else {
+		logger.info("User should navigate to \"Playlists\" tab upon tapping \"See more\"  CTA.");	
+		extent.extentLoggerFail("Shop Search", "User should navigate to \"Playlists\" tab upon tapping \"See more\"  CTA.");
+	
+	}
+	
+	navigateToHomePage();
+	
+}
+
+public void playlistsSearch_TC023(String userType) throws Exception{
+	
+	
+	if(userType.equalsIgnoreCase("NonSubscribedUser"))
+	{
+		extent.HeaderChildNode("Guest/Loggen In user - Verify the navigation upon tapping back button from the playlist tab.");
+		System.out.println("TC23");
+		extent.extentLogger("Guest/Loggen In user - Verify the navigation upon tapping back button from the playlist tab.", "TC23");
+	}
+	else {
+		extent.HeaderChildNode("Guest/Loggen In user - Verify the navigation upon tapping back button from the playlist tab.");
+		System.out.println("TC23");
+		extent.extentLogger("Guest/Loggen In user - Verify the navigation upon tapping back button from the playlist tab.", "TC23");
+	}
+	
+		navigateToSearchResultsPage("kundali");
+		waitUntilElementDisplayed(HipiDiscoverPage.objFirstPlaylistTopTab,10);
+		click(HipiDiscoverPage.objPlaylistsTab,"Playlists tab");
+		waitUntilElementDisplayed(HipiDiscoverPage.objPlaylistsSelected,10);
+		
+		Back(1);
+		
+	if(verifyElementNotExist(HipiDiscoverPage.objPlaylistsTab) && verifyElementExist(HipiDiscoverPage.objDiscoverSearchBar,"Search bar screen"))
+			{
+		logger.info("User should navigate back to \"Search\" screen  upon tapping back arrow button from the \"Playlist\" tab.");	
+		extent.extentLoggerPass("Playlists Search", "User should navigate back to \"Search\" screen  upon tapping back arrow button from the \"Playlist\" tab.");
+	}else {
+		logger.info("User should navigate back to \"Search\" screen  upon tapping back arrow button from the \"Playlist\" tab.");	
+		extent.extentLoggerFail("Playlists Search", "User should navigate back to \"Search\" screen  upon tapping back arrow button from the \"Playlist\" tab.");
+	
+	}
+	
+	navigateToHomePage();
+	
+}
+
+public void playlistsSearch_TC022(String userType) throws Exception{
+	
+	
+	if(userType.equalsIgnoreCase("NonSubscribedUser"))
+	{
+		extent.HeaderChildNode("Guest/Loggen In user - Verify the navigation upon tapping on the any playlist results displayed.");
+		System.out.println("TC22");
+		extent.extentLogger("Guest/Loggen In user - Verify the navigation upon tapping on the any playlist results displayed.", "TC22");
+	}
+	else {
+		extent.HeaderChildNode("Guest/Loggen In user - Verify the navigation upon tapping on the any playlist results displayed.");
+		System.out.println("TC22");
+		extent.extentLogger("Guest/Loggen In user - Verify the navigation upon tapping on the any playlist results displayed.", "TC22");
+	}
+	
+		navigateToSearchResultsPage("prashant");
+		waitUntilElementDisplayed(HipiDiscoverPage.objFirstPlaylistTopTab,10);
+		click(HipiDiscoverPage.objFirstPlaylistTopTab,"First playlist result");
+		
+	if(verifyElementExist(HipiDiscoverPage.objPlaylistPage,"Playlists page"))
+			{
+		logger.info("User should navigate to playlist video details screen upon tapping on the playlist result.");	
+		extent.extentLoggerPass("Playlists Search", "User should navigate to playlist video details screen upon tapping on the playlist result.");
+	}else {
+		logger.info("User should navigate to playlist video details screen upon tapping on the playlist result.");	
+		extent.extentLoggerFail("Playlists Search", "User should navigate to playlist video details screen upon tapping on the playlist result.");
+	
+	}
+	
+	navigateToHomePage();
+	
+}
+
+public void newShop_TC01(String userType) throws Exception{
+	
+	
+	if(userType.equalsIgnoreCase("NonSubscribedUser"))
+	{
+		extent.HeaderChildNode("Guest/Logged In user - Verify the availability and functionality of  the \"Shop\" button displayed on the Feed screen at the top right corner.");
+		System.out.println("TC01");
+		extent.extentLogger("Guest/Logged In user - Verify the availability and functionality of  the \"Shop\" button displayed on the Feed screen at the top right corner.", "TC01");
+	}
+	else {
+		extent.HeaderChildNode("Guest/Logged In user - Verify the availability and functionality of  the \"Shop\" button displayed on the Feed screen at the top right corner.");
+		System.out.println("TC01");
+		extent.extentLogger("Guest/Logged In user - Verify the availability and functionality of  the \"Shop\" button displayed on the Feed screen at the top right corner.", "TC01");
+	}
+	
+		waitUntilElementDisplayed(HipiDiscoverPage.objShopIcon,10);
+		click(HipiDiscoverPage.objShopIcon,"Shop icon");
+		waitUntilElementDisplayed(HipiDiscoverPage.objShopPage,10);
+		
+	if(verifyElementExist(HipiDiscoverPage.objShopPage,"Hipi shop page"))
+			{
+		logger.info("\"Shop\" button should be displayed on the feed screen at the top right corner, upon tapping user should navigate to \"Shop\" screen.");	
+		extent.extentLoggerPass("New Shop", "\"Shop\" button should be displayed on the feed screen at the top right corner, upon tapping user should navigate to \"Shop\" screen.");
+	}else {
+		logger.info("\"Shop\" button should be displayed on the feed screen at the top right corner, upon tapping user should navigate to \"Shop\" screen.");	
+		extent.extentLoggerFail("New Shop", "\"Shop\" button should be displayed on the feed screen at the top right corner, upon tapping user should navigate to \"Shop\" screen.");
+	
+	}
+	
+	navigateToHomePage();
+	
+}
+
+public void newShop_TC02(String userType) throws Exception{
+	
+	
+	if(userType.equalsIgnoreCase("NonSubscribedUser"))
+	{
+		extent.HeaderChildNode("Guest/Logged In user - Verify the availability and functionality of  the \"Shop\" button displayed on the Discover screen at the top right corner.");
+		System.out.println("TC02");
+		extent.extentLogger("Guest/Logged In user - Verify the availability and functionality of  the \"Shop\" button displayed on the Discover screen at the top right corner.", "TC02");
+	}
+	else {
+		extent.HeaderChildNode("Guest/Logged In user - Verify the availability and functionality of  the \"Shop\" button displayed on the Discover screen at the top right corner.");
+		System.out.println("TC02");
+		extent.extentLogger("Guest/Logged In user - Verify the availability and functionality of  the \"Shop\" button displayed on the Discover screen at the top right corner.", "TC02");
+	}
+		
+		click(HipiFeedPage.objDiscoverButton,"Discover button");
+		waitUntilElementDisplayed(HipiDiscoverPage.objShopIcon,10);
+		click(HipiDiscoverPage.objShopIcon,"Shop icon");
+		waitUntilElementDisplayed(HipiDiscoverPage.objShopPage,10);
+		
+	if(verifyElementExist(HipiDiscoverPage.objShopPage,"Hipi shop page"))
+			{
+		logger.info("\"Shop\" button should be displayed on the Discover screen at the top right corner, upon tapping user should navigate to \"Shop\" screen.");	
+		extent.extentLoggerPass("New Shop", "\"Shop\" button should be displayed on the Discover screen at the top right corner, upon tapping user should navigate to \"Shop\" screen.");
+	}else {
+		logger.info("\"Shop\" button should be displayed on the Discover screen at the top right corner, upon tapping user should navigate to \"Shop\" screen.");	
+		extent.extentLoggerFail("New Shop", "\"Shop\" button should be displayed on the Discover screen at the top right corner, upon tapping user should navigate to \"Shop\" screen.");
+	
+	}
+	
+	navigateToHomePage();
+	
+}
+
+public void newShop_TC03(String userType) throws Exception{
+	
+	
+	if(userType.equalsIgnoreCase("NonSubscribedUser"))
+	{
+		extent.HeaderChildNode("Guest/Logged In user - Verify \"Search\" bar is displayed on the shop screen.");
+		System.out.println("TC03");
+		extent.extentLogger("Guest/Logged In user - Verify \"Search\" bar is displayed on the shop screen.", "TC03");
+	}
+	else {
+		extent.HeaderChildNode("Guest/Logged In user - Verify \"Search\" bar is displayed on the shop screen.");
+		System.out.println("TC03");
+		extent.extentLogger("Guest/Logged In user - Verify \"Search\" bar is displayed on the shop screen.", "TC03");
+	}
+		
+		click(HipiFeedPage.objDiscoverButton,"Discover button");
+		waitUntilElementDisplayed(HipiDiscoverPage.objShopIcon,10);
+		click(HipiDiscoverPage.objShopIcon,"Shop icon");
+		waitUntilElementDisplayed(HipiDiscoverPage.objShopPage,10);
+		
+	if(verifyElementExist(HipiDiscoverPage.objDiscoverSearchBar,"Hipi shop search bar"))
+			{
+		logger.info("Search bar should be displayed on the \"Shop\" screen.");	
+		extent.extentLoggerPass("New Shop", "Search bar should be displayed on the \"Shop\" screen.");
+	}else {
+		logger.info("Search bar should be displayed on the \"Shop\" screen.");	
+		extent.extentLoggerFail("New Shop", "Search bar should be displayed on the \"Shop\" screen.");
+	
+	}
+	
+	navigateToHomePage();
+	
+}
+
+public void newShop_TC04(String userType) throws Exception{
+	
+	
+	if(userType.equalsIgnoreCase("NonSubscribedUser"))
+	{
+		extent.HeaderChildNode("Guest/Logged In user - Verify upon tapping on the search bar \"Popular Searches\" is displayed automatically.");
+		System.out.println("TC04");
+		extent.extentLogger("Guest/Logged In user - Verify upon tapping on the search bar \"Popular Searches\" is displayed automatically.", "TC04");
+	}
+	else {
+		extent.HeaderChildNode("Guest/Logged In user - Verify upon tapping on the search bar \"Popular Searches\" is displayed automatically.");
+		System.out.println("TC04");
+		extent.extentLogger("Guest/Logged In user - Verify upon tapping on the search bar \"Popular Searches\" is displayed automatically.", "TC04");
+	}
+		
+		click(HipiFeedPage.objDiscoverButton,"Discover button");
+		waitUntilElementDisplayed(HipiDiscoverPage.objShopIcon,10);
+		click(HipiDiscoverPage.objShopIcon,"Shop icon");
+		waitUntilElementDisplayed(HipiDiscoverPage.objDiscoverSearchBar,10);
+		click(HipiDiscoverPage.objDiscoverSearchBar,"Hipi shop search bar");
+		
+	if(verifyElementExist(HipiDiscoverPage.objPopularSearchesShopPage,"Popular searches"))
+			{
+		logger.info("\"Popular Searches\" section should be displayed automatically upon tapping on the search bar.");	
+		extent.extentLoggerPass("New Shop", "\"Popular Searches\" section should be displayed automatically upon tapping on the search bar.");
+	}else {
+		logger.info("\"Popular Searches\" section should be displayed automatically upon tapping on the search bar.");	
+		extent.extentLoggerFail("New Shop", "\"Popular Searches\" section should be displayed automatically upon tapping on the search bar.");
+	
+	}
+	
+	navigateToHomePage();
+	
+}
+
+public void newShop_TC07(String userType) throws Exception{
+	
+	
+	if(userType.equalsIgnoreCase("NonSubscribedUser"))
+	{
+		extent.HeaderChildNode("Guest/Logged In user - Verify product category rail is displayed below the carousel banner in the shop screen.");
+		System.out.println("TC07");
+		extent.extentLogger("Guest/Logged In user - Verify product category rail is displayed below the carousel banner in the shop screen.", "TC07");
+	}
+	else {
+		extent.HeaderChildNode("Guest/Logged In user - Verify product category rail is displayed below the carousel banner in the shop screen.");
+		System.out.println("TC07");
+		extent.extentLogger("Guest/Logged In user - Verify product category rail is displayed below the carousel banner in the shop screen.", "TC07");
+	}
+		
+		click(HipiFeedPage.objDiscoverButton,"Discover button");
+		waitUntilElementDisplayed(HipiDiscoverPage.objShopIcon,10);
+		click(HipiDiscoverPage.objShopIcon,"Shop icon");
+		waitUntilElementDisplayed(HipiDiscoverPage.objDiscoverSearchBar,10);
+		
+	if(verifyElementExist(HipiDiscoverPage.objProductCategoriesRailShopPage,"Product categories rail in shop page"))
+			{
+		logger.info("Product category rail should be displayed below the carousel banner inside the \"Shop\" screen.");	
+		extent.extentLoggerPass("New Shop", "Product category rail should be displayed below the carousel banner inside the \"Shop\" screen.");
+	}else {
+		logger.info("Product category rail should be displayed below the carousel banner inside the \"Shop\" screen.");	
+		extent.extentLoggerFail("New Shop", "Product category rail should be displayed below the carousel banner inside the \"Shop\" screen.");
+	
+	}
+	
+	navigateToHomePage();
+	
+}
+
+public void newShop_TC08(String userType) throws Exception{
+	
+	
+	if(userType.equalsIgnoreCase("NonSubscribedUser"))
+	{
+		extent.HeaderChildNode("Guest/Logged In user - Verify the navigation upon tapping on any category from the category rail.");
+		System.out.println("TC08");
+		extent.extentLogger("Guest/Logged In user - Verify the navigation upon tapping on any category from the category rail.", "TC08");
+	}
+	else {
+		extent.HeaderChildNode("Guest/Logged In user - Verify the navigation upon tapping on any category from the category rail.");
+		System.out.println("TC08");
+		extent.extentLogger("Guest/Logged In user - Verify the navigation upon tapping on any category from the category rail.", "TC08");
+	}
+		
+		click(HipiFeedPage.objDiscoverButton,"Discover button");
+		waitUntilElementDisplayed(HipiDiscoverPage.objShopIcon,10);
+		click(HipiDiscoverPage.objShopIcon,"Shop icon");
+		waitUntilElementDisplayed(HipiDiscoverPage.objShopPage,10);
+		click(HipiDiscoverPage.objProductCategoriesRailShopPage,"1st product category");
+		waitTime(3000);
+	if(verifyElementNotExist(HipiDiscoverPage.objShopPage))
+			{
+		logger.info("Categories page should open in a new page.");	
+		extent.extentLoggerPass("New Shop", "Categories page should open in a new page.");
+	}else {
+		logger.info("Categories page should open in a new page.");	
+		extent.extentLoggerFail("New Shop", "Categories page should open in a new page.");
+	
+	}
+	
+	navigateToHomePage();
+	
+}
+
+public void newShop_TC10(String userType) throws Exception{
+	
+	
+	if(userType.equalsIgnoreCase("NonSubscribedUser"))
+	{
+		extent.HeaderChildNode("Guest/Logged In user - Verify the navigation upon tapping on back arrow/device back button from the category screen.");
+		System.out.println("TC10");
+		extent.extentLogger("Guest/Logged In user - Verify the navigation upon tapping on back arrow/device back button from the category screen.", "TC10");
+	}
+	else {
+		extent.HeaderChildNode("Guest/Logged In user - Verify the navigation upon tapping on back arrow/device back button from the category screen.");
+		System.out.println("TC10");
+		extent.extentLogger("Guest/Logged In user - Verify the navigation upon tapping on back arrow/device back button from the category screen.", "TC10");
+	}
+		
+		click(HipiFeedPage.objDiscoverButton,"Discover button");
+		waitUntilElementDisplayed(HipiDiscoverPage.objShopIcon,10);
+		click(HipiDiscoverPage.objShopIcon,"Shop icon");
+		waitUntilElementDisplayed(HipiDiscoverPage.objShopPage,10);
+		click(HipiDiscoverPage.objProductCategoriesRailShopPage,"1st product category");
+		waitTime(3000);
+		Back(1);
+	if(verifyElementExist(HipiDiscoverPage.objShopPage,"Hipi shop page"))
+			{
+		logger.info("User should be navigated back to shop screen upon tapping on the back arrow/device back button from the \"Category\" screen.");	
+		extent.extentLoggerPass("New Shop", "User should be navigated back to shop screen upon tapping on the back arrow/device back button from the \"Category\" screen.");
+	}else {
+		logger.info("User should be navigated back to shop screen upon tapping on the back arrow/device back button from the \"Category\" screen.");	
+		extent.extentLoggerFail("New Shop", "User should be navigated back to shop screen upon tapping on the back arrow/device back button from the \"Category\" screen.");
+	
+	}
+	
+	navigateToHomePage();
+	
+}
+
+public void newShop_TC09(String userType) throws Exception{
+	
+	
+	if(userType.equalsIgnoreCase("NonSubscribedUser"))
+	{
+		extent.HeaderChildNode("Guest/Logged In user - Verify category name is displayed at the top of the screen upon tapping on any of the category.");
+		System.out.println("TC09");
+		extent.extentLogger("Guest/Logged In user - Verify category name is displayed at the top of the screen upon tapping on any of the category.", "TC09");
+	}
+	else {
+		extent.HeaderChildNode("Guest/Logged In user - Verify category name is displayed at the top of the screen upon tapping on any of the category.");
+		System.out.println("TC09");
+		extent.extentLogger("Guest/Logged In user - Verify category name is displayed at the top of the screen upon tapping on any of the category.", "TC09");
+	}
+		
+		click(HipiFeedPage.objDiscoverButton,"Discover button");
+		waitUntilElementDisplayed(HipiDiscoverPage.objShopIcon,10);
+		click(HipiDiscoverPage.objShopIcon,"Shop icon");
+		waitUntilElementDisplayed(HipiDiscoverPage.objShopPage,10);
+		click(HipiDiscoverPage.objProductCategoriesRailShopPage,"1st product category");
+		waitTime(3000);
+	if(verifyElementExist(HipiDiscoverPage.objProductCategoryHeader,"Product category header"))
+			{
+		logger.info("Category name should be displayed at the top of the screen upon tapping on any of the category.");	
+		extent.extentLoggerPass("New Shop", "Category name should be displayed at the top of the screen upon tapping on any of the category.");
+	}else {
+		logger.info("Category name should be displayed at the top of the screen upon tapping on any of the category.");	
+		extent.extentLoggerFail("New Shop", "Category name should be displayed at the top of the screen upon tapping on any of the category.");
+	
+	}
+	
+	navigateToHomePage();
+	
+}
+
+public void newShop_TC12(String userType) throws Exception{
+	
+	
+	if(userType.equalsIgnoreCase("NonSubscribedUser"))
+	{
+		extent.HeaderChildNode("Guest/Logged In user - Verify the navigation upon tapping on the right arrow mark displayed on the product rail.");
+		System.out.println("TC12");
+		extent.extentLogger("Guest/Logged In user - Verify the navigation upon tapping on the right arrow mark displayed on the product rail.", "TC12");
+	}
+	else {
+		extent.HeaderChildNode("Guest/Logged In user - Verify the navigation upon tapping on the right arrow mark displayed on the product rail.");
+		System.out.println("TC12");
+		extent.extentLogger("Guest/Logged In user - Verify the navigation upon tapping on the right arrow mark displayed on the product rail.", "TC12");
+	}
+		
+		click(HipiFeedPage.objDiscoverButton,"Discover button");
+		waitUntilElementDisplayed(HipiDiscoverPage.objShopIcon,10);
+		click(HipiDiscoverPage.objShopIcon,"Shop icon");
+		waitUntilElementDisplayed(HipiDiscoverPage.objShopPage,10);
+		click(HipiDiscoverPage.objMoreButtonTrendingOnHipi ,"Category rail more button");
+	if(verifyElementExist(HipiDiscoverPage.objProductCategoryHeader,"Product category header") && verifyElementNotExist(HipiDiscoverPage.objShopPage))
+			{
+		logger.info("All the products of that rail should open in a new screen upon tapping on the right arrow mark.");	
+		extent.extentLoggerPass("New Shop", "All the products of that rail should open in a new screen upon tapping on the right arrow mark.");
+	}else {
+		logger.info("All the products of that rail should open in a new screen upon tapping on the right arrow mark.");	
+		extent.extentLoggerFail("New Shop", "All the products of that rail should open in a new screen upon tapping on the right arrow mark.");
+	
+	}
+	
+	navigateToHomePage();
+	
+}
+
+public void newShop_TC13(String userType) throws Exception{
+	
+	
+	if(userType.equalsIgnoreCase("NonSubscribedUser"))
+	{
+		extent.HeaderChildNode("Guest/Logged In user - Verify the navigation upon tapping back arrow button on the product screen.");
+		System.out.println("TC13");
+		extent.extentLogger("Guest/Logged In user - Verify the navigation upon tapping back arrow button on the product screen.", "TC13");
+	}
+	else {
+		extent.HeaderChildNode("Guest/Logged In user - Verify the navigation upon tapping back arrow button on the product screen.");
+		System.out.println("TC13");
+		extent.extentLogger("Guest/Logged In user - Verify the navigation upon tapping back arrow button on the product screen.", "TC13");
+	}
+		
+		click(HipiFeedPage.objDiscoverButton,"Discover button");
+		waitUntilElementDisplayed(HipiDiscoverPage.objShopIcon,10);
+		click(HipiDiscoverPage.objShopIcon,"Shop icon");
+		waitUntilElementDisplayed(HipiDiscoverPage.objShopPage,10);
+		click(HipiDiscoverPage.objMoreButtonTrendingOnHipi ,"Category rail more button");
+		Back(1);
+	if(verifyElementNotExist(HipiDiscoverPage.objProductCategoryHeader) && verifyElementExist(HipiDiscoverPage.objShopPage,"Hipi shop page"))
+			{
+		logger.info("User should be navigated back to shop screen upon tapping on the back arrow/device back button from the \"Product\" screen.");	
+		extent.extentLoggerPass("New Shop", "User should be navigated back to shop screen upon tapping on the back arrow/device back button from the \"Product\" screen.");
+	}else {
+		logger.info("User should be navigated back to shop screen upon tapping on the back arrow/device back button from the \"Product\" screen.");	
+		extent.extentLoggerFail("New Shop", "User should be navigated back to shop screen upon tapping on the back arrow/device back button from the \"Product\" screen.");
+	
+	}
+	
+	navigateToHomePage();
+	
+}
+
+public void newShop_TC14(String userType) throws Exception{
+	
+	
+	if(userType.equalsIgnoreCase("Guest"))
+	{
+		extent.HeaderChildNode("Guest user - Verify the functionality upon tapping \"Wishlist\" icon.");
+		System.out.println("TC14");
+		extent.extentLogger("Guest user - Verify the functionality upon tapping \"Wishlist\" icon.", "TC14");
+	
+	
+		click(HipiFeedPage.objDiscoverButton,"Discover button");
+		waitUntilElementDisplayed(HipiDiscoverPage.objShopIcon,10);
+		click(HipiDiscoverPage.objShopIcon,"Shop icon");
+		waitUntilElementDisplayed(HipiDiscoverPage.objShopPage,10);
+		click(HipiDiscoverPage.objShopPageWishlistIcon,"Wishlist icon");
+		
+	if(verifyElementExist(HipiLoginPage.objUsePhoneOrEmail,"Login/Signup popup"))
+			{
+		logger.info("\"Login/Sign Up\" popup should be displayed upon tapping on the \"Wishlist\" icon.");	
+		extent.extentLoggerPass("New Shop", "\"Login/Sign Up\" popup should be displayed upon tapping on the \"Wishlist\" icon.");
+	}else {
+		logger.info("\"Login/Sign Up\" popup should be displayed upon tapping on the \"Wishlist\" icon.");	
+		extent.extentLoggerFail("New Shop", "\"Login/Sign Up\" popup should be displayed upon tapping on the \"Wishlist\" icon.");
+	
+	}
+	}
+	navigateToHomePage();
+	
+}
+
+public void newShop_TC15(String userType) throws Exception{
+	
+	
+	if(userType.equalsIgnoreCase("NonSubscribedUser"))
+	{
+		extent.HeaderChildNode("Logged In user - Verify the functionality upon tapping \"Wishlist\" icon.");
+		System.out.println("TC15");
+		extent.extentLogger("Logged In user - Verify the functionality upon tapping \"Wishlist\" icon.", "TC15");
+	
+	
+		click(HipiFeedPage.objDiscoverButton,"Discover button");
+		waitUntilElementDisplayed(HipiDiscoverPage.objShopIcon,10);
+		click(HipiDiscoverPage.objShopIcon,"Shop icon");
+		waitUntilElementDisplayed(HipiDiscoverPage.objShopPage,10);
+		click(HipiDiscoverPage.objShopPageWishlistIcon,"Wishlist icon");
+		
+	if(verifyElementExist(HipiDiscoverPage.objWishlistPage,"Wishlist page"))
+			{
+		logger.info("User should navigate to \"Wishlist\" screen.");	
+		extent.extentLoggerPass("New Shop", "User should navigate to \"Wishlist\" screen.");
+	}else {
+		logger.info("User should navigate to \"Wishlist\" screen.");	
+		extent.extentLoggerFail("New Shop", "User should navigate to \"Wishlist\" screen.");
+	
+	}
+	}
+	navigateToHomePage();
+	
+}
+
+public void newShop_TC16(String userType) throws Exception{
+	
+	
+	if(userType.equalsIgnoreCase("NonSubscribedUser"))
+	{
+		extent.HeaderChildNode("Guest/Logged In user - Verify the navigation upon tapping on the \"Cart\" icon.");
+		System.out.println("TC16");
+		extent.extentLogger("Guest/Logged In user - Verify the navigation upon tapping on the \"Cart\" icon.", "TC16");
+	}
+	
+	else {
+		extent.HeaderChildNode("Guest/Logged In user - Verify the navigation upon tapping on the \"Cart\" icon.");
+		System.out.println("TC16");
+		extent.extentLogger("Guest/Logged In user - Verify the navigation upon tapping on the \"Cart\" icon.", "TC16");
+	}
+		click(HipiFeedPage.objDiscoverButton,"Discover button");
+		waitUntilElementDisplayed(HipiDiscoverPage.objShopIcon,10);
+		click(HipiDiscoverPage.objShopIcon,"Shop icon");
+		waitUntilElementDisplayed(HipiDiscoverPage.objShopPage,10);
+		click(HipiDiscoverPage.objShopDetailsPage,"Add to cart icon");
+		
+	if(verifyElementExist(HipiDiscoverPage.objCartPage,"Cart page"))
+			{
+		logger.info("User should navigate to \"Cart\" screen.");	
+		extent.extentLoggerPass("New Shop", "User should navigate to \"Cart\" screen.");
+	}else {
+		logger.info("User should navigate to \"Cart\" screen.");	
+		extent.extentLoggerFail("New Shop", "User should navigate to \"Cart\" screen.");
+	
+	}
+	
+	navigateToHomePage();
+	
+}
+
+public void newShop_TC18(String userType) throws Exception{
+	
+	
+	if(userType.equalsIgnoreCase("NonSubscribedUser"))
+	{
+		extent.HeaderChildNode("Guest/Logged In user - Verify \"Shop\" tab gets highlighted upon searcing any otrher keywords apart from the product keyword.");
+		System.out.println("TC18");
+		extent.extentLogger("Guest/Logged In user - Verify \"Shop\" tab gets highlighted upon searcing any otrher keywords apart from the product keyword.", "TC18");
+	}
+	
+	else {
+		extent.HeaderChildNode("Guest/Logged In user - Verify \"Shop\" tab gets highlighted upon searcing any otrher keywords apart from the product keyword.");
+		System.out.println("TC18");
+		extent.extentLogger("Guest/Logged In user - Verify \"Shop\" tab gets highlighted upon searcing any otrher keywords apart from the product keyword.", "TC18");
+	}
+	
+		waitUntilElementDisplayed(HipiDiscoverPage.objShopIcon,10);
+		click(HipiDiscoverPage.objShopIcon,"Shop icon");
+		waitUntilElementDisplayed(HipiDiscoverPage.objShopPage,10);
+
+		verifyElementPresentAndClick(HipiDiscoverPage.objDiscoverSearchBar, "Search Box");
+		waitUntilElementDisplayed(HipiDiscoverPage.objDiscoverSearchInbox,10);
+		type(HipiDiscoverPage.objDiscoverSearchInbox, "Perfumes", "Type value");
+		waitUntilElementDisplayed(HipiDiscoverPage.objSearchResult,10);
+		verifyElementPresentAndClick(HipiDiscoverPage.objSearchResult, "Search result");
+		waitUntilElementDisplayed(HipiDiscoverPage.objTopButton,10);
+		
+	if(verifyElementExist(HipiDiscoverPage.objShopSelected,"Shop highlighted"))
+			{
+		logger.info("\"Shop\" tab should gets highlighted upon searching for any keyword from the \"Shop\" screen.");	
+		extent.extentLoggerPass("New Shop", "\"Shop\" tab should gets highlighted upon searching for any keyword from the \"Shop\" screen.");
+	}else {
+		logger.info("\"Shop\" tab should gets highlighted upon searching for any keyword from the \"Shop\" screen.");	
+		extent.extentLoggerFail("New Shop", "\"Shop\" tab should gets highlighted upon searching for any keyword from the \"Shop\" screen.");
+	
+	}
+	
+	navigateToHomePage();
+	
+}
+//objMoreButtonTrendingOnHipi 
+public void navigateToSearchResultsPage (String searchQuery) throws Exception {
+	verifyElementPresentAndClick(HipiHomePage.objDiscoverButton, "Discover Button");
+	waitUntilElementDisplayed(HipiDiscoverPage.objDiscoverSearchBar,10);
+	verifyElementPresentAndClick(HipiDiscoverPage.objDiscoverSearchBar, "Search Box");
+	waitUntilElementDisplayed(HipiDiscoverPage.objDiscoverSearchInbox,10);
+	type(HipiDiscoverPage.objDiscoverSearchInbox, searchQuery, "Type value");
+	waitUntilElementDisplayed(HipiDiscoverPage.objSearchResult,10);
+	verifyElementPresentAndClick(HipiDiscoverPage.objSearchResult, "Search result");
+	waitUntilElementDisplayed(HipiDiscoverPage.objTopButton,10);
+}
+
 }

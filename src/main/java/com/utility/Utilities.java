@@ -3255,7 +3255,7 @@ try {
 		for(int i=1;i<=k;i++) {
 			if (direction.equalsIgnoreCase("Left")) {
 				int startx=x+((width*3)/4);
-				int endx=x+(width/4) -100;
+				int endx=x+(width/4);
 				int requiredy= y+(height/2);
 				action.press(PointOption.point(startx, requiredy)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(600)))
 				.moveTo(PointOption.point(endx, requiredy)).release().perform();

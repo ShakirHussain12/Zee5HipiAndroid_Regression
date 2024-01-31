@@ -1174,6 +1174,51 @@ public class AndroidHiPiNeoP0 {
 		
 		
 	}
+	
+	@Test(priority = 27)
+	@Parameters({"userType"})
+	public void newSearchFunctionalityP0(String userType) throws Exception{
+		Zee5ApplicasterHipiNeoBusinessLogic.relaunch(true);	
+		Zee5ApplicasterHipiNeoBusinessLogic.LoginAndNivigateToHipi(userType);
+		
+		//Zee5ApplicasterHipiNeoBusinessLogic.shopSearch_TC01_TC09(userType);
+		//Zee5ApplicasterHipiNeoBusinessLogic.shopSearch_TC02_TC10(userType);
+		//Zee5ApplicasterHipiNeoBusinessLogic.shopSearch_TC03_TC11(userType);
+		//Zee5ApplicasterHipiNeoBusinessLogic.shopSearch_TC04_TC12(userType);
+		//Zee5ApplicasterHipiNeoBusinessLogic.shopSearch_TC05_TC13(userType);
+		//Zee5ApplicasterHipiNeoBusinessLogic.shopSearch_TC06_TC14(userType);
+		//Zee5ApplicasterHipiNeoBusinessLogic.shopSearch_TC07_TC15(userType);
+		//Zee5ApplicasterHipiNeoBusinessLogic.shopSearch_TC08_TC16(userType);
+		
+		//Zee5ApplicasterHipiNeoBusinessLogic.playlistsSearch_TC017(userType);
+		//Zee5ApplicasterHipiNeoBusinessLogic.playlistsSearch_TC018(userType);
+		//Zee5ApplicasterHipiNeoBusinessLogic.playlistsSearch_TC019(userType);
+		//Zee5ApplicasterHipiNeoBusinessLogic.playlistsSearch_TC020(userType);
+		Zee5ApplicasterHipiNeoBusinessLogic.playlistsSearch_TC022(userType);
+		
+	}
+	
+	@Test(priority = 28)
+	@Parameters({"userType"})
+	public void newShopP0(String userType) throws Exception{
+		Zee5ApplicasterHipiNeoBusinessLogic.relaunch(true);	
+		Zee5ApplicasterHipiNeoBusinessLogic.LoginAndNivigateToHipi(userType);
+		
+		//Zee5ApplicasterHipiNeoBusinessLogic.newShop_TC01(userType);
+		//Zee5ApplicasterHipiNeoBusinessLogic.newShop_TC02(userType);
+		//Zee5ApplicasterHipiNeoBusinessLogic.newShop_TC03(userType);
+		//Zee5ApplicasterHipiNeoBusinessLogic.newShop_TC04(userType);
+//		Zee5ApplicasterHipiNeoBusinessLogic.newShop_TC07(userType);
+//		Zee5ApplicasterHipiNeoBusinessLogic.newShop_TC08(userType);
+		//Zee5ApplicasterHipiNeoBusinessLogic.newShop_TC09(userType);
+		//Zee5ApplicasterHipiNeoBusinessLogic.newShop_TC10(userType);
+		//Zee5ApplicasterHipiNeoBusinessLogic.newShop_TC12(userType);
+//		Zee5ApplicasterHipiNeoBusinessLogic.newShop_TC13(userType);
+		//Zee5ApplicasterHipiNeoBusinessLogic.newShop_TC14(userType);
+//		Zee5ApplicasterHipiNeoBusinessLogic.newShop_TC15(userType);
+		//Zee5ApplicasterHipiNeoBusinessLogic.newShop_TC16(userType);
+		Zee5ApplicasterHipiNeoBusinessLogic.newShop_TC18(userType);
+	}
 	@AfterTest						
 		
 	public void tearDownApp() {		

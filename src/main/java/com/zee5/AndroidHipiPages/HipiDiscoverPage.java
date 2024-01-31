@@ -245,7 +245,7 @@ public static By objRecentSearch = By.xpath("//*[@id='recent_and_trending_layout
 		//Back Button Search Bar present in discover page
 		public static By objBackButtonSearchBar = By.xpath("//*[@resource-id='com.zee5.hipi:id/img_back']");
 		//Top on Search Results  screen
-		public static By objTopButton = By.xpath("//*[@contentDescription='Top']");
+		public static By objTopButton = By.xpath("//*[@contentDescription='Top'] | //*[@text='Top']");
 		//Banners
 				public static By objBannersBelowTheSearchField = By.xpath("//*[@resource-id='com.zee5.hipi:id/image']");	
 		        //Back Button Search Bar in banner  detail page 
@@ -847,8 +847,58 @@ public static By objRecentSearch = By.xpath("//*[@id='recent_and_trending_layout
 								
 								public static By objContentProductImages = By.xpath("//*[@resource-id='com.zee5.hipi:id/content_image_view']");
 									
-										
 								
+
+								//Playlist
+								
+								public static By objPlaylistsTab = By.xpath("//*[@text='Playlists']");
+								
+								public static By objPlaylistsOption = By.xpath("//*[@resource-id='com.zee5.hipi:id/title' and @text='Playlists']");
+								
+								public static By objPlaylistsSeeMoreBtn  =By.xpath("//*[@resource-id='com.zee5.hipi:id/title' and @text='Playlists']/following-sibling::*");
+								
+								public static By objFirstPlaylistTopTab = By.xpath("//*[@resource-id='com.zee5.hipi:id/tvTittle']");
+								
+								public static By objPlaylistsSelected = By.xpath("//*[@text='Playlists' and @selected='true']");
+								
+								public static By objFirstPlaylistPlaylistsTab = By.xpath("//*[@resource-id='com.zee5.hipi:id/tvTittle']");
+								
+								public static By objPlaylistPage = By.xpath("//*[@resource-id='com.zee5.hipi:id/tvPlaylist']");
+								
+								public static By objNoItemMsg = By.xpath("//*[@resource-id='com.zee5.hipi:id/text_error']");
+								
+								//Shop tab search results
+								public static By objShopTab = By.xpath("//*[@text='Shop']");
+								
+								public static By objShopOption = By.xpath("//*[@resource-id='com.zee5.hipi:id/title' and @text='Shop']");
+								
+								public static By objShopSeeMoreBtn = By.xpath("//*[@resource-id='com.zee5.hipi:id/title' and @text='Shop']/following-sibling::*");
+								
+								public static By objShopSelected = By.xpath("//*[@text='Shop' and @selected='true']");
+								
+								public static By objFirstShopProduct = By.xpath("//*[@resource-id='com.zee5.hipi:id/imgThumbnail']");
+								
+								public static By objShopDetailsPage = By.xpath("//*[@resource-id='com.zee5.hipi:id/tvAddToCart'] | //*[@resource-id='com.zee5.hipi:id/ivCart']");
+								
+								public static By objBuyCTAShopTab = By.xpath("//*[@resource-id='com.zee5.hipi:id/tvBuyNow']");
+										
+								public static By objShopCateogryRail = By.xpath("(//*[@resource-id='com.zee5.hipi:id/recyclerView'])[1]");
+								
+								public static By objShoppableItemName = By.xpath("//*[@resource-id='com.zee5.hipi:id/txtItemName']");
+								
+								public static By objProductName = By.xpath("//*[@resource-id='com.zee5.hipi:id/tvSubtitle']");
+								
+								public static By objProductDescription = By.xpath("//*[@resource-id='com.zee5.hipi:id/tvDescription']");
+								
+								public static By objPopularSearchesShopPage = By.xpath("//*[@resource-id='com.zee5.hipi:id/search_header' and @text='Popular Searches']");
+								
+								public static By objProductCategoriesRailShopPage = By.xpath("//*[@resource-id='com.zee5.hipi:id/image_view']");
+								
+								public static By objProductCategoryHeader = By.xpath("//*[@resource-id='com.zee5.hipi:id/textTitle']");
+								
+								public static By objWishlistPage = By.xpath("//*[@text='Wishlist']");
+								
+								public static By objCartPage = By.xpath("//*[@text='Cart']");
 }
 
 
