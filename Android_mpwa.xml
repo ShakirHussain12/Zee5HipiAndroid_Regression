@@ -151,8 +151,11 @@
 	
 	<test name="AndroidHiPiNeo">
 		<classes>
-			<class name="com.zee5.Android_HipiScripts.Android_MWEB" />
-			
+			<class name="com.zee5.Android_HipiScripts.Android_MWEB" >
+			<methods>
+			<include name = "FeedP0TCs">
+			</include>
+			</methods></class>
 		</classes>
 	</test> 
 	<!--

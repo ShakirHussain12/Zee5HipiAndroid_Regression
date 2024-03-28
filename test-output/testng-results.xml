@@ -2,27 +2,27 @@
 <testng-results total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-01-31T09:25:41Z" name="HIPI" finished-at="2024-01-31T09:27:30Z" duration-ms="109401">
+  <suite started-at="2024-03-28T07:26:57Z" name="HIPI" finished-at="2024-03-28T07:29:37Z" duration-ms="159545">
     <groups>
     </groups>
-    <test started-at="2024-01-31T09:25:41Z" name="AndroidHiPiNeo" finished-at="2024-01-31T09:27:30Z" duration-ms="109401">
+    <test started-at="2024-03-28T07:26:57Z" name="AndroidHiPiNeo" finished-at="2024-03-28T07:29:37Z" duration-ms="159545">
       <class name="com.zee5.Android_HipiScripts.AndroidHiPiNeoP0">
-        <test-method is-config="true" signature="AppLaunch()[pri:0, instance:com.zee5.Android_HipiScripts.AndroidHiPiNeoP0@7e38a7fe]" started-at="2024-01-31T14:55:47Z" name="AppLaunch" finished-at="2024-01-31T14:55:56Z" duration-ms="8345" status="PASS">
+        <test-method is-config="true" signature="AppLaunch()[pri:0, instance:com.zee5.Android_HipiScripts.AndroidHiPiNeoP0@7e38a7fe]" started-at="2024-03-28T12:57:04Z" name="AppLaunch" finished-at="2024-03-28T12:57:13Z" duration-ms="9452" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- AppLaunch -->
-        <test-method signature="newShopP0(java.lang.String)[pri:28, instance:com.zee5.Android_HipiScripts.AndroidHiPiNeoP0@7e38a7fe]" started-at="2024-01-31T14:55:56Z" name="newShopP0" finished-at="2024-01-31T14:57:28Z" duration-ms="92059" status="PASS">
+        <test-method signature="eCommerce_HipiProductP0(java.lang.String)[pri:25, instance:com.zee5.Android_HipiScripts.AndroidHiPiNeoP0@7e38a7fe]" started-at="2024-03-28T12:57:13Z" name="eCommerce_HipiProductP0" finished-at="2024-03-28T12:59:34Z" duration-ms="140754" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[NonSubscribedUser]]>
+                <![CDATA[Guest]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- newShopP0 -->
-        <test-method is-config="true" signature="tearDownApp()[pri:0, instance:com.zee5.Android_HipiScripts.AndroidHiPiNeoP0@7e38a7fe]" started-at="2024-01-31T14:57:28Z" name="tearDownApp" finished-at="2024-01-31T14:57:30Z" duration-ms="2464" status="PASS">
+        </test-method> <!-- eCommerce_HipiProductP0 -->
+        <test-method is-config="true" signature="tearDownApp()[pri:0, instance:com.zee5.Android_HipiScripts.AndroidHiPiNeoP0@7e38a7fe]" started-at="2024-03-28T12:59:34Z" name="tearDownApp" finished-at="2024-03-28T12:59:37Z" duration-ms="2802" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownApp -->

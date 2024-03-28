@@ -786,7 +786,7 @@ public static By objRecentSearch = By.xpath("//*[@id='recent_and_trending_layout
 								public static By objShopPage = By.xpath("//*[@resource-id='com.zee5.hipi:id/txtHipiShop']");
 								public static By objSongSound = By.xpath("//*[@resource-id='com.zee5.hipi:id/text_view_music_title']");
 								public static By objVideoDesc = By.xpath("//*[@resource-id='com.zee5.hipi:id/text_view_video_description']");
-								public static By objBucketIconSoundDetails = By.xpath("//*[@resource-id='com.zee5.hipi:id/ivShop']");
+								public static By objBucketIconSoundDetails = By.xpath("//*[@resource-id='com.zee5.hipi:id/ivShop'] | //*[@resource-id='com.zee5.hipi:id/imgThumbnail']");
 								public static By objPlaylistBottomIcon = By.xpath("//*[@resource-id='com.zee5.hipi:id/tvPlaylist']");
 								public static By objPlaylistPopup = By.xpath("//*[@resource-id='com.zee5.hipi:id/rvVideos']");
 								public static By objPlaylistTitle = By.xpath("//*[@resource-id='com.zee5.hipi:id/tvTopTitle']");

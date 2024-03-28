@@ -11,7 +11,7 @@ public class HipiECommerce {
 	
 	public static By objSalePrice = By.xpath("//*[@resource-id='com.zee5.hipi:id/sale_price']");
 	
-	public static By objBuyNowHipiCTA = By.xpath("//*[@resource-id='com.zee5.hipi:id/tvBuyNow' and @text='Buy']");
+	public static By objBuyNowHipiCTA = By.xpath("//*[@resource-id='com.zee5.hipi:id/tvBuyNow' and @text='Buy now']");
 	
 	public static By objCloseBtn = By.xpath("//*[@resource-id='com.zee5.hipi:id/close_button']");
 	
@@ -116,6 +116,7 @@ public class HipiECommerce {
 	public static By objLandmarkField = By.xpath("//*[@resource-id='com.zee5.hipi:id/etLandmark']");
 	
 	public static By objErrorMsg = By.xpath("//*[@class='android.widget.TextView' and contains(@text,'Please')]");
+	public static By objInvalidPhoneNumberMsg = By.xpath("//*[@text='Please provide valid phone number.']");
 	
 	public static By objShareIcon = By.xpath("//*[@resource-id='com.zee5.hipi:id/ivShare']");
 	
@@ -208,5 +209,15 @@ public class HipiECommerce {
 	public static By walletPage = By.xpath("//*[@text='Select Wallet']");
 	
 	public static By objFailedOrder = By.xpath("//*[@resource-id='com.zee5.hipi:id/tvFailedTitle']");
+	
+	public static By objCodAvailability = By.xpath("//*[@resource-id='com.zee5.hipi:id/tvCod']");
+	
+	public static By objPayOnDelivery = By.xpath("//*[@resource-id='com.zee5.hipi:id/codLayout']");
+	
+	public static By objConfirmPayOnDelivery = By.xpath("//*[contains(@text,'pay on')]");
+	
+	public static By objConfirmPopupSubText = By.xpath("//*[contains(@text,'time')]");
+	
+	
 	
 }

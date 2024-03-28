@@ -63833,11 +63833,9 @@ public void ecommerceDeeplink() throws Exception{
 	click(HipiDiscoverPage.objBucketIconSoundDetails,"Right top shop button");
 	waitUntilElementDisplayed(HipiDiscoverPage.objBucketIconSoundDetails,10);
 	click(HipiDiscoverPage.objBucketIconSoundDetails,"Shop the look video");
-   waitUntilElementDisplayed(HipiECommerce.objShopTheLookBtn,10);
-   click(HipiECommerce.objShopTheLookBtn,"Shop the look");
-   waitUntilElementDisplayed(HipiECommerce.objCloseBtn,10);
-   click(HipiECommerce.objCloseBtn,"Close button");
-   waitUntilElementDisplayed(HipiECommerce.objHipiCampImage,10);
+   
+   
+   waitUntilElementDisplayed(HipiECommerce.objAddToCartCTA,10);
 }
 
 public void ecommerce_HipiProductDetailPage_TC1(String userType) throws Exception{
@@ -63857,7 +63855,7 @@ public void ecommerce_HipiProductDetailPage_TC1(String userType) throws Exceptio
 	
 	ecommerceDeeplink();
 	     
-	if(verifyElementExist(HipiECommerce.objHipiCampImage,"Product detail page")) {
+	if(verifyElementExist(HipiECommerce.objAddToCartCTA ,"Product detail page")) {
 		logger.info("User should navigate to product detail page, upon \r\n"
 				+ "tapping on the hipi product thumbnail.");	
 		extent.extentLoggerPass("Ecommerce-Hipi product", "User should navigate to product detail page, upon \r\n"
@@ -68459,7 +68457,134 @@ public void newShop_TC18(String userType) throws Exception{
 	navigateToHomePage();
 	
 }
-//objMoreButtonTrendingOnHipi 
+
+public void eCommerceCod_TC02(String userType) throws Exception{
+	
+	
+	if(userType.equalsIgnoreCase("NonSubscribedUser"))
+	{
+		extent.HeaderChildNode("Verify the \"Hipi\" payment screen is displayed, when user navigates to \r\n"
+				+ "\"Payment\" screen.");
+		System.out.println("TC02");
+		extent.extentLogger("Verify the \"Hipi\" payment screen is displayed, when user navigates to \r\n"
+				+ "\"Payment\" screen.", "TC02");
+	
+	
+	
+		navigateToCodDeeplink();
+		waitTime(3000);
+		verifyElementPresentAndClick(HipiECommerce.objBuyNowHipiCTA,"Buy now CTA");
+		verifyElementPresentAndClick(HipiECommerce.objDeliverHere,"Deliver here");
+		waitTime(2000);
+		
+	if(verifyElementNotExist(HipiECommerce.objRazporPayPage))
+			{
+		logger.info("User should be navigated to \"Hipi\" payment screen instead of \"Razor pay\" payment screen.");	
+		extent.extentLoggerPass("COD", "User should be navigated to \"Hipi\" payment screen instead of \"Razor pay\" payment screen.");
+	}else {
+		logger.info("User should be navigated to \"Hipi\" payment screen instead of \"Razor pay\" payment screen.");	
+		extent.extentLoggerFail("COD", "User should be navigated to \"Hipi\" payment screen instead of \"Razor pay\" payment screen.");
+	
+	}
+	}
+	navigateToHomePage();
+	
+}
+
+public void eCommerceCod_TC01(String userType) throws Exception{
+	
+	
+	if(userType.equalsIgnoreCase("NonSubscribedUser"))
+	{
+		extent.HeaderChildNode("Verify the availability of \"Pay on delivery\" option on PDP screen.");
+		System.out.println("TC01");
+		extent.extentLogger("Verify the availability of \"Pay on delivery\" option on PDP screen.", "TC01");
+	
+	
+	
+		navigateToCodDeeplink();
+		waitTime(3000);
+		Swipe("UP",3);
+		
+		
+	if(verifyElementExist(HipiECommerce.objCodAvailability,"COD Option"))
+			{
+		logger.info("\"Pay on deliver\" option should be displayed if the product has \"Pay on delivery\" option inside PDP screen.");	
+		extent.extentLoggerPass("COD", "\"Pay on deliver\" option should be displayed if the product has \"Pay on delivery\" option inside PDP screen.");
+	}else {
+		logger.info("\"Pay on deliver\" option should be displayed if the product has \"Pay on delivery\" option inside PDP screen.");	
+		extent.extentLoggerFail("COD", "\"Pay on deliver\" option should be displayed if the product has \"Pay on delivery\" option inside PDP screen.");
+	
+	}
+	}
+	navigateToHomePage();
+	
+}
+
+public void ecommerce_NewAddressScreen_10411_TC_1(String userType) throws Exception{
+	Boolean flag = false;
+	if(userType.equalsIgnoreCase("Guest"))
+	{
+		extent.HeaderChildNode("Verify error message upon adding same digits in phone number field");
+		System.out.println("T1");
+		extent.extentLogger("Verify error message upon adding same digits in phone number field", "T1");
+	
+	
+	
+	
+	
+	ecommerceDeeplink();
+	click(HipiECommerce.objBuyNowHipiCTA,"Hipi buy now cta");
+	waitUntilElementDisplayed(HipiECommerce.objAddressPage,5);
+	type(HipiECommerce.objNameField,"asasad asads","Full name field");
+	type(HipiECommerce.objPhoneField,"2222222222","Phone number field");
+	click(HipiECommerce.objProceedToBuy,"Proceed to buy");
+	click(HipiECommerce.objPhoneField,"Phone number field");
+	if(waitUntilElementDisplayed(HipiECommerce.objInvalidPhoneNumberMsg,5)) {
+			
+		logger.info("Error message should be displayed if user enters same digits in phone number field");	
+		extent.extentLoggerPass("Ecommerce-Hipi product", "Error message should be displayed if user enters same digits in phone number field");
+	}else {
+		logger.info("Error message should be displayed if user enters same digits in phone number field");	
+		extent.extentLoggerFail("Ecommerce-Hipi product", "Error message should be displayed if user enters same digits in phone number field");
+	}}
+	
+	navigateToHomePage();
+	
+	}
+
+public void ecommerce_NewAddressScreen_10411_TC_2(String userType) throws Exception{
+	Boolean flag = false;
+	if(userType.equalsIgnoreCase("Guest"))
+	{
+		extent.HeaderChildNode("Verify error message upon adding sequential digits in phone number field");
+		System.out.println("T2");
+		extent.extentLogger("Verify error message upon adding sequential digits in phone number field", "T2");
+	
+	
+	
+	
+	
+	ecommerceDeeplink();
+	click(HipiECommerce.objBuyNowHipiCTA,"Hipi buy now cta");
+	waitUntilElementDisplayed(HipiECommerce.objAddressPage,5);
+	type(HipiECommerce.objNameField,"asasad asads","Full name field");
+	type(HipiECommerce.objPhoneField,"0123456789","Phone number field");
+	click(HipiECommerce.objProceedToBuy,"Proceed to buy");
+	click(HipiECommerce.objPhoneField,"Phone number field");
+	if(waitUntilElementDisplayed(HipiECommerce.objInvalidPhoneNumberMsg,5)) {
+			
+		logger.info("Error message should be displayed if user enters sequential digits in phone number field");	
+		extent.extentLoggerPass("Ecommerce-Hipi product", "Error message should be displayed if user enters sequential digits in phone number field");
+	}else {
+		logger.info("Error message should be displayed if user enters sequential digits in phone number field");	
+		extent.extentLoggerFail("Ecommerce-Hipi product", "Error message should be displayed if user enters sequential digits in phone number field");
+	}}
+	
+	navigateToHomePage();
+	
+	}
+
 public void navigateToSearchResultsPage (String searchQuery) throws Exception {
 	verifyElementPresentAndClick(HipiHomePage.objDiscoverButton, "Discover Button");
 	waitUntilElementDisplayed(HipiDiscoverPage.objDiscoverSearchBar,10);
@@ -68471,4 +68596,13 @@ public void navigateToSearchResultsPage (String searchQuery) throws Exception {
 	waitUntilElementDisplayed(HipiDiscoverPage.objTopButton,10);
 }
 
+public void navigateToCodDeeplink() throws Exception{
+	
+	Map<String, Object> params = new HashMap();
+
+    params.put("url", "https://www.hipi.co.in/tshirt/seenontv/test-tshirt/9809052/buy?utm_source=iOS&utm_medium=product_details&utm_campaign=hipi_shared_link");
+
+        params.put("package", "com.zee5.hipi");
+   getDriver().executeScript("mobile:deepLink", new Object[]{params});
+}
 }

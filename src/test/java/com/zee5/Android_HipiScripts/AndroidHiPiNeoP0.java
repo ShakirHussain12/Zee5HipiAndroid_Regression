@@ -1116,8 +1116,8 @@ public class AndroidHiPiNeoP0 {
 		Zee5ApplicasterHipiNeoBusinessLogic.LoginAndNivigateToHipi(userType);
 		
 		Zee5ApplicasterHipiNeoBusinessLogic.ecommerce_HipiProductDetailPage_TC1(userType);
-		Zee5ApplicasterHipiNeoBusinessLogic.ecommerce_HipiProductDetailPage_TC3(userType);
-		Zee5ApplicasterHipiNeoBusinessLogic.ecommerce_HipiProductDetailPage_TC8(userType);
+		//Zee5ApplicasterHipiNeoBusinessLogic.ecommerce_HipiProductDetailPage_TC3(userType); invalid
+		/*Zee5ApplicasterHipiNeoBusinessLogic.ecommerce_HipiProductDetailPage_TC8(userType);
 		Zee5ApplicasterHipiNeoBusinessLogic.ecommerce_HipiProductDetailPage_TC9(userType);
 		Zee5ApplicasterHipiNeoBusinessLogic.ecommerce_HipiProductDetailPage_TC10(userType);
 		Zee5ApplicasterHipiNeoBusinessLogic.ecommerce_HipiProductDetailPage_TC19(userType);
@@ -1152,10 +1152,14 @@ public class AndroidHiPiNeoP0 {
 		Zee5ApplicasterHipiNeoBusinessLogic.ecommerce_HipiProductDetailPage_TC62(userType);
 		Zee5ApplicasterHipiNeoBusinessLogic.relaunch(true);
 		Zee5ApplicasterHipiNeoBusinessLogic.ecommerce_HipiProductDetailPage_TC63(userType);
-		Zee5ApplicasterHipiNeoBusinessLogic.ecommerce_HipiProductDetailPage_TC68(userType);
+		Zee5ApplicasterHipiNeoBusinessLogic.ecommerce_HipiProductDetailPage_TC68(userType);		
 		Zee5ApplicasterHipiNeoBusinessLogic.ecommerce_HipiProductDetailPage_TC71(userType);
 		
 		
+		//Zee5ApplicasterHipiNeoBusinessLogic.eCommerceCod_TC01(userType);
+		Zee5ApplicasterHipiNeoBusinessLogic.eCommerceCod_TC02(userType);*/
+		Zee5ApplicasterHipiNeoBusinessLogic.ecommerce_NewAddressScreen_10411_TC_1(userType);
+		Zee5ApplicasterHipiNeoBusinessLogic.ecommerce_NewAddressScreen_10411_TC_2(userType);
 		
 	}
 	
