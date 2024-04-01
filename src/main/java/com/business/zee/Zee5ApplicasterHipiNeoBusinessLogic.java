@@ -68585,6 +68585,274 @@ public void ecommerce_NewAddressScreen_10411_TC_2(String userType) throws Except
 	
 	}
 
+public void watchHistory_For_You_Feed(String userType) throws Exception{
+	
+	if(userType.equalsIgnoreCase("NonSubscribedUser"))
+	{
+		extent.HeaderChildNode("Verify same video watched on for you feed is reflecting in watch history");
+		System.out.println("T1");
+		extent.extentLogger("Verify same video watched on for you feed is reflecting in watch history", "T1");
+	
+	
+	for(int i =0;i<2;i++) {
+		String videoCaption = navigateToWatchHistory();
+	
+		waitUntilElementDisplayed(HipiFeedPage.objVideoCaption,5);
+		String watchHistoryCaption = getText(HipiFeedPage.objVideoCaption);
+		if(videoCaption.equals(watchHistoryCaption)) {
+			
+			logger.info("Video wathced in for you feed should be same in watch history");	
+			extent.extentLoggerPass("For you feed watch history", "Video wathced in for you feed should be same in watch history");
+		}else {
+			logger.info("Video wathced in for you feed should be same in watch history");	
+			extent.extentLoggerFail("For you feed watch history", "Video wathced in for you feed should be same in watch history");
+		}
+		navigateToHomePage();
+		}
+	
+	}
+	
+	
+	
+	}
+
+
+public void watchHistory_Following_Feed(String userType) throws Exception{
+	
+	if(userType.equalsIgnoreCase("NonSubscribedUser"))
+	{
+		extent.HeaderChildNode("Verify same video watched on following feed is reflecting in watch history");
+		System.out.println("T2");
+		extent.extentLogger("Verify same video watched on following feed is reflecting in watch history", "T2");
+	
+	
+	for(int i =0;i<2;i++) {
+		click(HipiFeedPage.objFollowingTab,"Following tab");
+		String videoCaption = navigateToWatchHistory();
+	
+		waitUntilElementDisplayed(HipiFeedPage.objVideoCaption,5);
+		String watchHistoryCaption = getText(HipiFeedPage.objVideoCaption);
+		if(videoCaption.equals(watchHistoryCaption)) {
+			
+			logger.info("Video wathced in following feed should be same in watch history");	
+			extent.extentLoggerPass("For you feed watch history", "Video wathced in following feed should be same in watch history");
+		}else {
+			logger.info("Video wathced in following feed should be same in watch history");	
+			extent.extentLoggerFail("For you feed watch history", "Video wathced in following feed should be same in watch history");
+		}
+		navigateToHomePage();
+		}
+	
+	}
+	
+	
+	
+	}
+
+public void watchHistory_Profile_Feed(String userType) throws Exception{
+	
+	if(userType.equalsIgnoreCase("NonSubscribedUser"))
+	{
+		extent.HeaderChildNode("Verify same video watched on creator profile feed is reflecting in watch history");
+		System.out.println("T3");
+		extent.extentLogger("Verify same video watched on creator profile feed is reflecting in watch history", "T3");
+	
+	
+	for(int i =0;i<2;i++) {
+		Swipe("UP",1);
+		click(HipiFeedPage.objUserHandle,"User handle");
+		waitUntilElementDisplayed(HipiFeedPage.objFirstVideoCreatorProfile,5);
+		Swipe("UP",2);
+		click(HipiFeedPage.objFirstVideoCreatorProfile,"Any video on creator profile");
+		String videoCaption = navigateToWatchHistory();
+	
+		waitUntilElementDisplayed(HipiFeedPage.objVideoCaption,5);
+		String watchHistoryCaption = getText(HipiFeedPage.objVideoCaption);
+		if(videoCaption.equals(watchHistoryCaption)) {
+			
+			logger.info("Video wathced in creator profile feed should be same in watch history");	
+			extent.extentLoggerPass("For you feed watch history", "Video wathced in creator profile feed should be same in watch history");
+		}else {
+			logger.info("Video wathced in creator profile feed should be same in watch history");	
+			extent.extentLoggerFail("For you feed watch history", "Video wathced in creator profile feed should be same in watch history");
+		}
+		navigateToHomePage();
+		}
+	
+	}
+	
+	
+	
+	}
+
+public void watchHistory_SearchResults_Feed(String userType,String searchQuery) throws Exception{
+	
+	if(userType.equalsIgnoreCase("NonSubscribedUser"))
+	{
+		extent.HeaderChildNode("Verify same video watched on search results feed is reflecting in watch history");
+		System.out.println("T4");
+		extent.extentLogger("Verify same video watched on search results feed is reflecting in watch history", "T4");
+	
+	
+	
+		navigateToSearchResultsPage(searchQuery);
+		SwipeUntilFindElement(HipiProfilePage.objWatchHistoryFirstVideo,"UP");
+		
+		click(HipiProfilePage.objWatchHistoryFirstVideo,"Search results video");
+		String videoCaption = navigateToWatchHistory();
+	
+		waitUntilElementDisplayed(HipiFeedPage.objVideoCaption,5);
+		String watchHistoryCaption = getText(HipiFeedPage.objVideoCaption);
+		if(videoCaption.equals(watchHistoryCaption)) {
+			
+			logger.info("Video wathced in search results feed should be same in watch history");	
+			extent.extentLoggerPass("For you feed watch history", "Video wathced in search results feed should be same in watch history");
+		}else {
+			logger.info("Video wathced in search results feed should be same in watch history");	
+			extent.extentLoggerFail("For you feed watch history", "Video wathced in search results feed should be same in watch history");
+		}
+		navigateToHomePage();
+		
+	
+	}
+	
+	
+	
+	}
+
+public void watchHistory_Hashtag_Feed(String userType) throws Exception{
+	
+	if(userType.equalsIgnoreCase("NonSubscribedUser"))
+	{
+		extent.HeaderChildNode("Verify same video watched on hashtag feed is reflecting in watch history");
+		System.out.println("T5");
+		extent.extentLogger("Verify same video watched on hashtag feed is reflecting in watch history", "T5");
+	
+	for(int i = 0;i<2;i++) {
+		Swipe("UP",1);
+		click(HipiFeedPage.objVideoCaption,"More button");
+		click(HipiFeedPage.objVideoCaption,"More button");
+		
+		SwipeUntilFindElement(HipiProfilePage.objWatchHistoryFirstVideo,"UP");
+		
+		click(HipiProfilePage.objWatchHistoryFirstVideo,"Search results video");
+		String videoCaption = navigateToWatchHistory();
+	
+		waitUntilElementDisplayed(HipiFeedPage.objVideoCaption,5);
+		String watchHistoryCaption = getText(HipiFeedPage.objVideoCaption);
+		if(videoCaption.equals(watchHistoryCaption)) {
+			
+			logger.info("Video wathced in hashtag feed should be same in watch history");	
+			extent.extentLoggerPass("For you feed watch history", "Video wathced in hashtag feed should be same in watch history");
+		}else {
+			logger.info("Video wathced in hashtag feed should be same in watch history");	
+			extent.extentLoggerFail("For you feed watch history", "Video wathced in hashtag feed should be same in watch history");
+		}
+		navigateToHomePage();
+	}
+	
+	}
+	
+	
+	
+	}
+
+public void watchHistory_Discover_Feed(String userType) throws Exception{
+	
+	if(userType.equalsIgnoreCase("NonSubscribedUser"))
+	{
+		extent.HeaderChildNode("Verify same video watched on Discover feed is reflecting in watch history");
+		System.out.println("T6");
+		extent.extentLogger("Verify same video watched on Discover feed is reflecting in watch history", "T6");
+	
+		Swipe("UP",2);
+	for(int i = 0;i<2;i++) {
+		
+		verifyElementPresentAndClick(HipiHomePage.objDiscoverButton, "Discover Button");
+		waitUntilElementDisplayed(HipiProfilePage.objWatchHistoryFirstVideo,5);
+		Swipe("UP",1);
+		
+		click(HipiProfilePage.objWatchHistoryFirstVideo,"Search results video");
+		String videoCaption = navigateToWatchHistory();
+	
+		waitUntilElementDisplayed(HipiFeedPage.objVideoCaption,5);
+		String watchHistoryCaption = getText(HipiFeedPage.objVideoCaption);
+		if(videoCaption.equals(watchHistoryCaption)) {
+			
+			logger.info("Video wathced in Discover feed should be same in watch history");	
+			extent.extentLoggerPass("For you feed watch history", "Video wathced in Discover feed should be same in watch history");
+		}else {
+			logger.info("Video wathced in Discover feed should be same in watch history");	
+			extent.extentLoggerFail("For you feed watch history", "Video wathced in Discover feed should be same in watch history");
+		}
+		navigateToHomePage();
+	}
+	
+	}
+	
+	
+	
+	}
+
+public void watchHistory_Sound_Feed(String userType) throws Exception{
+	
+	if(userType.equalsIgnoreCase("NonSubscribedUser"))
+	{
+		extent.HeaderChildNode("Verify same video watched on Sounds feed is reflecting in watch history");
+		System.out.println("T6");
+		extent.extentLogger("Verify same video watched on Sounds feed is reflecting in watch history", "T6");
+	
+	for(int i = 0;i<2;i++) {
+		Swipe("UP",1);
+		verifyElementPresentAndClick(HipiFeedPage.objOriginalSound, "Original sound");
+		waitUntilElementDisplayed(HipiProfilePage.objWatchHistoryFirstVideo,5);
+		
+		
+		click(HipiProfilePage.objWatchHistoryFirstVideo,"Search results video");
+		String videoCaption = navigateToWatchHistory();
+	
+		waitUntilElementDisplayed(HipiFeedPage.objVideoCaption,5);
+		String watchHistoryCaption = getText(HipiFeedPage.objVideoCaption);
+		if(videoCaption.equals(watchHistoryCaption)) {
+			
+			logger.info("Video wathced in sounds feed should be same in watch history");	
+			extent.extentLoggerPass("For you feed watch history", "Video wathced in sounds feed should be same in watch history");
+		}else {
+			logger.info("Video wathced in sounds feed should be same in watch history");	
+			extent.extentLoggerFail("For you feed watch history", "Video wathced in sounds feed should be same in watch history");
+		}
+		navigateToHomePage();
+	}
+	
+	}
+	
+	
+	
+	}
+
+
+
+
+public String navigateToWatchHistory() throws Exception{
+	Swipe("UP",3);
+	waitUntilElementDisplayed(HipiFeedPage.objVideoCaption,5);
+	String videoCaption = getText(HipiFeedPage.objVideoCaption);
+	
+	waitTime(100000);
+	while(!(verifyElementExist(AMDHomePage.objProfileIcon, "Profile Icon"))) {
+		Back(1);
+	}
+	verifyElementPresentAndClick(AMDHomePage.objProfileIcon, "Profile Icon");
+	verifyElementPresentAndClick(HipiProfilePage.objThreeDots, "Three dots");
+	waitUntilElementDisplayed(HipiProfilePage.objWatchHistory,10);
+	
+	click(HipiProfilePage.objWatchHistory,"Watch History");
+	waitUntilElementDisplayed(HipiProfilePage.objWatchHistoryFirstVideo,5);
+	click(HipiProfilePage.objWatchHistoryFirstVideo,"Watch history first video");
+	
+	
+	return videoCaption;
+}
 public void navigateToSearchResultsPage (String searchQuery) throws Exception {
 	verifyElementPresentAndClick(HipiHomePage.objDiscoverButton, "Discover Button");
 	waitUntilElementDisplayed(HipiDiscoverPage.objDiscoverSearchBar,10);

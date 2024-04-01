@@ -334,5 +334,9 @@ public class HipiFeedPage {
 			
 			public static By objShareLink = By.xpath("//*[@resource-id='android:id/content_preview_text']");
 			
+			public static By objVideoCaption = By.xpath("//*[@resource-id='com.zee5.hipi:id/text_view_video_description']");
 			
+			public static By objUserHandle = By.xpath("//*[@resource-id='com.zee5.hipi:id/text_view_account_handle']");
+			
+			public static By objFirstVideoCreatorProfile = By.xpath("//*[@resource-id='com.zee5.hipi:id/imgLayout']");
 }

@@ -640,4 +640,8 @@ public static By objBranchName = By.xpath("//*[@resource-id='com.zee5.hipi:id/br
 public static By objSaveBtnBeforeValid = By.xpath("//*[@resource-id='com.zee5.hipi:id/btnSaveProceed' and @clickable='false']");
 
 public static By objUpiError = By.xpath("//*[@resource-id='com.zee5.hipi:id/tvUpiIdError']");
+
+public static By objWatchHistory = By.xpath("//*[@text='Watch history']");
+
+public static By objWatchHistoryFirstVideo = By.xpath("(//*[@resource-id='com.zee5.hipi:id/thumbnail'])[1]");
 }

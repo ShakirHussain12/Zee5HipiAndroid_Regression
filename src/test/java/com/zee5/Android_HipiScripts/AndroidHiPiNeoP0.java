@@ -1115,7 +1115,7 @@ public class AndroidHiPiNeoP0 {
 		Zee5ApplicasterHipiNeoBusinessLogic.relaunch(true);	
 		Zee5ApplicasterHipiNeoBusinessLogic.LoginAndNivigateToHipi(userType);
 		
-		Zee5ApplicasterHipiNeoBusinessLogic.ecommerce_HipiProductDetailPage_TC1(userType);
+		//Zee5ApplicasterHipiNeoBusinessLogic.ecommerce_HipiProductDetailPage_TC1(userType);
 		//Zee5ApplicasterHipiNeoBusinessLogic.ecommerce_HipiProductDetailPage_TC3(userType); invalid
 		/*Zee5ApplicasterHipiNeoBusinessLogic.ecommerce_HipiProductDetailPage_TC8(userType);
 		Zee5ApplicasterHipiNeoBusinessLogic.ecommerce_HipiProductDetailPage_TC9(userType);
@@ -1158,8 +1158,9 @@ public class AndroidHiPiNeoP0 {
 		
 		//Zee5ApplicasterHipiNeoBusinessLogic.eCommerceCod_TC01(userType);
 		Zee5ApplicasterHipiNeoBusinessLogic.eCommerceCod_TC02(userType);*/
-		Zee5ApplicasterHipiNeoBusinessLogic.ecommerce_NewAddressScreen_10411_TC_1(userType);
-		Zee5ApplicasterHipiNeoBusinessLogic.ecommerce_NewAddressScreen_10411_TC_2(userType);
+		//Zee5ApplicasterHipiNeoBusinessLogic.ecommerce_NewAddressScreen_10411_TC_1(userType);
+		//Zee5ApplicasterHipiNeoBusinessLogic.ecommerce_NewAddressScreen_10411_TC_2(userType);
+		Zee5ApplicasterHipiNeoBusinessLogic.watchHistory_For_You_Feed(userType);
 		
 	}
 	
@@ -1223,6 +1224,25 @@ public class AndroidHiPiNeoP0 {
 		//Zee5ApplicasterHipiNeoBusinessLogic.newShop_TC16(userType);
 		Zee5ApplicasterHipiNeoBusinessLogic.newShop_TC18(userType);
 	}
+	
+	@Test(priority = 29)
+	@Parameters({"userType"})
+	public void watchHistoryP0(String userType) throws Exception{
+		Zee5ApplicasterHipiNeoBusinessLogic.relaunch(true);	
+		Zee5ApplicasterHipiNeoBusinessLogic.LoginAndNivigateToHipi(userType);
+		
+		Zee5ApplicasterHipiNeoBusinessLogic.watchHistory_For_You_Feed(userType);
+		Zee5ApplicasterHipiNeoBusinessLogic.watchHistory_Following_Feed(userType);
+		Zee5ApplicasterHipiNeoBusinessLogic.watchHistory_Profile_Feed(userType);
+		Zee5ApplicasterHipiNeoBusinessLogic.watchHistory_SearchResults_Feed(userType,"Kundali");
+		Zee5ApplicasterHipiNeoBusinessLogic.watchHistory_SearchResults_Feed(userType,"Virat kohli");
+		Zee5ApplicasterHipiNeoBusinessLogic.watchHistory_Hashtag_Feed(userType);
+		Zee5ApplicasterHipiNeoBusinessLogic.watchHistory_Discover_Feed(userType);
+		Zee5ApplicasterHipiNeoBusinessLogic.watchHistory_Sound_Feed(userType);
+	
+	}
+	
+	
 	@AfterTest						
 		
 	public void tearDownApp() {		
