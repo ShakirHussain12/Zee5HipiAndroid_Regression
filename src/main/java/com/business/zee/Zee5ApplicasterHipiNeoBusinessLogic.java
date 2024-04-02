@@ -67003,9 +67003,13 @@ public void navigatToRewardsPayoutMethods() throws Exception{
 	verifyElementPresentAndClick(AMDHomePage.objProfileIcon, "Profile Icon");
 	waitUntilElementDisplayed(HipiProfilePage.objRewardsButton,10);
 	click(HipiProfilePage.objRewardsButton,"Rewards Icon");
+	
 	waitUntilElementDisplayed(HipiProfilePage.objCheckHistory,5);
 	click(HipiProfilePage.objCheckHistory,"Check history button");
-	waitUntilElementDisplayed(HipiProfilePage.objRedeemCoinsBtn,5);
+	while(!(verifyElementExist(HipiProfilePage.objRedeemCoinsBtn,"Rewards coins"))) {
+		Back(1);
+	}
+	
 	click(HipiProfilePage.objRedeemCoinsBtn,"Redeem coins button");
 }
 
@@ -68831,7 +68835,95 @@ public void watchHistory_Sound_Feed(String userType) throws Exception{
 	}
 
 
+	
+public void rewardsPayout_DisableNewPayment_1(String userType) throws Exception{
+	
+	if(userType.equalsIgnoreCase("NonSubscribedUser"))
+	{
+		extent.HeaderChildNode("Verify 'Add a new UPI id' & 'Add New Bank Account' options are not present if user has already added respective payout options");
+		System.out.println("T1");
+		extent.extentLogger("Verify 'Add a new UPI id' & 'Add New Bank Account' options are not present if user has already added respective payout options", "T1");
+	
+		navigatToRewardsPayoutMethods();
+		
+		if(!(verifyElementExist(HipiProfilePage. objAddUPIIdIcon,"Add UPI id option"))
+				&& !(verifyElementExist(HipiProfilePage. objAddBank,"Add bank option"))) {
+			
+			logger.info("'Add a new UPI id' & 'Add New Bank Account' options should not be present if user has already added respective payout options");	
+			extent.extentLoggerPass("For you feed watch history", "'Add a new UPI id' & 'Add New Bank Account' options should not be present if user has already added respective payout options");
+		}else {
+			logger.info("'Add a new UPI id' & 'Add New Bank Account' options should not be present if user has already added respective payout options");	
+			extent.extentLoggerFail("For you feed watch history", "'Add a new UPI id' & 'Add New Bank Account' options should not be present if user has already added respective payout options");
+		}
+		navigateToHomePage();
+	
+	
+	}
+	
+	
+	
+	}
 
+public void rewardsPayout_DisableNewPayment_2(String userType) throws Exception{
+	
+	if(userType.equalsIgnoreCase("NonSubscribedUser") )
+	{
+		extent.HeaderChildNode("Verify 'Add a new UPI id' is not present if user has already added 'Add a new UPI id'");
+		System.out.println("T2");
+		extent.extentLogger("Verify 'Add a new UPI id' is not present if user has already added 'Add a new UPI id'", "T2");
+	
+		navigatToRewardsPayoutMethods();
+		
+		if(verifyElementExist(HipiProfilePage.objAddedUpiId,"Added UPI ID")
+				&& !(verifyElementExist(HipiProfilePage.objAddUPIIdIcon,"Add UPI ID")
+						&& verifyElementExist(HipiProfilePage.objAddBank,"Add bank details"))) {
+			
+			logger.info("'Add a new UPI id' option should not be present if user has already added respective payout options");	
+			extent.extentLoggerPass("For you feed watch history", "'Add a new UPI id' option should not be present if user has already added respective payout options");
+		}else {
+			logger.info("'Add a new UPI id' option should not be present if user has already added respective payout options");	
+			extent.extentLoggerFail("For you feed watch history", "'Add a new UPI id' option should not be present if user has already added respective payout options");
+		}
+		navigateToHomePage();
+	
+	
+	}
+	
+	
+	
+	}
+
+
+
+
+public void rewardsPayout_DisableNewPayment_3(String userType) throws Exception{
+	
+	if(userType.equalsIgnoreCase("NonSubscribedUser") )
+	{
+		extent.HeaderChildNode("Verify 'Add bank details' option is not present if user has already added bank account");
+		System.out.println("T3");
+		extent.extentLogger("Verify 'Add bank details' option is not present if user has already added bank account", "T3");
+	
+		navigatToRewardsPayoutMethods();
+		
+		if(verifyElementExist(HipiProfilePage.objAddedBank,"Added bank")
+				&& !(verifyElementExist(HipiProfilePage.objAddBank,"Add bank")
+						&& verifyElementExist(HipiProfilePage.objAddUPIIdIcon,"Add a UPI id"))) {
+			
+			logger.info("'Add bank details' option should not be present if user has already added respective payout options");	
+			extent.extentLoggerPass("For you feed watch history", "'Add bank details' option should not be present if user has already added respective payout options");
+		}else {
+			logger.info("'Add bank details' option should not be present if user has already added respective payout options");	
+			extent.extentLoggerFail("For you feed watch history", "'Add bank details' option should not be present if user has already added respective payout options");
+		}
+		navigateToHomePage();
+	
+	
+	}
+	
+	
+	
+	}
 
 public String navigateToWatchHistory() throws Exception{
 	Swipe("UP",3);
@@ -68853,6 +68945,8 @@ public String navigateToWatchHistory() throws Exception{
 	
 	return videoCaption;
 }
+
+//navigatToRewardsPayoutMethods
 public void navigateToSearchResultsPage (String searchQuery) throws Exception {
 	verifyElementPresentAndClick(HipiHomePage.objDiscoverButton, "Discover Button");
 	waitUntilElementDisplayed(HipiDiscoverPage.objDiscoverSearchBar,10);

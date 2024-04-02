@@ -159,7 +159,7 @@ public class HipiLoginPage {
 
 		
 //		Click on Google Id 
-		public static By objGoogleAccount = By.xpath("(//*[@resource-id='com.google.android.gms:id/account_display_name'])[3]");
+		public static By objGoogleAccount = By.xpath("//*[@resource-id='com.google.android.gms:id/account_display_name']");
 		
 //		Sign up for HiPi Title
 		public static By objSignUpHiPiTitle= By.xpath("//*[@resource-id='com.zee5.hipi:id/title' and @text='Sign up at Hipi'] | //*[@resource-id='com.zee5.hipi:id/title' and @text='Sign up']");

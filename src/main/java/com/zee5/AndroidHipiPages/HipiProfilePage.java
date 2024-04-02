@@ -644,4 +644,10 @@ public static By objUpiError = By.xpath("//*[@resource-id='com.zee5.hipi:id/tvUp
 public static By objWatchHistory = By.xpath("//*[@text='Watch history']");
 
 public static By objWatchHistoryFirstVideo = By.xpath("(//*[@resource-id='com.zee5.hipi:id/thumbnail'])[1]");
+
+public static By objUpiBankAccount = By.xpath("//*[@resource-id='com.zee5.hipi:id/paymentImageView']");
+
+public static By objAddedUpiId = By.xpath("//*[contains(@text,'@')]");
+
+public static By objAddedBank = By.xpath("//*[contains(@text,'XXXXX')]");
 }

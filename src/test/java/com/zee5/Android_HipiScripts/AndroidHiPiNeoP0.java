@@ -1014,9 +1014,10 @@ public class AndroidHiPiNeoP0 {
 		//Zee5ApplicasterHipiNeoBusinessLogic.rewardsPayout_TC10(userType);
 		//Zee5ApplicasterHipiNeoBusinessLogic.rewardsPayout_TC11(userType);
 		//Zee5ApplicasterHipiNeoBusinessLogic.performReportActionByTapping__T067(userType);
-		Zee5ApplicasterHipiNeoBusinessLogic.switchBetweenTabsWithInINTHISVIDEOPage__T284__T298(userType);
-		
-		
+		//Zee5ApplicasterHipiNeoBusinessLogic.switchBetweenTabsWithInINTHISVIDEOPage__T284__T298(userType);
+		Zee5ApplicasterHipiNeoBusinessLogic.rewardsPayout_DisableNewPayment_1(userType);
+		Zee5ApplicasterHipiNeoBusinessLogic.rewardsPayout_DisableNewPayment_2(userType);
+		Zee5ApplicasterHipiNeoBusinessLogic.rewardsPayout_DisableNewPayment_3(userType);
 	}
 	
 	@Test(priority=21)
@@ -1160,11 +1161,11 @@ public class AndroidHiPiNeoP0 {
 		Zee5ApplicasterHipiNeoBusinessLogic.eCommerceCod_TC02(userType);*/
 		//Zee5ApplicasterHipiNeoBusinessLogic.ecommerce_NewAddressScreen_10411_TC_1(userType);
 		//Zee5ApplicasterHipiNeoBusinessLogic.ecommerce_NewAddressScreen_10411_TC_2(userType);
-		Zee5ApplicasterHipiNeoBusinessLogic.watchHistory_For_You_Feed(userType);
+		
 		
 	}
 	
-	@Test(priority=26)
+	//@Test(priority=26)
 	@Parameters({"userType"})
 	public void productTaggingP0(String userType) throws Exception{
 		Zee5ApplicasterHipiNeoBusinessLogic.relaunch(true);	
