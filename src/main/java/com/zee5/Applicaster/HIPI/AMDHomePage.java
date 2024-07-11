@@ -248,7 +248,59 @@ public class AMDHomePage {
 	//Home Icon
 	public static By objHomeIcon = By.xpath("//*[@resource-id='com.zee5.hipi:id/navigation_home']");
 
+	//Content review option
+	public static By objContentReviewOption = By.xpath("//*[@text='Content review']");
 	
+	//Some content
+	public static By objContentReviewPage = By.xpath("//*[@text='Some of your content was removed']");
 	
+	//Removed/Reviewed content
+	public static By objRemovedContent = By.xpath("//*[@resource-id='com.zee5.hipi:id/iv_content']");
+	
+	//Rewards icon
+		public static By objRewardsIcon = By.xpath("//*[@resource-id='com.zee5.hipi:id/imgRewards']");
+		
+		//Redeem CTA
+		public static By objRedeemCTA = By.xpath("//*[@resource-id='com.zee5.hipi:id/checkBalance']");
+		
+		//Redeem coins button
+		public static By objRedeemCoinsBtn = By.xpath("//*[@resource-id='com.zee5.hipi:id/redeemCoinsButton']");
+		
+		//Add a new UPI Id
+		public static By objAddNewUPIId = By.xpath("//*[contains(@text,'UPI ID')]");
+		
+		//Enter UPI Id
+		public static By objEnterUPIId = By.xpath("//*[@resource-id='com.zee5.hipi:id/etUpiId']");
+		
+		//Save & proceed btn enabled false
+		public static By objSaveProceedBtnFalse = By.xpath("//*[@enabled='false' and @resource-id='com.zee5.hipi:id/btnSaveProceed']");
+		
+		//Save & proceed btn enabled true
+		public static By objSaveProceedBtnTrue = By.xpath("//*[@enabled='true' and @resource-id='com.zee5.hipi:id/btnSaveProceed']");
+		
+		//Invalid UPI id error msg
+		public static By objInvalidUPIErrorMsg = By.xpath("//*[@resource-id='com.zee5.hipi:id/tvUpiIdError']");
+		
+		//Coupon cross icon
+		public static By objCrossIcon = By.xpath("(//*[@resource-id='com.zee5.hipi:id/half_interstitial_image']/parent::*)[1]/preceding-sibling::*");
+		
+		//Super coins
+		public static By objSuperCoinsBalance = By.xpath("//*[@resource-id='com.zee5.hipi:id/coinBalanceTextView']");
+		
+		//Pay using super coins
+		public static By objPayUsingSuperCoins = By.xpath("//*[contains(@text,'Pay using SuperCoins')]");
+		
+		//SuperCoins check box
+		public static By objSuperCoinsCheckBox = By.xpath("//*[@resource-id='com.zee5.hipi:id/ivSelect']");
+		
+		//Supercoins redeemed
+		public static By objSuperCoinsRedeemed = By.xpath("//*[@resource-id='com.zee5.hipi:id/tvSuperCoins']");
+		
+		//SuperCoins redeemed value
+		public static By objSuperCoinsValue = By.xpath("//*[@resource-id='com.zee5.hipi:id/tvSuperCoinsValue']");
+		
+		//2nd profile video
+		public static By objSecondVideo = By.xpath("(//*[@resource-id='com.zee5.hipi:id/videoImg'])[2]");
+		
 	
 }

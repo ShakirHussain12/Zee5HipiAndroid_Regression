@@ -339,4 +339,99 @@ public class HipiFeedPage {
 			public static By objUserHandle = By.xpath("//*[@resource-id='com.zee5.hipi:id/text_view_account_handle']");
 			
 			public static By objFirstVideoCreatorProfile = By.xpath("//*[@resource-id='com.zee5.hipi:id/imgLayout']");
+			
+			public static By objFirstComment = By.xpath("//*[@resource-id='com.zee5.hipi:id/comment']");
+			
+			public static By objReportComment = By.xpath("//*[@resource-id='com.zee5.hipi:id/textView' and @text='Report Comment']");
+			
+			public static By objReportCommentHeader = By.xpath("//*[@resource-id='com.zee5.hipi:id/title' and @text='Report Comment']");
+			
+			public static By objReasonSubHeader = By.xpath("//*[@text='Please choose reason for reporting' and contains(@text,'reporting')]");
+			
+			public static By objSpamReason = By.xpath("//*[@text='Its A spam']");
+			
+			public static By objNudityReason = By.xpath("//*[@text='Nudity or Sexual Activity']");
+			
+			public static By objHateReason = By.xpath("//*[@text='Hate Speech']");
+			
+			public static By objViolenceReason = By.xpath("//*[@text='Violence or dangerous Organizations']");
+			
+			public static By objIllegalReason = By.xpath("//*[@text='Sale of Illegal or regulated goods']");
+			
+			public static By objBullyingReason = By.xpath("//*[@text='Bullying or harassment']");
+			
+			public static By objPropertyReason = By.xpath("//*[@text='Intellectual Property violation']");
+			
+			public static By objFalseReason = By.xpath("//*[@text='False Information']");
+			
+			public static By objSuicideReason = By.xpath("//*[@text='Suicide, self-injury or eating disorders']");
+			
+			public static By objLikeReason = By.xpath("//*[@text='I just dont like it']");
+			
+			public static By objSomethingReason = By.xpath("//*[@text='Something else']");
+			
+			public static By objTickMark = By.xpath("//*[@resource-id='com.zee5.hipi:id/tick']");
+			
+			public static By objThanks = By.xpath("//*[contains(@text,'Thanks')]");
+			
+			public static By objReviewSubtitle = By.xpath("//*[@text='We will review the comment and take the necessary action']");
+			
+			public static By objDoneCta = By.xpath("//*[@text='Done']");
+			
+			//Three dots creator profile
+			public static By objThreeDots = By.xpath("//*[@resource-id='com.zee5.hipi:id/imgSetting']");
+			
+			//Block profile
+			public static By objBlockProfileOption = By.xpath("//*[@resource-id='com.zee5.hipi:id/block_user']");
+			
+			//Unblock option
+			public static By objUnblockOption = By.xpath("//*[@resource-id='com.zee5.hipi:id/unblock_user']");
+			
+			//creator name on top
+			public static By objCreatorName = By.xpath("//*[@resource-id='com.zee5.hipi:id/title']");
+			
+			//creator username/blocked user name
+			public static By objBlockedUserName = By.xpath("//*[@resource-id='com.zee5.hipi:id/blocked_title']");
+			
+			//following
+			public static By objFollowing = By.xpath("//*[@resource-id='com.zee5.hipi:id/following']");
+			
+			//Followers
+			public static By objFollowers = By.xpath("//*[@resource-id='com.zee5.hipi:id/follow']");
+			
+			//Likes
+			public static By objLikes = By.xpath("//*[@resource-id='com.zee5.hipi:id/like']");
+			 
+			//profile pic
+			public static By objProfilePic = By.xpath("//*[@resource-id='com.zee5.hipi:id/user_unblock_profile_pic']");
+			
+			//search results user name
+			public static By objSearchResultsUserName = By.xpath("//*[@resource-id='com.zee5.hipi:id/userName']");
+			
+			//search button keyboard
+			public static By objSearchKeyboard = By.xpath("//*[@resource-id='com.google.android.inputmethod.latin:id/0_resource_name_obfuscated']");
+			
+			//Feed product card
+			public static By objProductCard = By.xpath("//*[contains(@text,'wonderful pieces')]");
+			
+			//Product carousal
+			public static By objProductCarousal = By.xpath("//*[@resource-id='com.zee5.hipi:id/content_image_view']");
+			
+			//Main product
+			public static By objMainProduct = By.xpath("//*[@resource-id='com.zee5.hipi:id/image']");
+			
+			//Hipi product
+			public static By objHipiShop = By.xpath("//*[@resource-id='com.zee5.hipi:id/tvBrandName' and @text='Hipi Shop']");
+			
+			//Shop on hipi
+			public static By objShopOnHipi = By.xpath("//*[@resource-id='com.zee5.hipi:id/tvCta' and @text='Shop on hipi']");
+			
+			public static By objCommentFilter = By.xpath("//*[@resource-id='com.zee5.hipi:id/sort_type_selector']");
+			
+			public static By objTopCommentsOption = By.xpath("//*[@text='Top comments']");
+			
+			public static By objMostRecentOption = By.xpath("//*[@text='Most recent']");
+			
+			
+			
 }

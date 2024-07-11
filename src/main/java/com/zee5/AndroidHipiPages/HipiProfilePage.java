@@ -538,7 +538,7 @@ public static By objCopyLinkIcon=By.xpath("//*[@resource-id='com.zee5.hipi:id/co
 public static By objOthersIcon=By.xpath("//*[@resource-id='com.zee5.hipi:id/otherIcon']");
 
 public static By objSoundName=By.xpath("//*[@id='text_view_music_title']");
-public static By objFollowingTabErrorText=By.xpath("//*[@id='tvErrorSubtitle']");
+public static By objFollowingTabErrorText=By.xpath("//*[@id='tvErrorSubtitle'] | //*[@resource-id='com.zee5.hipi:id/tvErrorSubtitle']");
 
 public static By objDraftVideoThumbnail=By.xpath("//*[@resource-id='com.zee5.hipi:id/videoTumbNailImg'] | //*[@resource-id='com.zee5.hipi:id/playIcon']");
 
@@ -619,7 +619,7 @@ public static By objRedeemCoinsBtn = By.xpath("//*[@resource-id='com.zee5.hipi:i
 
 public static By objSelectPaymentMethodHeader = By.xpath("//*[@resource-id='com.zee5.hipi:id/rewards_text' and @text='Select payment method']");
 public static By objUPIMethod = By.xpath("//*[@resource-id='com.zee5.hipi:id/tvTitle' and @text='UPI']");
-public static By objAddUPIIdIcon = By.xpath("//*[@resource-id='com.zee5.hipi:id/tvAdd' and @text='Add new UPI ID']");
+public static By objAddUPIIdIcon = By.xpath("//*[@resource-id='com.zee5.hipi:id/tvAdd' and @text='Add a new UPI ID']");
 public static By objAddBank = By.xpath("//*[@resource-id='com.zee5.hipi:id/tvAdd' and @text='Add new bank details']");
 
 public static By objAddBankAccount = By.xpath("//*[@resource-id='com.zee5.hipi:id/etAccountNo']");
@@ -650,4 +650,6 @@ public static By objUpiBankAccount = By.xpath("//*[@resource-id='com.zee5.hipi:i
 public static By objAddedUpiId = By.xpath("//*[contains(@text,'@')]");
 
 public static By objAddedBank = By.xpath("//*[contains(@text,'XXXXX')]");
+
+public static By objVPASuggestions = By.xpath("//*[@resource-id='com.zee5.hipi:id/tvVpa']");
 }

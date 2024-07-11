@@ -56,7 +56,7 @@ import com.excel.ExcelFunctions;
 import com.excel.Time_ExcelUpdate;
 import com.excel.WriteDataCSV;
 import com.extent.ExtentReporter;
-
+import com.google.common.base.CharMatcher;
 import com.propertyfilereader.PropertyFileReader;
 import com.utility.LoggingUtils;
 import com.utility.Utilities;
@@ -63453,9 +63453,10 @@ public void randomEmailOtp(String randomMail) throws Exception{
 	typeWeb(HipiLoginPage.objEmailInput,randomMail);
 	clickElementWithWebLocator(HipiLoginPage.objmailSubmit);
 	waitTime(2000);
-	getWebDriver().switchTo().frame("ifinbox");
+	getWebDriver().switchTo().frame("ifmail");
 	waitTime(2000);
 	String otp = getWebDriver().findElement(HipiLoginPage.objInbox).getText().substring(0,4);
+	System.out.println(otp);
 	String[] otpArray = otp.split("");
 	getWebDriver().quit();
 	switchPlatformToAndroid();
@@ -66966,6 +66967,36 @@ public void rewardsPayout_TC10(String userType) throws Exception{
 	navigateToHomePage();
 	}
 	
+public void rewardsPayoutSuggestions_TC01(String userType) throws Exception{
+	
+	if(userType.equalsIgnoreCase("NonSubscribedUser"))
+	{
+		extent.HeaderChildNode("sada");
+		System.out.println("");
+		extent.extentLogger("asadsd", "asdas");
+	
+		navigatToRewardsPayoutMethods();
+		
+		click(HipiProfilePage.objAddUPIIdIcon,"Add UPI");
+		waitUntilElementDisplayed(HipiProfilePage.objAddNewUPIId ,5);
+		
+		type(HipiProfilePage.objAddNewUPIId,generateRandomString(7)+ "@p","Add new UPI id text field");
+		
+		
+		
+	if(waitUntilElementDisplayed(HipiProfilePage.objVPASuggestions,5))
+			{
+		logger.info("The payment method details are to be saved for my redemption request and user should navigate to \"Redeem coins\" screen.");	
+		extent.extentLoggerPass("Rewards - Payout", "The payment method details are to be saved for my redemption request and user should navigate to \"Redeem coins\" screen.");
+	}else {
+		logger.info("The payment method details are to be saved for my redemption request and user should navigate to \"Redeem coins\" screen.");	
+		extent.extentLoggerFail("Rewards - Payout", "The payment method details are to be saved for my redemption request and user should navigate to \"Redeem coins\" screen.");
+	
+	}}
+	navigateToHomePage();
+	}
+	
+
 public void rewardsPayout_TC11(String userType) throws Exception{
 	
 	if(userType.equalsIgnoreCase("NonSubscribedUser"))
@@ -66997,7 +67028,6 @@ public void rewardsPayout_TC11(String userType) throws Exception{
 	}}
 	navigateToHomePage();
 	}
-	
 public void navigatToRewardsPayoutMethods() throws Exception{
 	
 	verifyElementPresentAndClick(AMDHomePage.objProfileIcon, "Profile Icon");
@@ -68462,6 +68492,61 @@ public void newShop_TC18(String userType) throws Exception{
 	
 }
 
+public void shopSimilarProductRail_TC01(String userType) throws Exception{
+	
+	
+	if(userType.equalsIgnoreCase("NonSubscribedUser"))
+	{
+		extent.HeaderChildNode("Guest/Logged In user - Verify \"Shop\" tab gets highlighted upon searcing any otrher keywords apart from the product keyword.");
+		System.out.println("TC01");
+		extent.extentLogger("Guest/Logged In user - Verify \"Shop\" tab gets highlighted upon searcing any otrher keywords apart from the product keyword.", "TC18");
+	}
+	
+	else {
+		extent.HeaderChildNode("Guest/Logged In user - Verify \"Shop\" tab gets highlighted upon searcing any otrher keywords apart from the product keyword.");
+		System.out.println("TC01");
+		extent.extentLogger("Guest/Logged In user - Verify \"Shop\" tab gets highlighted upon searcing any otrher keywords apart from the product keyword.", "TC18");
+	}
+	String previousProductBrand = "";
+	String currentProductBrand = "";
+	Boolean flag = false;
+	navigateToShopSearchResultsPage("Perfumes");
+		SwipeUntilFindElement(HipiShopPage.similarProductsRail,"UP");
+		PartialSwipe("UP", 1);
+		for(int i =0;i<10;i++) {
+			
+			currentProductBrand = getText(HipiShopPage.objProductBrand);
+			swipeRail(HipiShopPage.objProductImageThumbnail,"LEFT",5);
+			System.out.println(currentProductBrand);
+			System.out.println(previousProductBrand);
+			
+			if(!(previousProductBrand.equals(currentProductBrand))){
+				if(previousProductBrand=="") {
+					flag = false;
+				}
+				else {
+				flag = true;
+				break;
+				}
+			}
+			
+			previousProductBrand = currentProductBrand;
+		}
+		//HipiShopPage.objProductImageThumbnail
+	if(flag)
+			{
+		logger.info("\"Shop\" tab should gets highlighted upon searching for any keyword from the \"Shop\" screen.");	
+		extent.extentLoggerPass("New Shop", "\"Shop\" tab should gets highlighted upon searching for any keyword from the \"Shop\" screen.");
+	}else {
+		logger.info("\"Shop\" tab should gets highlighted upon searching for any keyword from the \"Shop\" screen.");	
+		extent.extentLoggerFail("New Shop", "\"Shop\" tab should gets highlighted upon searching for any keyword from the \"Shop\" screen.");
+	
+	}
+	
+	navigateToHomePage();
+	
+}
+
 public void eCommerceCod_TC02(String userType) throws Exception{
 	
 	
@@ -68894,6 +68979,206 @@ public void rewardsPayout_DisableNewPayment_2(String userType) throws Exception{
 	}
 
 
+public void reportComment_1(String userType) throws Exception{
+	
+	if(userType.equalsIgnoreCase("NonSubscribedUser") )
+	{
+		extent.HeaderChildNode("Verify 'Report Comment' option is shown on long pressing any comment");
+		System.out.println("T1");
+		extent.extentLogger("Verify 'Report Comment' option is shown on long pressing any comment", "T1");
+	}
+	
+	else 
+	{
+		extent.HeaderChildNode("Verify 'Report Comment' option is shown on long pressing any comment");
+		System.out.println("T1");
+		extent.extentLogger("Verify 'Report Comment' option is shown on long pressing any comment", "T1");
+	}
+	verifyElementPresentAndClick(HipiHomePage.objCommentICON, "Comment Icon");
+	waitUntilElementDisplayed(HipiFeedPage.objFirstComment,5);
+	longPressContent(HipiFeedPage.objFirstComment);
+	waitUntilElementDisplayed(HipiFeedPage.objReportComment,5);
+		
+		if(verifyElementExist(HipiFeedPage.objReportComment,"Report comment")) {
+			
+			logger.info("'Report Comment' option should be displayed on long pressing any comment");	
+			extent.extentLoggerPass("Report Comment", "'Report Comment' option should be displayed on long pressing any comment");
+		}else {
+			logger.info("'Report Comment' option should be displayed on long pressing any comment");	
+			extent.extentLoggerFail("Report Comment", "'Report Comment' option should be displayed on long pressing any comment");
+		}
+		navigateToHomePage();
+	
+	
+	
+	
+	
+	
+	}
+
+public void reportComment_2(String userType) throws Exception{
+	
+	if(userType.equalsIgnoreCase("NonSubscribedUser") )
+	{
+		extent.HeaderChildNode("Verify various reporting reasons are present on report comment screen");
+		System.out.println("T2");
+		extent.extentLogger("Verify various reporting reasons are present on report comment screen", "T2");
+	}
+	
+	else 
+	{
+		extent.HeaderChildNode("Verify various reporting reasons are present on report comment screen");
+		System.out.println("T2");
+		extent.extentLogger("Verify various reporting reasons are present on report comment screen", "T2");
+	}
+	navigateToReportComment();
+	
+		
+		if(verifyElementExist(HipiFeedPage.objReportCommentHeader,"Report comment header")
+				&& verifyElementExist(HipiFeedPage.objReasonSubHeader,"Report comment subheader")
+				&& verifyElementExist(HipiFeedPage.objSpamReason,"Spam reason")
+				&& verifyElementExist(HipiFeedPage.objNudityReason,"Nudity reason")
+				&& verifyElementExist(HipiFeedPage.objHateReason,"Hate reason")
+				&& verifyElementExist(HipiFeedPage.objViolenceReason,"Violence reason")
+				&& verifyElementExist(HipiFeedPage.objIllegalReason,"Illegal reason")
+				&& verifyElementExist(HipiFeedPage.objBullyingReason,"Bullying reason")
+				&& verifyElementExist(HipiFeedPage.objPropertyReason,"Property reason")
+				&& verifyElementExist(HipiFeedPage.objFalseReason,"False reason")
+				&& verifyElementExist(HipiFeedPage.objSuicideReason,"Suicide reason")
+				&& verifyElementExist(HipiFeedPage.objLikeReason,"Like reason")
+				&& verifyElementExist(HipiFeedPage.objSomethingReason,"Something reason")) {
+			
+			logger.info("Various reporting reason should be present on report comment page");	
+			extent.extentLoggerPass("Report Comment", "Various reporting reason should be present on report comment page");
+		}else {
+			logger.info("Various reporting reason should be present on report comment page");	
+			extent.extentLoggerFail("Report Comment", "Various reporting reason should be present on report comment page");
+		}
+		navigateToHomePage();
+	
+	
+	
+	
+	
+	
+	}
+
+public void reportComment_3(String userType) throws Exception{
+	
+	if(userType.equalsIgnoreCase("NonSubscribedUser") )
+	{
+		extent.HeaderChildNode("Verify 'Thank you' message is displayed on selecting any report comment option");
+		System.out.println("T3");
+		extent.extentLogger("Verify 'Thank you' message is displayed on selecting any report comment option", "T3");
+	}
+	
+	else 
+	{
+		extent.HeaderChildNode("Verify 'Thank you' message is displayed on selecting any report comment option");
+		System.out.println("T3");
+		extent.extentLogger("Verify 'Thank you' message is displayed on selecting any report comment option", "T3");
+	}
+	navigateToReportComment();
+	
+	verifyElementPresentAndClick(HipiFeedPage.objNudityReason,"Nudity reason");
+	waitUntilElementDisplayed(HipiFeedPage.objThanks,5);
+	if(verifyElementExist(HipiFeedPage.objThanks,"Thank you message")) {
+			
+			logger.info("Thank you message should be displayed on selecting any report comment reason");	
+			extent.extentLoggerPass("Report Comment", "Thank you message should be displayed on selecting any report comment reason");
+		}else {
+			logger.info("Thank you message should be displayed on selecting any report comment reason");	
+			extent.extentLoggerFail("Report Comment", "Thank you message should be displayed on selecting any report comment reason");
+		}
+		navigateToHomePage();
+	
+	
+	
+	
+	
+	
+	}
+
+public void reportComment_4(String userType) throws Exception{
+	
+	if(userType.equalsIgnoreCase("NonSubscribedUser") )
+	{
+		extent.HeaderChildNode("Verify 'Thank you' message UI");
+		System.out.println("T4");
+		extent.extentLogger("Verify 'Thank you' message UI", "T4");
+	}
+	
+	else 
+	{
+		extent.HeaderChildNode("Verify 'Thank you' message UI");
+		System.out.println("T4");
+		extent.extentLogger("Verify 'Thank you' message UI", "T4");
+	}
+	navigateToReportComment();
+	
+	verifyElementPresentAndClick(HipiFeedPage.objNudityReason,"Nudity reason");
+	waitUntilElementDisplayed(HipiFeedPage.objThanks,5);
+	if(verifyElementExist(HipiFeedPage.objThanks,"Thank you message")
+			&& verifyElementExist(HipiFeedPage.objTickMark,"Tick mark")
+			&& verifyElementExist(HipiFeedPage.objReviewSubtitle,"Review subtitle")
+			&& verifyElementExist(HipiFeedPage.objDoneCta,"Done CTA")) {
+		
+		
+			
+			logger.info("Respective UI elements should be present on thank you screen");	
+			extent.extentLoggerPass("Report Comment", "Respective UI elements should be present on thank you screen");
+		}else {
+			logger.info("Respective UI elements should be present on thank you screen");	
+			extent.extentLoggerFail("Report Comment", "Respective UI elements should be present on thank you screen");
+		}
+		navigateToHomePage();
+	
+	
+	
+	
+	
+	
+	}
+
+public void reportComment_5(String userType) throws Exception{
+	
+	if(userType.equalsIgnoreCase("NonSubscribedUser") )
+	{
+		extent.HeaderChildNode("Verify 'Thank you' popup is dismissed on tapping on 'Done' CTA");
+		System.out.println("T5");
+		extent.extentLogger("Verify 'Thank you' popup is dismissed on tapping on 'Done' CTA", "T5");
+	}
+	
+	else 
+	{
+		extent.HeaderChildNode("Verify 'Thank you' popup is dismissed on tapping on 'Done' CTA");
+		System.out.println("T5");
+		extent.extentLogger("Verify 'Thank you' popup is dismissed on tapping on 'Done' CTA", "T5");
+	}
+	navigateToReportComment();
+	
+	verifyElementPresentAndClick(HipiFeedPage.objNudityReason,"Nudity reason");
+	waitUntilElementDisplayed(HipiFeedPage.objThanks,5);
+	click(HipiFeedPage.objDoneCta,"Done CTA");
+	if(verifyElementNotExist(HipiFeedPage.objThanks)
+			&& verifyElementExist(HipiFeedPage.objFirstComment,"First comment")) {
+		
+		
+			
+			logger.info("'Thank you' popup should be dismissed on tapping on 'Done' CTA");	
+			extent.extentLoggerPass("Report Comment", "'Thank you' popup should be dismissed on tapping on 'Done' CTA");
+		}else {
+			logger.info("'Thank you' popup should be dismissed on tapping on 'Done' CTA");	
+			extent.extentLoggerFail("Report Comment", "'Thank you' popup should be dismissed on tapping on 'Done' CTA");
+		}
+		navigateToHomePage();
+	
+	
+	
+	
+	
+	
+	}
 
 
 public void rewardsPayout_DisableNewPayment_3(String userType) throws Exception{
@@ -68925,6 +69210,231 @@ public void rewardsPayout_DisableNewPayment_3(String userType) throws Exception{
 	
 	}
 
+
+public void blockUser_1(String userType) throws Exception{
+	
+	if(userType.equalsIgnoreCase("NonSubscribedUser") )
+	{
+		extent.HeaderChildNode("Verify block option is present under three dots menu in creator profile");
+		System.out.println("T1");
+		extent.extentLogger("Verify block option is present under three dots menu in creator profile", "T1");
+	
+	verifyElementPresentAndClick(HipiFeedPage.objUserHandle,"User handle");
+		waitUntilElementDisplayed(HipiFeedPage.objThreeDots,5);
+		verifyElementPresentAndClick(HipiFeedPage.objThreeDots,"Three Dots");
+		waitUntilElementDisplayed(HipiFeedPage.objBlockProfileOption,5);
+		
+		if(verifyElementExist(HipiFeedPage.objBlockProfileOption,"Block user")) {
+			
+			logger.info("'Block user' option should be present");	
+			extent.extentLoggerPass("Block User", "'Block user' option should be present");
+		}else {
+			logger.info("'Block user' option should be present");	
+			extent.extentLoggerFail("Block User", "'Block user' option should be present");
+		}}
+		navigateToHomePage();
+	
+	
+	
+	
+	
+	
+	}
+
+public void blockUser_2(String userType) throws Exception{
+	
+	if(userType.equalsIgnoreCase("NonSubscribedUser") )
+	{
+		extent.HeaderChildNode("Verify the following details on the creator profile are displayed after blocking a creator:\r\n"
+				+ "\r\n"
+				+ "Creator Name\r\n"
+				+ "\r\n"
+				+ "Creator Handle\r\n"
+				+ "\r\n"
+				+ "Creator profile pic\r\n"
+				+ "\r\n"
+				+ "‘Unblock’ CTA button to unblock the creator\r\n"
+				+ "\r\n"
+				+ "Report option under three dots menu");
+		System.out.println("T2");
+		extent.extentLogger("Verify the following details on the creator profile are displayed after blocking a creator:\\r\\n\"\r\n"
+				+ "				+ \"\\r\\n\"\r\n"
+				+ "				+ \"Creator Name\\r\\n\"\r\n"
+				+ "				+ \"\\r\\n\"\r\n"
+				+ "				+ \"Creator Handle\\r\\n\"\r\n"
+				+ "				+ \"\\r\\n\"\r\n"
+				+ "				+ \"Creator profile pic\\r\\n\"\r\n"
+				+ "				+ \"\\r\\n\"\r\n"
+				+ "				+ \"‘Unblock’ CTA button to unblock the creator\\r\\n\"\r\n"
+				+ "				+ \"\\r\\n\"\r\n"
+				+ "				+ \"Report option under three dots menu", "T2");
+	
+	
+	
+	
+	verifyElementPresentAndClick(HipiFeedPage.objUserHandle,"User handle");
+	blockUser();
+		if(verifyElementExist(HipiFeedPage.objUnblockOption,"Unblock user option")
+				&& verifyElementExist(HipiFeedPage.objCreatorName,"Creator name")
+				&& verifyElementExist(HipiFeedPage. objBlockedUserName,"Creator username")
+				&& verifyElementExist(HipiFeedPage. objFollowing,"Creator's Following")
+				&& verifyElementExist(HipiFeedPage. objFollowers,"Creator's Followers")
+				&& verifyElementExist(HipiFeedPage.  objLikes,"Creator's Likes")
+				&& verifyElementExist(HipiFeedPage. objProfilePic,"Creator's profile picture")) {
+			
+			logger.info("Respective options should be present once user gets blocked");	
+			extent.extentLoggerPass("Block User", "Respective options should be present once user gets blocked");
+		}else {
+			logger.info("Respective options should be present once user gets blocked");	
+			extent.extentLoggerFail("Block User", "Respective options should be present once user gets blocked");
+		}}
+		navigateToHomePage();
+	
+	
+	
+	
+	
+	
+	}
+
+
+public void blockUser_3(String userType) throws Exception{
+	
+	if(userType.equalsIgnoreCase("NonSubscribedUser") )
+	{
+		extent.HeaderChildNode("Verify blocked user videos are not displayed on feed after blocking the user");
+		System.out.println("T3");
+		extent.extentLogger("Verify blocked user videos are not displayed on feed after blocking the user", "T3");
+	
+	
+	String creatorNameBefore = getText(HipiFeedPage.objUserHandle);
+	System.out.println(creatorNameBefore);
+	verifyElementPresentAndClick(HipiFeedPage.objUserHandle,"User handle");
+	blockUser();
+
+		Back(1);
+		
+		String creatorNameAfter = getText(HipiFeedPage.objUserHandle);
+		if(!(creatorNameBefore.equals(creatorNameAfter))) {
+			
+			logger.info("User should not see blocked creator's videos on feed");	
+			extent.extentLoggerPass("Block User", "User should not see blocked creator's videos on feed");
+		}else {
+			logger.info("User should not see blocked creator's videos on feed");	
+			extent.extentLoggerFail("Block User", "User should not see blocked creator's videos on feed");
+		}}
+		navigateToHomePage();
+	
+	
+	
+	
+	
+	
+	}
+
+public void blockUser_4(String userType) throws Exception{
+	
+	if(userType.equalsIgnoreCase("NonSubscribedUser") )
+	{
+		extent.HeaderChildNode("Verify blocked user videos are not displayed on discover/shop search");
+		System.out.println("T4");
+		extent.extentLogger("Verify blocked user videos are not displayed on discover/shop search", "T4");
+	
+	
+	verifyElementPresentAndClick(HipiFeedPage.objUserHandle,"User handle");
+	blockUser();
+	String creatorNameAfter = getText(HipiFeedPage.objCreatorName);
+	Back(1);
+	navigateToSearchResultsPage(creatorNameAfter);
+		
+		String creatorName = getText(HipiFeedPage.objSearchResultsUserName);
+		if(!(creatorNameAfter.equals(creatorName))) {
+			
+			logger.info("User should not see blocked creator's videos on discover/shop search");	
+			extent.extentLoggerPass("Block User", "User should not see blocked creator's videos on discover/shop search");
+		}else {
+			logger.info("User should not see blocked creator's videos on discover/shop search");	
+			extent.extentLoggerFail("Block User", "User should not see blocked creator's videos on discover/shop search");
+		}}
+		navigateToHomePage();
+	
+	
+	
+	
+	
+	
+	}
+
+public void blockUser_5(String userType) throws Exception{
+	
+	if(userType.equalsIgnoreCase("NonSubscribedUser") )
+	{
+		extent.HeaderChildNode("Verify blocked user is unfollowed from blocking user's profile if being followed before");
+		System.out.println("T5");
+		extent.extentLogger("Verify blocked user is unfollowed from blocking user's profile if being followed before", "T5");
+	
+	verifyElementPresentAndClick(HipiFeedPage.objFollowBtn,"Follow button");
+	verifyElementPresentAndClick(HipiFeedPage.objUserHandle,"User handle");
+	blockUser();
+	String creatorNameAfter = getText(HipiFeedPage.objCreatorName);
+	Back(1);
+	verifyElementPresentAndClick(AMDHomePage.objProfileIcon, "Profile Icon");
+	waitTime(2000);
+	verifyElementPresentAndClick(HipiFeedPage.objfollowing, "Following tab");
+		waitUntilElementDisplayed(HipiProfilePage. objFollowingSearch,5);
+		type(HipiProfilePage. objFollowingSearch,creatorNameAfter,"Following search text field");
+		waitTime(3000);
+		
+		if(verifyElementExist(HipiProfilePage.objFollowingTabErrorText,"No matching results found")) {
+			
+			logger.info("Blocking user should not see blocked user in his/her following list");	
+			extent.extentLoggerPass("Block User", "Blocking user should not see blocked user in his/her following list");
+		}else {
+			logger.info("Blocking user should not see blocked user in his/her following list");	
+			extent.extentLoggerFail("Block User", "Blocking user should not see blocked user in his/her following list");
+		}}
+		navigateToHomePage();
+	
+	
+	
+	
+	
+	
+	}
+
+public void blockUser_6(String userType) throws Exception{
+	
+	if(userType.equalsIgnoreCase("Guest") )
+	{
+		extent.HeaderChildNode("Guest User - Verify login/signup popup is displayed on clicking on 'Block User' option");
+		System.out.println("T6");
+		extent.extentLogger("Guest User - Verify login/signup popup is displayed on clicking on 'Block User' option", "T6");
+	
+	
+	verifyElementPresentAndClick(HipiFeedPage.objUserHandle,"User handle");
+	waitUntilElementDisplayed(HipiFeedPage.objThreeDots,5);
+	verifyElementPresentAndClick(HipiFeedPage.objThreeDots,"Three Dots");
+	waitUntilElementDisplayed(HipiFeedPage.objBlockProfileOption,5);
+	verifyElementPresentAndClick(HipiFeedPage.objBlockProfileOption,"Block profile");
+	waitUntilElementDisplayed(HipiProfilePage.objUsePhoneOrEmail, 20);
+		
+		if(verifyElementExist(HipiProfilePage.objUsePhoneOrEmail,"Login/Signup popup")) {
+			
+			logger.info("login/signup popup should be displayed on clicking on 'Block User' option");	
+			extent.extentLoggerPass("Block User", "login/signup popup should be displayed on clicking on 'Block User' option");
+		}else {
+			logger.info("login/signup popup should be displayed on clicking on 'Block User' option");	
+			extent.extentLoggerFail("Block User", "login/signup popup should be displayed on clicking on 'Block User' option");
+		}}
+		navigateToHomePage();
+	
+	
+	
+	
+	
+	
+	}
+
 public String navigateToWatchHistory() throws Exception{
 	Swipe("UP",3);
 	waitUntilElementDisplayed(HipiFeedPage.objVideoCaption,5);
@@ -68947,6 +69457,19 @@ public String navigateToWatchHistory() throws Exception{
 }
 
 //navigatToRewardsPayoutMethods
+public void navigateToShopSearchResultsPage (String searchQuery) throws Exception {
+	verifyElementPresentAndClick(HipiDiscoverPage.objShopIcon, "Shop icon");
+	waitUntilElementDisplayed(HipiDiscoverPage.objDiscoverSearchInbox,10);
+	click(HipiDiscoverPage.objDiscoverSearchInbox,"Search inbox");
+	type(HipiDiscoverPage.objDiscoverSearchInbox, searchQuery, "Type value");
+	waitUntilElementDisplayed(HipiDiscoverPage.objSearchResult,10);
+	waitTime(2000);
+	verifyElementPresentAndClick(HipiDiscoverPage.objSearchResult,"Search Result");
+	waitUntilElementDisplayed(HipiShopPage.objProductImageThumbnail,5);
+	verifyElementPresentAndClick(HipiShopPage.objProductImageThumbnail,"First product");
+	
+	waitUntilElementDisplayed(HipiDiscoverPage.objShopDetailsPage,5);
+}
 public void navigateToSearchResultsPage (String searchQuery) throws Exception {
 	verifyElementPresentAndClick(HipiHomePage.objDiscoverButton, "Discover Button");
 	waitUntilElementDisplayed(HipiDiscoverPage.objDiscoverSearchBar,10);
@@ -68954,10 +69477,28 @@ public void navigateToSearchResultsPage (String searchQuery) throws Exception {
 	waitUntilElementDisplayed(HipiDiscoverPage.objDiscoverSearchInbox,10);
 	type(HipiDiscoverPage.objDiscoverSearchInbox, searchQuery, "Type value");
 	waitUntilElementDisplayed(HipiDiscoverPage.objSearchResult,10);
-	verifyElementPresentAndClick(HipiDiscoverPage.objSearchResult, "Search result");
+	waitTime(2000);
+	verifyElementPresentAndClick(HipiDiscoverPage.objSearchResult,"Search Result");
 	waitUntilElementDisplayed(HipiDiscoverPage.objTopButton,10);
 }
-
+//objCommentICON
+public void blockUser() throws Exception{
+	
+//	verifyElementPresentAndClick(HipiFeedPage.objUserHandle,"User handle");
+	waitUntilElementDisplayed(HipiFeedPage.objThreeDots,5);
+	verifyElementPresentAndClick(HipiFeedPage.objThreeDots,"Three Dots");
+	waitUntilElementDisplayed(HipiFeedPage.objBlockProfileOption,5);
+	verifyElementPresentAndClick(HipiFeedPage.objBlockProfileOption,"Block profile");
+	waitUntilElementDisplayed(HipiFeedPage.objUnblockOption,5);
+}
+public void navigateToReportComment() throws Exception{
+	verifyElementPresentAndClick(HipiHomePage.objCommentICON, "Comment Icon");
+	waitUntilElementDisplayed(HipiFeedPage.objFirstComment,5);
+	longPressContent(HipiFeedPage.objFirstComment);
+	waitUntilElementDisplayed(HipiFeedPage.objReportComment,5);
+	verifyElementPresentAndClick(HipiFeedPage.objReportComment, "Report comment option");
+	waitUntilElementDisplayed(HipiFeedPage.objReportCommentHeader,5);
+}
 public void navigateToCodDeeplink() throws Exception{
 	
 	Map<String, Object> params = new HashMap();
@@ -68967,4 +69508,595 @@ public void navigateToCodDeeplink() throws Exception{
         params.put("package", "com.zee5.hipi");
    getDriver().executeScript("mobile:deepLink", new Object[]{params});
 }
+
+public void recentlyViewedShop_TC01(String userType) throws Exception{
+	
+	
+	if(userType.equalsIgnoreCase("NonSubscribedUser"))
+	{
+		extent.HeaderChildNode("Logged In user - Verify 'Recently Viewed' rail is present for logged in user if user viewed atleast one shoppable product");
+		System.out.println("TC01");
+		extent.extentLogger("Logged In user - Verify 'Recently Viewed' rail is present for logged in user if user viewed atleast one shoppable product", "TC01");
+	
+		waitUntilElementDisplayed(HipiDiscoverPage.objShopIcon,10);
+		click(HipiDiscoverPage.objShopIcon,"Shop icon");
+		waitUntilElementDisplayed(HipiDiscoverPage.objShopPage,10);
+
+		
+	if(verifyElementExist(HipiShopPage.objRecentlyViewedRail,"Recently viewed rail"))
+			{
+		logger.info("'Recently Viewed' rail should be present in shop page if user has viewed atleast one shoppable product");	
+		extent.extentLoggerPass("New Shop", "'Recently Viewed' rail should be present in shop page if user has viewed atleast one shoppable product");
+	}else {
+		logger.info("'Recently Viewed' rail should be present in shop page if user has viewed atleast one shoppable product");	
+		extent.extentLoggerFail("New Shop", "'Recently Viewed' rail should be present in shop page if user has viewed atleast one shoppable product");
+	
+	}
+	}
+	navigateToHomePage();
+	
+}
+
+public void recentlyViewedShop_TC02(String userType) throws Exception{
+	
+	
+	if(userType.equalsIgnoreCase("Guest"))
+	{
+		extent.HeaderChildNode("Guest user - Verify 'Recently Viewed' rail is not present for guest user");
+		System.out.println("TC02");
+		extent.extentLogger("Guest user - Verify 'Recently Viewed' rail is present for guest user", "TC02");
+	
+		waitUntilElementDisplayed(HipiDiscoverPage.objShopIcon,10);
+		click(HipiDiscoverPage.objShopIcon,"Shop icon");
+		waitUntilElementDisplayed(HipiDiscoverPage.objShopPage,10);
+
+		
+	if(verifyElementNotExist(HipiShopPage.objRecentlyViewedRail))
+			{
+		logger.info("'Recently Viewed' rail should not be present in shop page");	
+		extent.extentLoggerPass("New Shop", "'Recently Viewed' rail should not be present in shop page");
+	}else {
+		logger.info("'Recently Viewed' rail should not be present in shop page");	
+		extent.extentLoggerFail("New Shop", "'Recently Viewed' rail should not be present in shop page");
+	
+	}
+	}
+	navigateToHomePage();
+	
+}
+
+public void recentlyViewedShop_TC03(String userType) throws Exception{
+	
+	
+	if(userType.equalsIgnoreCase("NonSubscribedUser"))
+	{
+		extent.HeaderChildNode("Logged in user - Verify that recently viewed product appears in 'Recently Viewed' rail");
+		System.out.println("TC03");
+		extent.extentLogger("Logged in user - Verify that recently viewed product appears in 'Recently Viewed' rail", "TC03");
+	
+		waitUntilElementDisplayed(HipiDiscoverPage.objShopIcon,10);
+		click(HipiDiscoverPage.objShopIcon,"Shop icon");
+		waitUntilElementDisplayed(HipiDiscoverPage.objShopPage,10);
+		Swipe("UP",5);
+		verifyElementPresentAndClick(HipiShopPage.objProductImageThumbnail,"First product");
+		
+		waitUntilElementDisplayed(HipiShopPage.objProductBrand,10);
+		String productBrandBefore = getText(HipiShopPage.objProductBrand);
+		String productDescriptionBefore = getText(HipiShopPage.objProductDescription);
+		
+		Back(2);
+		click(HipiDiscoverPage.objShopIcon,"Shop icon");
+		waitUntilElementDisplayed(HipiDiscoverPage.objShopPage,10);
+		waitTime(30000);
+		Swipe("DOWN",2);
+		verifyElementPresentAndClick(HipiShopPage.objProductImageThumbnail,"First product");
+		
+		waitUntilElementDisplayed(HipiShopPage.objProductBrand,10);
+		String productBrandAfter = getText(HipiShopPage.objProductBrand);
+		String productDescriptionAfter = getText(HipiShopPage.objProductDescription);
+		
+	if(productBrandAfter.equals(productBrandBefore) && productDescriptionBefore.equals(productDescriptionAfter))
+			{
+		logger.info("Recently viewed prouduct should appear in 'Recently Viewed' rail");	
+		extent.extentLoggerPass("New Shop", "Recently viewed prouduct should appear in 'Recently Viewed' rail");
+	}else {
+		logger.info("Recently viewed prouduct should appear in 'Recently Viewed' rail");	
+		extent.extentLoggerFail("New Shop", "Recently viewed prouduct should appear in 'Recently Viewed' rail");
+	
+	}
+	}
+	navigateToHomePage();
+	
+}
+public void appealVideo_TC01(String userType) throws Exception{
+	
+	
+	if(userType.equalsIgnoreCase("Guest"))
+	{
+		extent.HeaderChildNode("Logged in user - Verify that recently viewed product appears in 'Recently Viewed' rail");
+		System.out.println("TC03");
+		extent.extentLogger("Logged in user - Verify that recently viewed product appears in 'Recently Viewed' rail", "TC03");
+	
+		contentReview();
+		/*waitUntilElementDisplayed(HipiDiscoverPage.objShopIcon,10);
+		click(HipiDiscoverPage.objShopIcon,"Shop icon");
+		waitUntilElementDisplayed(HipiDiscoverPage.objShopPage,10);
+		Swipe("UP",3);
+		verifyElementPresentAndClick(HipiShopPage.objProductImageThumbnail,"First product");
+		
+		waitUntilElementDisplayed(HipiShopPage.objProductBrand,10);
+		String productBrandBefore = getText(HipiShopPage.objProductBrand);
+		String productDescriptionBefore = getText(HipiShopPage.objProductDescription);
+		
+		Back(2);
+		click(HipiDiscoverPage.objShopIcon,"Shop icon");
+		waitUntilElementDisplayed(HipiDiscoverPage.objShopPage,10);
+		verifyElementPresentAndClick(HipiShopPage.objProductImageThumbnail,"First product");
+		
+		waitUntilElementDisplayed(HipiShopPage.objProductBrand,10);
+		String productBrandAfter = getText(HipiShopPage.objProductBrand);
+		String productDescriptionAfter = getText(HipiShopPage.objProductDescription);
+		
+	if(productBrandAfter.equals(productBrandBefore) && productDescriptionBefore.equals(productDescriptionAfter))
+			{
+		logger.info("Recently viewed prouduct should appear in 'Recently Viewed' rail");	
+		extent.extentLoggerPass("New Shop", "Recently viewed prouduct should appear in 'Recently Viewed' rail");
+	}else {
+		logger.info("Recently viewed prouduct should appear in 'Recently Viewed' rail");	
+		extent.extentLoggerFail("New Shop", "Recently viewed prouduct should appear in 'Recently Viewed' rail");
+	
+	}*/
+	}
+	navigateToHomePage();
+	
+}
+
+public void contentReview() throws Exception{
+	click(AMDHomePage.objProfileIcon,"Profile icon");
+	waitUntilElementDisplayed(HipiLoginPage.objUsePhoneOrEmail,10);
+	click(HipiLoginPage.objUsePhoneOrEmail,"Use Phone or Email option");
+	waitUntilElementDisplayed(HipiLoginPage.objSignUpScreenTittle,10);
+	type(HipiLoginPage.objEmailIDOrMobileNumberFileld,"khot@yopmail.com","Email id or phone number field");
+	click(HipiLoginPage.objProceedButton,"Proceed button");
+	waitTime(3000);
+	randomEmailOtp("khot@yopmail.com");
+	click(AMDHomePage.objProfileIcon,"Profile icon");
+	verifyElementPresentAndClick(AMDHomePage.objMoreMenu, "More Menu");
+	SwipeUntilFindElement(AMDHomePage.objContentReviewOption,"UP");
+	verifyElementPresentAndClick(AMDHomePage.objContentReviewPage, "Content review page");
+}
+
+
+public void superCoins_TC01(String userType) throws Exception{
+	
+	
+	if(userType.equalsIgnoreCase("NonSubscribedUser"))
+	{
+		extent.HeaderChildNode("Logged in user - Verify that 'Pay using supercoins' option is present only if user has supercoins>=1000");
+		System.out.println("TC01");
+		extent.extentLogger("Logged in user - Verify that 'Pay using supercoins' option is present only if user has supercoins>=1000", "TC01");
+	
+		int superCoins = superCoinsBalance();
+		ecommerceDeeplinkLatest();
+		
+		if(superCoins>=1000) {
+			if(TimeStampverifyElementExist(AMDHomePage.objPayUsingSuperCoins,"Pay using super coins")) {
+				logger.info("Pay using super coins option is present on payment screen");
+				extent.extentLoggerPass("TC_52","Pay using super coins option is present on payment screen");
+			}
+			
+			else {
+				logger.info("Pay using super coins option is not present on payment screen");
+				Time_ExcelUpdate.TestCaseSummaryNode1("Verify pay using supercoins option is present on payment page if user has >=1000 supercoins");
+
+				extent.extentLoggerFail("TC_52","Pay using super coins option is not present on payment screen");
+			}
+		}
+		
+		else {
+			if(TimeStampverifyElementExist(AMDHomePage.objPayUsingSuperCoins,"Pay using super coins")) {
+				logger.info("Pay using super coins option is present on payment screen");
+				Time_ExcelUpdate.TestCaseSummaryNode1("Verify pay using supercoins option is not present on payment page if user has <1000 supercoins");
+
+				extent.extentLoggerFail("TC_53","Pay using super coins option is present on payment screen");
+			}
+			
+			else {
+				logger.info("Pay using super coins option is not present on payment screen");
+
+				extent.extentLoggerPass("TC_53","Pay using super coins option is not present on payment screen");
+			}
+		}
+	}
+	navigateToHomePage();
+	
+}
+
+
+public void superCoins_TC02(String userType) throws Exception{
+	
+	
+	if(userType.equalsIgnoreCase("NonSubscribedUser"))
+	{
+		extent.HeaderChildNode("Logged in user - Verify that 'Pay using supercoins' option is present only if user has supercoins>=1000");
+		System.out.println("TC01");
+		extent.extentLogger("Logged in user - Verify that 'Pay using supercoins' option is present only if user has supercoins>=1000", "TC01");
+	
+		int superCoins = superCoinsBalance();
+		ecommerceDeeplinkLatest();
+		
+		if(superCoins>=1000) {
+			if(TimeStampverifyElementExist(AMDHomePage.objPayUsingSuperCoins,"Pay using super coins")) {
+				logger.info("Pay using super coins option is present on payment screen");
+				extent.extentLoggerPass("TC_52","Pay using super coins option is present on payment screen");
+			}
+			
+			else {
+				logger.info("Pay using super coins option is not present on payment screen");
+				Time_ExcelUpdate.TestCaseSummaryNode1("Verify pay using supercoins option is present on payment page if user has >=1000 supercoins");
+
+				extent.extentLoggerFail("TC_52","Pay using super coins option is not present on payment screen");
+			}
+		}
+		
+		else {
+			if(TimeStampverifyElementExist(AMDHomePage.objPayUsingSuperCoins,"Pay using super coins")) {
+				logger.info("Pay using super coins option is present on payment screen");
+				Time_ExcelUpdate.TestCaseSummaryNode1("Verify pay using supercoins option is not present on payment page if user has <1000 supercoins");
+
+				extent.extentLoggerFail("TC_53","Pay using super coins option is present on payment screen");
+			}
+			
+			else {
+				logger.info("Pay using super coins option is not present on payment screen");
+
+				extent.extentLoggerPass("TC_53","Pay using super coins option is not present on payment screen");
+			}
+		}
+	}
+	navigateToHomePage();
+	
+}
+
+public void productCardsFeed_TC01(String userType) throws Exception{
+	
+	
+	if(userType.equalsIgnoreCase("Guest"))
+	{
+		extent.HeaderChildNode("Guest User - Verify that 'Product card with product carousal' is present in a batch of 18 videos");
+		System.out.println("TC01");
+		extent.extentLogger("Guest user - Verify that 'Product card with product carousal' is present in a batch of 18 videos", "TC01");
+	
+	}
+	else {
+		extent.HeaderChildNode("Logged In User - Verify that 'Product card with product carousal' is present in a batch of 18 videos");
+		System.out.println("TC01");
+		extent.extentLogger("Logged In user - Verify that 'Product card with product carousal' is present in a batch of 18 videos", "TC01");
+	}
+	
+	
+	int swipedCount = 0;
+		/*for(int i =1;i<=25;i++) {
+			if(verifyElementExist(HipiFeedPage.objProductCard,"Product card")) {
+				swipedCount = i;
+				break;
+		}}*/
+		
+		int i =1;
+		while(!(verifyElementExist(HipiFeedPage.objProductCard,"Product card"))) {
+			if(verifyElementExist(HipiFeedPage.objDoneCta,"Done cta")) {
+				click(HipiFeedPage.objDoneCta,"Done cta");
+			}
+			Swipe("UP",1);
+			System.out.println(i);
+			i++;
+		}
+		
+		System.out.println(i);
+		if(i<=18) {
+			
+				logger.info("Product card should be present for a batch of 18 videos");
+				extent.extentLoggerPass("Product card","Product card should be present for a batch of 18 videos");
+			
+		}
+		
+		else {
+			
+			logger.info("Product card should be present for a batch of 18 videos");
+			extent.extentLoggerFail("Product card","Product card should be present for a batch of 18 videos");
+		
+			}
+		
+	Swipe("UP",1);
+	navigateToHomePage();
+	
+}
+public int superCoinsBalance() throws Exception{
+	
+//	Time_ExcelUpdate.ExpectedProcessingTime("3.75 Sec");
+		extent.HeaderChildNode("Super coins balance"); 
+		
+	TimeStampverifyElementPresentAndClick(AMDHomePage.objProfileIcon, "Profile Icon");
+	waitUntilElementDisplayed(AMDHomePage.objRewardsIcon,5);
+	TimeStampverifyElementPresentAndClick(AMDHomePage.objRewardsIcon, "Rewards icon");
+	
+	int superCoinsBalance = Integer.parseInt(getText(AMDHomePage.objSuperCoinsBalance));
+	
+	waitTime(4000);
+	if(TimeStampverifyElementPresent(AMDHomePage.objCrossIcon, "Cross icon")) {
+		TimeStampverifyElementPresentAndClick(AMDHomePage.objCrossIcon, "Cross icon");
+
+	}
+	
+	navigateToHomePage();
+	return superCoinsBalance;
+}
+
+public void ecommerceDeeplinkLatest() throws Exception{
+	
+	
+    /*Map<String, Object> params = new HashMap();
+
+    params.put("url", "https://www.hipi.co.in/video/fa6e17e6-0039-493d-b5b2-e917bd0fecf7?utm_source=Android&utm_medium=DeepLinking&utm_campaign=hipi_shared_link");
+
+        params.put("package", "com.zee5.hipi");
+   getDriver().executeScript("mobile:deepLink", new Object[]{params});*/
+	
+	click(HipiFeedPage.objDiscoverButton,"Discover button");
+	waitUntilElementDisplayed(HipiDiscoverPage. objBucketIconSoundDetails,10);
+	click(HipiDiscoverPage.objBucketIconSoundDetails,"Right top shop button");
+	waitUntilElementDisplayed(HipiDiscoverPage.objFirstProduct,10);
+	click(HipiDiscoverPage.objFirstProduct,"First product");
+   waitUntilElementDisplayed(HipiDiscoverPage.objBuyNowHipiCTA,10);
+   click(HipiDiscoverPage.objBuyNowHipiCTA,"Buy Now CTA");
+}
+
+/*verifyElementPresentAndClick(HipiHomePage.objCommentICON, "Click on Comment ICON");
+waitUntilElementDisplayed(HipiHomePage.objAddAComment, 1000);
+click(HipiHomePage.objAddAComment, "Add A Comment");
+waitTime(3000);
+type(HipiHomePage.objAddAComment, "Hi", "Add A Comment");
+hideKeyboard();
+click(HipiHomePage.objCommentPostIcon, "Comment Post Icon");
+waitTime(8000);
+ String comment = getText(HipiHomePage.objFirstComment);
+ System.out.println(comment);*/
+
+
+public void commentsFilter_TC_01(String userType) throws Exception{
+	if(userType.equalsIgnoreCase("Guest"))
+	{
+		extent.HeaderChildNode("Guest User - Verify that comments filter option is present when user opens comments section");
+		System.out.println("TC01");
+		extent.extentLogger("Guest User - Verify that comments filter option is present when user opens comments section", "TC01");
+	
+	}
+	else {
+		extent.HeaderChildNode("Logged In User - Verify that comments filter option is present when user opens comments section");
+		System.out.println("TC01");
+		extent.extentLogger("Logged In user - Verify that comments filter option is present when user opens comments section", "TC01");
+	}
+	
+	verifyElementPresentAndClick(HipiHomePage.objCommentICON, "Click on Comment ICON");
+	waitUntilElementDisplayed(HipiHomePage.objAddAComment, 1000);
+	
+	if(verifyElementExist(HipiFeedPage.objCommentFilter,"Comments filter")) {
+		logger.info("comments filter option is present when user opens comments section");
+		extent.extentLoggerPass("Comments filter","comments filter option is present when user opens comments section");
+	
+}
+
+else {
+	
+	logger.info("comments filter option is present when user opens comments section");
+	extent.extentLoggerFail("Comments filter","comments filter option is present when user opens comments section");
+
+	
+	}
+	
+}
+
+public void commentsFilter_TC_02(String userType) throws Exception{
+	if(userType.equalsIgnoreCase("Guest"))
+	{
+		extent.HeaderChildNode("Guest User - Verify that default comments filter option is 'Top Comments'");
+		System.out.println("TC02");
+		extent.extentLogger("Guest User - Verify that default comments filter option is 'Top Comments'", "TC02");
+	
+	}
+	else {
+		extent.HeaderChildNode("Logged In User - Verify that default comments filter option is 'Top Comments'");
+		System.out.println("TC02");
+		extent.extentLogger("Logged In user -Verify that default comments filter option is 'Top Comments'", "TC02");
+	}
+	
+	
+	if(verifyElementExist(HipiFeedPage.objTopCommentsOption,"Comments filter")) {
+		logger.info("default comments filter option is 'Top Comments'");
+		extent.extentLoggerPass("Comments filter","default comments filter option is 'Top Comments'");
+	
+}
+
+else {
+	
+	logger.info("default comments filter option is 'Top Comments'");
+	extent.extentLoggerFail("Comments filter","default comments filter option is 'Top Comments'");
+
+	
+	}
+	
+}
+
+public void commentsFilter_TC_03(String userType) throws Exception{
+	if(userType.equalsIgnoreCase("Guest"))
+	{
+		extent.HeaderChildNode("Guest User - Verify 2 options (Top Comments & Most recent) are present on clicking the filter");
+		System.out.println("TC03");
+		extent.extentLogger("Guest User - Verify 2 options (Top Comments & Most recent) are present on clicking the filter", "TC02");
+	
+	}
+	else {
+		extent.HeaderChildNode("Logged In User - Verify 2 options (Top Comments & Most recent) are present on clicking the filter");
+		System.out.println("TC03");
+		extent.extentLogger("Logged In user -Verify 2 options (Top Comments & Most recent) are present on clicking the filter", "TC03");
+	}
+	
+	verifyElementPresentAndClick(HipiFeedPage.objCommentFilter,"Comment filter");
+	waitUntilElementDisplayed(HipiFeedPage.objMostRecentOption,5);
+	if(verifyElementExist(HipiFeedPage.objTopCommentsOption,"Top comments options") &&
+			verifyElementExist(HipiFeedPage.objMostRecentOption,"Most recent option")) {
+		logger.info("2 options (Top Comments & Most recent) are present on clicking the filter");
+		extent.extentLoggerPass("Comments filter","2 options (Top Comments & Most recent) are present on clicking the filter");
+	
+}
+
+else {
+	
+	logger.info("2 options (Top Comments & Most recent) are present on clicking the filter");
+	extent.extentLoggerFail("Comments filter","2 options (Top Comments & Most recent) are present on clicking the filter");
+
+	
+	}
+	Back(1);
+}
+
+public void commentsFilter_TC_04(String userType) throws Exception{
+	if(userType.equalsIgnoreCase("NonSubscribedUser"))
+	{
+		extent.HeaderChildNode("Logged In User - Verify added comment shows up when most recent filter is selected");
+		System.out.println("TC04");
+		extent.extentLogger("Logged In user -Verify added comment shows up when most recent filter is selected", "TC04");
+	
+	
+		click(HipiHomePage.objAddAComment, "Add A Comment");
+		waitTime(3000);
+		String addComment = generateRandomString(5);
+		type(HipiHomePage.objAddAComment, addComment, "Add A Comment");
+		hideKeyboard();
+		click(HipiHomePage.objCommentPostIcon, "Comment Post Icon");
+		waitTime(2000);
+		
+	
+	verifyElementPresentAndClick(HipiFeedPage.objCommentFilter,"Comment filter");
+	waitUntilElementDisplayed(HipiFeedPage.objMostRecentOption,5);
+	verifyElementPresentAndClick(HipiFeedPage.objMostRecentOption,"Most recent option");
+	waitTime(2000);
+	 String comment = getText(HipiHomePage.objFirstComment);
+	 System.out.println(comment);
+	 
+	if(verifyElementExist(HipiFeedPage.objMostRecentOption,"Most recent option") &&
+			comment.equals(addComment + " Few seconds ago")) {
+		logger.info("added comment shows up when most recent filter is selected");
+		extent.extentLoggerPass("Comments filter","added comment shows up when most recent filter is selected");
+	
+}
+
+else {
+	
+	logger.info("added comment shows up when most recent filter is selected");
+	extent.extentLoggerFail("Comments filter","added comment shows up when most recent filter is selected");
+
+	
+	}
+	}
+	
+	navigateToHomePage();
+}
+
+public void commentsFilter_TC_05(String userType) throws Exception{
+	if(userType.equalsIgnoreCase("NonSubscribedUser"))
+	{
+		extent.HeaderChildNode("Logged In User - Verify comments filter option is not present if number of comments is less than 5");
+		System.out.println("TC05");
+		extent.extentLogger("Logged In user -Verify comments filter option is not present if number of comments is less than 5", "TC05");
+	
+	
+	
+	waitUntilElementDisplayed(AMDHomePage.objProfileIcon, 20);
+	verifyElementPresentAndClick(AMDHomePage.objProfileIcon, "Profile Icon");
+	waitUntilElementDisplayed(AMDHomePage.objSecondVideo,5);
+	
+	click(AMDHomePage.objSecondVideo,"Second profile video");
+	waitUntilElementDisplayed(HipiHomePage.objCommentICON,5);
+	
+	
+	verifyElementPresentAndClick(HipiHomePage.objCommentICON, "Click on Comment ICON");
+	waitUntilElementDisplayed(HipiHomePage.objCommentTitle,5);
+	String commentCount = getText(HipiHomePage.objCommentTitle);
+	int value = Integer.parseInt(commentCount.replaceAll("[^0-9]", ""));
+	if(verifyElementNotExist(HipiFeedPage.objCommentFilter) && value<=5) {
+		logger.info("comments filter option is not present if number of comments is less than 5");
+		extent.extentLoggerPass("Comments filter","comments filter option is not present if number of comments is less than 5");
+	
+}
+
+else {
+	
+	logger.info("comments filter option is not present if number of comments is less than 5");
+	extent.extentLoggerFail("Comments filter","comments filter option is not present if number of comments is less than 5");
+
+	
+	}
+	
+	}
+	navigateToHomePage();
+}
+
+public void commentsFilter_TC_06(String userType) throws Exception{
+	if(userType.equalsIgnoreCase("NonSubscribedUser"))
+	{
+		extent.HeaderChildNode("Logged In User - Verify comments filter option is present if number of comments is greater than 5");
+		System.out.println("TC06");
+		extent.extentLogger("Logged In user -Verify comments filter option is present if number of comments is greater than 5", "TC06");
+	
+	
+	
+	waitUntilElementDisplayed(AMDHomePage.objProfileIcon, 20);
+	verifyElementPresentAndClick(AMDHomePage.objProfileIcon, "Profile Icon");
+	waitUntilElementDisplayed(AMDHomePage.objSecondVideo,5);
+	
+	click(AMDHomePage.objSecondVideo,"Second profile video");
+	waitUntilElementDisplayed(HipiHomePage.objCommentICON,5);
+	verifyElementPresentAndClick(HipiHomePage.objCommentICON, "Click on Comment ICON");
+	for(int i =0;i<5;i++) {
+		
+		String addComment = generateRandomString(5);
+		type(HipiHomePage.objAddAComment, addComment, "Add A Comment");
+		hideKeyboard();
+		click(HipiHomePage.objCommentPostIcon, "Comment Post Icon");
+	}
+	Back(1);
+	verifyElementPresentAndClick(HipiHomePage.objCommentICON, "Click on Comment ICON");
+	waitUntilElementDisplayed(HipiHomePage.objCommentTitle,5);
+	String commentCount = getText(HipiHomePage.objCommentTitle);
+	int value = Integer.parseInt(commentCount.replaceAll("[^0-9]", ""));
+	if(verifyElementExist(HipiFeedPage.objCommentFilter,"Comment filters") && value>=5) {
+		logger.info("comments filter option is present if number of comments is greater than 5");
+		extent.extentLoggerPass("Comments filter","comments filter option is present if number of comments is greater than 5");
+	
+}
+
+else {
+	
+	logger.info("comments filter option is present if number of comments is greater than 5");
+	extent.extentLoggerFail("Comments filter","comments filter option is present if number of comments is greater than 5");
+
+	
+	}
+	
+	}
+	
+	for(int i =0;i<5;i++) {
+		longPress(HipiHomePage.objFirstComment);
+		waitUntilElementDisplayed(HipiHomePage.objDeleteComment,5);
+		click(HipiHomePage.objDeleteComment,"Delete comment option");
+		waitUntilElementDisplayed(HipiHomePage.objContinueComment,5);
+		click(HipiHomePage.objContinueComment,"Continue CTA");
+		waitUntilElementDisplayed(HipiHomePage.objOkBtn,5);
+		click(HipiHomePage.objOkBtn,"Ok button");
+		
+	}
+	navigateToHomePage();
+}
+//randomEmailOtp(String randomMail)
 }

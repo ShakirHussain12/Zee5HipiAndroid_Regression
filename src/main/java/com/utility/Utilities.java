@@ -1046,7 +1046,7 @@ public  boolean waitForObjectNotDisplayed(By byLocator , String message ,int sec
 				for (int j = 0; j < count; j++) {
 
 					Dimension size = getDriver().manage().window().getSize();
-					int starty = (int) (size.height * 90.0);
+					int starty = (int) (size.height * 0.9);
 					int endy = (int) (size.height * 0.2);
 					int startx = size.width / 2;
 					touchAction.press(PointOption.point(startx, endy))
@@ -3255,7 +3255,7 @@ try {
 		for(int i=1;i<=k;i++) {
 			if (direction.equalsIgnoreCase("Left")) {
 				int startx=x+((width*3)/4);
-				int endx=x+(width/4);
+				int endx=x+(width/4) - 97;
 				int requiredy= y+(height/2);
 				action.press(PointOption.point(startx, requiredy)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(600)))
 				.moveTo(PointOption.point(endx, requiredy)).release().perform();

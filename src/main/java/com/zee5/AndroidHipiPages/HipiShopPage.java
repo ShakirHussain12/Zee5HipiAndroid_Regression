@@ -16,7 +16,7 @@ public class HipiShopPage {
 	//Product Image
 	public static By objProductImageThumbnail = By.xpath("(//*[@resource-id='com.zee5.hipi:id/imgThumbnail'])[1]");
 	//close Button Third party Site
-	public static By objCloseButtonThirdPartySite = By.xpath("//*[@resource-id='com.zee5.hipi:id/imgBack']");
+	public static By objCloseButtonThirdPartySite = By.xpath("//*[@resource-id='com.zee5.hipi:id/imgBack'] | //*[@resource-id='com.android.chrome:id/close_button']");
 	 //product website 
 	public static By objProductWebsitePage  = By.xpath("//*[@resource-id='com.zee5.hipi:id/titleUrl'] | //*[@resource-id='com.android.chrome:id/url_bar']");
 	//Arrow mark  below the product 
@@ -71,5 +71,15 @@ public class HipiShopPage {
 		public static By objShopDiscoverTheLook = By.xpath("//*[@resource-id='com.zee5.hipi:id/shopNowTv']");
 		
 		public static By wishlistTab = By.xpath("//*[@text='WISHLIST']");
+		
+		public static By similarProductsRail = By.xpath("//*[@text='Similar products']");
+		
+		public static By objProductBrand = By.xpath("//*[@resource-id='com.zee5.hipi:id/txtItemSite'] | //*[@resource-id='com.zee5.hipi:id/tvTitle']");
+		
+		public static By objProductDescription = By.xpath("//*[@resource-id='com.zee5.hipi:id/txtItemName'] | //*[@resource-id='com.zee5.hipi:id/tvSubtitle']");
+		
+		public static By objRecentlyViewedRail = By.xpath("//*[@text='Recently Viewed']");
+		
+		
 		
 }

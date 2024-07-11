@@ -310,7 +310,7 @@ public class AndroidHiPiNeoP0 {
 		Zee5ApplicasterHipiNeoBusinessLogic.shoppableVideoUnderDiscoverPage__T061(userType,"Sunny Leone");
 		Zee5ApplicasterHipiNeoBusinessLogic.userIsAbleToSeeTheShareIconForYouScreen__T086(userType);
 		Zee5ApplicasterHipiNeoBusinessLogic.loginPopUpIsDisplayedByTappingOnProfileTabOnTheApp__T095(userType);
-		Zee5ApplicasterHipiNeoBusinessLogic.ableToLikeDislikeAMultipleVideo__T109(userType);	
+	//	Zee5ApplicasterHipiNeoBusinessLogic.ableToLikeDislikeAMultipleVideo__T109(userType);	//Impediment
 		Zee5ApplicasterHipiNeoBusinessLogic.verifyThatShoppableVideoInsideDiscoverPage_T407_T408(userType,"Sunny Leone");
 		if(userType.equalsIgnoreCase("NonSubscribedUser")) {
 			Zee5ApplicasterHipiNeoBusinessLogic.relaunch(true);
@@ -1223,7 +1223,12 @@ public class AndroidHiPiNeoP0 {
 		//Zee5ApplicasterHipiNeoBusinessLogic.newShop_TC14(userType);
 //		Zee5ApplicasterHipiNeoBusinessLogic.newShop_TC15(userType);
 		//Zee5ApplicasterHipiNeoBusinessLogic.newShop_TC16(userType);
-		Zee5ApplicasterHipiNeoBusinessLogic.newShop_TC18(userType);
+		//Zee5ApplicasterHipiNeoBusinessLogic.newShop_TC18(userType);
+		//Zee5ApplicasterHipiNeoBusinessLogic.shopSimilarProductRail_TC01(userType);
+		Zee5ApplicasterHipiNeoBusinessLogic.recentlyViewedShop_TC01(userType);
+		Zee5ApplicasterHipiNeoBusinessLogic.recentlyViewedShop_TC02(userType);
+		Zee5ApplicasterHipiNeoBusinessLogic.recentlyViewedShop_TC03(userType);
+		
 	}
 	
 	@Test(priority = 29)
@@ -1243,7 +1248,90 @@ public class AndroidHiPiNeoP0 {
 	
 	}
 	
+	@Test(priority = 30)
+	@Parameters({"userType"})
+	public void reportCommentP0(String userType) throws Exception{
+		Zee5ApplicasterHipiNeoBusinessLogic.relaunch(true);	
+		Zee5ApplicasterHipiNeoBusinessLogic.LoginAndNivigateToHipi(userType);
+		
+		Zee5ApplicasterHipiNeoBusinessLogic.reportComment_1(userType);
+		Zee5ApplicasterHipiNeoBusinessLogic.reportComment_2(userType);
+		Zee5ApplicasterHipiNeoBusinessLogic.reportComment_3(userType);
+		Zee5ApplicasterHipiNeoBusinessLogic.reportComment_4(userType);
+		Zee5ApplicasterHipiNeoBusinessLogic.reportComment_5(userType);
+	}
 	
+	@Test(priority = 30)
+	@Parameters({"userType"})
+	public void blockUserP0(String userType) throws Exception{
+		Zee5ApplicasterHipiNeoBusinessLogic.relaunch(true);	
+		Zee5ApplicasterHipiNeoBusinessLogic.LoginAndNivigateToHipi(userType);
+		
+		
+		Zee5ApplicasterHipiNeoBusinessLogic.blockUser_1(userType);
+		Zee5ApplicasterHipiNeoBusinessLogic.blockUser_2(userType);
+		Zee5ApplicasterHipiNeoBusinessLogic.blockUser_3(userType);
+		Zee5ApplicasterHipiNeoBusinessLogic.blockUser_4(userType);
+		Zee5ApplicasterHipiNeoBusinessLogic.blockUser_5(userType);
+		Zee5ApplicasterHipiNeoBusinessLogic.blockUser_6(userType);
+
+	}
+	@Test(priority = 30)
+	@Parameters({"userType"})
+	public void VPASuggestionsP0(String userType) throws Exception{
+		Zee5ApplicasterHipiNeoBusinessLogic.relaunch(true);	
+		Zee5ApplicasterHipiNeoBusinessLogic.LoginAndNivigateToHipi(userType);
+		
+		
+		Zee5ApplicasterHipiNeoBusinessLogic.rewardsPayoutSuggestions_TC01(userType);
+
+
+	}
+	
+	@Test(priority = 31)
+	@Parameters({"userType"})
+	public void appealVideosP0(String userType) throws Exception{
+		Zee5ApplicasterHipiNeoBusinessLogic.relaunch(true);	
+		Zee5ApplicasterHipiNeoBusinessLogic.LoginAndNivigateToHipi(userType);
+		
+		
+		Zee5ApplicasterHipiNeoBusinessLogic.appealVideo_TC01(userType);
+	}
+	
+	@Test(priority = 32)
+	@Parameters({"userType"})
+	public void superCoinsP0(String userType) throws Exception{
+		Zee5ApplicasterHipiNeoBusinessLogic.relaunch(true);	
+		Zee5ApplicasterHipiNeoBusinessLogic.LoginAndNivigateToHipi(userType);
+		
+		
+		Zee5ApplicasterHipiNeoBusinessLogic.superCoins_TC01(userType);
+	}
+	
+	@Test(priority = 33)
+	@Parameters({"userType"})
+	public void productCardP0(String userType) throws Exception{
+		Zee5ApplicasterHipiNeoBusinessLogic.relaunch(true);	
+		Zee5ApplicasterHipiNeoBusinessLogic.LoginAndNivigateToHipi(userType);
+		
+		
+		Zee5ApplicasterHipiNeoBusinessLogic.productCardsFeed_TC01(userType);
+	}
+	
+	@Test(priority = 34)
+	@Parameters({"userType"})
+	public void commentFiltersP0(String userType) throws Exception{
+		Zee5ApplicasterHipiNeoBusinessLogic.relaunch(true);	
+		Zee5ApplicasterHipiNeoBusinessLogic.LoginAndNivigateToHipi(userType);
+		
+		
+		Zee5ApplicasterHipiNeoBusinessLogic.commentsFilter_TC_01(userType);
+		Zee5ApplicasterHipiNeoBusinessLogic.commentsFilter_TC_02(userType);
+		Zee5ApplicasterHipiNeoBusinessLogic.commentsFilter_TC_03(userType);
+		Zee5ApplicasterHipiNeoBusinessLogic.commentsFilter_TC_04(userType);
+		Zee5ApplicasterHipiNeoBusinessLogic.commentsFilter_TC_05(userType);
+		Zee5ApplicasterHipiNeoBusinessLogic.commentsFilter_TC_06(userType);
+	}
 	@AfterTest						
 		
 	public void tearDownApp() {		

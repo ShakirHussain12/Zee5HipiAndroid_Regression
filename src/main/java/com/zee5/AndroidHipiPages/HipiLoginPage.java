@@ -430,7 +430,7 @@ public class HipiLoginPage {
 			   public static By objmailSubmit = By.xpath("//button[@class = 'md']");
 			   
 			   //yopmail inbox
-			   public static By objInbox = By.xpath("//div[@class='lms']");
+			   public static By objInbox = By.xpath("//*[@class='ellipsis nw b f18']");
 			   
 			   //enter otp
 			   public static By objEnterOtp = By.xpath("//*[@resource-id='com.zee5.hipi:id/llCode']");

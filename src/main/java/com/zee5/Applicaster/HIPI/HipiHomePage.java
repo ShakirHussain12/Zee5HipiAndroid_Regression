@@ -55,7 +55,7 @@ public class HipiHomePage {
 		public static By objOkCool = By.xpath("//*[@text='Ok, Cool']");
 		
 		//Shop Button   
-		public static By objShopButton = By.xpath("//*[contains(@text,'Discover the look')]");
+		public static By objShopButton = By.xpath("//*[contains(@text,'Discover the look')] | //*[contains(@text,'Shop the look')]");
 		// product image 1
 		public static By objProductImage = By.xpath("(//*[@resource-id='com.zee5.hipi:id/content_image_view'])[1]");
 		// product image 2
@@ -125,12 +125,21 @@ public class HipiHomePage {
 		//Comment post Icon
 		public static By objCommentPostIcon=By.xpath("//*[@resource-id='com.zee5.hipi:id/commentPost']");
 		//First Comment
-		public static By objFirstComment=By.xpath("(//*[@id='likeListRecyclerView']/*/*[@id='comment'])[1]");
+		public static By objFirstComment=By.xpath("(//*[@id='likeListRecyclerView']/*/*[@id='comment'])[1] | //*[@resource-id='com.zee5.hipi:id/comment']");
 		//First Comment User Name
 		public static By objFirstCommentUserName=By.xpath("(//*[@id='likeListRecyclerView']/*/*[@id='userName'])[1]");
 		//Comment Text
 		public static By obCommentText=By.xpath("(//*[@resource-id='com.zee5.hipi:id/comment'])[1]");
 
+		//Delete comment option
+		public static By objDeleteComment = By.xpath("//*[@text='Delete Comment']");
+		
+		//Confirm option
+		public static By objContinueComment = By.xpath("//*[@text='CONTINUE']");
+		
+		//Comment deleted successfully ok button
+		public static By objOkBtn = By.xpath("//*[@resource-id='com.zee5.hipi:id/btn_yes']");
+		
 		//Other user Profile Picture
 		public static By objOtherUserProfilePicture=By.xpath("(//*[@id='likeListRecyclerView']/*/*[@id='userImage'])[1]");
 		//Like Icon Comment Screen

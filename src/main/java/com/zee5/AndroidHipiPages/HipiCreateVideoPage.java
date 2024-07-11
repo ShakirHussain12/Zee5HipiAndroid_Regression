@@ -1228,6 +1228,12 @@ public class HipiCreateVideoPage {
 						public static By objShareMessageProfile  = By.xpath("//*[@text='Share this video to get more views']");
 						public static By objRectangularWindow = By.xpath("//*[@resource-id='com.zee5.hipi:id/live_window'] | //*[@resource-id='com.zee5.hipi:id/liveWindow']");
 						public static By objSelectCoverTxt = By.xpath("//*[@resource-id='com.zee5.hipi:id/imgEdit' and @text='Select cover']");
+						
+						public static By objSelectCoverUploadGallery = By.xpath("//*[@resource-id='com.zee5.hipi:id/upload_from_gallery_btn']");
+						public static By objSelectCoverDoneCTA = By.xpath("//*[@resource-id='com.zee5.hipi:id/tvDone']");
+						
+						public static By objSelectCoverGalleryDone = By.xpath("//*[@resource-id='com.zee5.hipi:id/tvNext']");
+						
 						public static By objSelectCoverPage = By.xpath("//*[contains(@text,'cover image')]");
 						public static By objCrossIconSelectCover = By.xpath("//*[@resource-id='com.zee5.hipi:id/ivBack']");
 						public static By objDoneCtaBtn = By.xpath("//*[@resource-id='com.zee5.hipi:id/tvDone' and @text='Done']");
